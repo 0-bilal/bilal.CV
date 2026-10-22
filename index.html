@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>بلال الخواجه | السيرة الذاتية</title>
+  <meta name="description" content="السيرة الذاتية لبلال زكريا الخواجه: الخبرات العملية، الشهادات التدريبية، والأعمال البرمجية.">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="avatar" aria-hidden="true">ب</div>
+    <h1 id="name"></h1>
+    <p class="name-en" id="name-en" dir="ltr"></p>
+    <p class="title" id="title"></p>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>نبذة</h2>
+      <p class="about" id="about-text"></p>
+    </section>
+
+    <section id="experience">
+      <h2>الخبرات العملية</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section id="certificates">
+      <h2>الشهادات التدريبية</h2>
+      <p class="muted" id="cert-summary"></p>
+      <div class="chips" id="filters" role="tablist"></div>
+      <div class="cert-grid" id="cert-grid"></div>
+    </section>
+
+    <section id="projects">
+      <h2>الأعمال البرمجية <span class="badge">QB</span></h2>
+      <div id="project-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <a id="github-link" href="#" target="_blank" rel="noopener">GitHub</a>
+    <span>© <span id="year"></span> <span id="footer-name"></span></span>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="التنقل">
+    <a href="#top"><span class="ic">◉</span>الرئيسية</a>
+    <a href="#experience"><span class="ic">▤</span>الخبرات</a>
+    <a href="#certificates"><span class="ic">✦</span>الشهادات</a>
+    <a href="#projects"><span class="ic">⌘</span>الأعمال</a>
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
