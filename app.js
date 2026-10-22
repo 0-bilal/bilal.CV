@@ -77,16 +77,22 @@
   renderCerts();
 
   // Projects (QB)
-  $("project-list").innerHTML = CV.projects.length
-    ? CV.projects
-        .map((p) => `<article class="project">
-          <h3>${esc(p.name)}</h3>
-          <p>${esc(p.description)}</p>
-          ${p.tags && p.tags.length ? `<div class="tags">${p.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
-          ${p.link ? `<p><a href="${esc(p.link)}" target="_blank" rel="noopener">عرض المشروع ←</a></p>` : ""}
-        </article>`)
-        .join("")
-    : `<div class="empty">برمجيات QB — تفاصيل المشاريع ستُضاف قريبًا.</div>`;
+  $("projects-intro").textContent = CV.projectsIntro;
+  $("project-list").innerHTML = CV.projects
+    .map((p) => `<article class="project">
+      <div class="project-head">
+        <img src="projects/${p.logo}.jpg" alt="شعار ${esc(p.name)}" width="64" height="64">
+        <div>
+          <h3 dir="ltr">${esc(p.name)}</h3>
+          <p class="project-tagline">${esc(p.tagline)}</p>
+        </div>
+      </div>
+      ${p.description.map((d) => `<p>${esc(d)}</p>`).join("")}
+      ${p.tags && p.tags.length ? `<div class="tags">${p.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
+      ${p.link ? `<a class="project-link" href="${esc(p.link)}" target="_blank" rel="noopener">${p.openSource ? "مشروع مفتوح المصدر · " : ""}عرض على GitHub ←</a>` : ""}
+    </article>`)
+    .join("");
+  $("other-works").innerHTML = CV.otherWorks.map((w) => `<li>${esc(w)}</li>`).join("");
 
   // Highlight the active section in the bottom nav
   const links = [...document.querySelectorAll(".bottom-nav a")];
