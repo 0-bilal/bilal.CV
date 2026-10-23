@@ -175,6 +175,28 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .exit { margin: 12px 0 0; padding: 10px 14px; background: #fff8ec; border-radius: 10px; font-size: 15px; }
 .exit b { color: #8a5a00; }
 
+/* ===== رسومات Hairline التفاعلية ===== */
+.exp-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 26px; align-items: stretch; }
+.hl-card {
+  margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px 16px 12px; box-shadow: var(--shadow); display: flex; flex-direction: column;
+}
+.hl-card .regions { margin-bottom: 4px; }
+.hl-stage {
+  width: 100%; max-width: 440px; margin: auto auto 0; cursor: crosshair;
+  --hairline-plate: #fff; --hairline-hi: var(--accent); --hairline-edge: #98a5b5;
+  --hairline-mid: #c4ccd7; --hairline-lo: #e3e8ee; --hairline-stroke: 1;
+}
+.hl-card figcaption {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  padding-top: 8px; border-top: 1px solid var(--line); font-size: 14px;
+}
+.hl-card figcaption b { color: var(--accent); }
+.hl-read { color: var(--muted); font-size: 13px; transition: color .25s; }
+.hl-read.on { color: var(--accent); font-weight: 700; }
+.proj-top { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; margin-bottom: 22px; }
+.proj-top .section-intro { margin: 0; font-size: 17px; }
+
 /* ===== المهارات ===== */
 .feature { border-inline-start: 4px solid var(--accent); background: linear-gradient(90deg, #fff, var(--accent-soft)); }
 .feature h3 { color: var(--accent); margin-bottom: 6px; font-size: 18px; }
@@ -333,7 +355,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 
 /* ===== الخبرات: ظهور متتابع ===== */
 .regions li { opacity: 0; }
-.regions.in li { animation: chip-in .45s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(.15s + var(--i) * .1s); }
+.regions.in li, .in > .regions li { animation: chip-in .45s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(.15s + var(--i) * .1s); }
 .job.reveal { transform: translateX(46px); }
 .job.reveal.in { transform: none; }
 .job.reveal:not(.in)::before { transform: scale(0); }
@@ -363,6 +385,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 
 /* ===== الشاشات المتوسطة والصغيرة ===== */
 @media (max-width: 860px) {
+  .exp-visuals, .proj-top { grid-template-columns: 1fr; }
   .projects { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 }
@@ -404,6 +427,8 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   .reveal { opacity: 1 !important; transform: none !important; }
   .intro, .intro-pop, .hero-name .word, .regions li, .steps li { opacity: 1 !important; animation: none !important; transform: none !important; filter: none !important; }
   .hero-name::after, .typing::after { display: none; }
+  .exp-visuals, .proj-top { grid-template-columns: 1fr 1fr; }
+  .hl-read { display: none; }
   .hero { padding: 0 0 12px; background: none; text-align: right; }
   .stats { margin-top: 12px; }
   .stat, .card { box-shadow: none; }

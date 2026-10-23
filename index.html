@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -85,15 +85,31 @@
     <section class="block alt" id="experience">
       <div class="wrap">
         <div class="head reveal"><span class="num">02</span><h2>الخبرات العملية</h2></div>
-        <div class="regions reveal">
-          <span class="regions-label">مناطق العمل</span>
-          <ul>
-            <li>مكة المكرمة</li>
-            <li>مدينة الرياض</li>
-            <li>محافظة وادي الدواسر</li>
-            <li>محافظة الدوادمي</li>
-            <li>محافظة المزاحمية</li>
-          </ul>
+        <div class="exp-visuals">
+          <figure class="hl-card reveal">
+            <div class="hl-stage" data-figure="stairs" aria-label="رسمة تفاعلية: سلّم من ست درجات، من عامل إلى مدير تشغيل"></div>
+            <figcaption>
+              <b>سلّم المسيرة</b>
+              <span class="hl-read" aria-live="polite">مرّر المؤشر على الدرجات</span>
+            </figcaption>
+          </figure>
+          <figure class="hl-card reveal">
+            <div class="regions">
+              <span class="regions-label">مناطق العمل</span>
+              <ul>
+                <li>مكة المكرمة</li>
+                <li>مدينة الرياض</li>
+                <li>محافظة وادي الدواسر</li>
+                <li>محافظة الدوادمي</li>
+                <li>محافظة المزاحمية</li>
+              </ul>
+            </div>
+            <div class="hl-stage" data-figure="regions" aria-label="رسمة تفاعلية: خريطة عليها مناطق العمل الخمس"></div>
+            <figcaption>
+              <b>خريطة مناطق العمل</b>
+              <span class="hl-read" aria-live="polite">مرّر المؤشر على الخريطة</span>
+            </figcaption>
+          </figure>
         </div>
 
         <div class="timeline">
@@ -217,7 +233,16 @@
     <section class="block alt" id="projects">
       <div class="wrap">
         <div class="head reveal"><span class="num">04</span><h2>الأعمال البرمجية — برمجيات QB</h2></div>
-        <p class="section-intro reveal">أنظمة إلكترونية أطوّرها لتنظيم العمل ومساعدة المنشآت والموظفين والمستخدمين على أن يسير العمل بدقة وشفافية وبأقل قدر من الأخطاء البشرية.</p>
+        <div class="proj-top">
+          <p class="section-intro reveal">أنظمة إلكترونية أطوّرها لتنظيم العمل ومساعدة المنشآت والموظفين والمستخدمين على أن يسير العمل بدقة وشفافية وبأقل قدر من الأخطاء البشرية.</p>
+          <figure class="hl-card reveal">
+            <div class="hl-stage" data-figure="rack" aria-label="رسمة تفاعلية: خزانة خوادم من ثماني وحدات، لكل نظام من أنظمة QB وحدة"></div>
+            <figcaption>
+              <b>خزانة أنظمة QB</b>
+              <span class="hl-read" aria-live="polite">مرّر المؤشر على الوحدات</span>
+            </figcaption>
+          </figure>
+        </div>
 
         <div class="projects">
           <article class="project card reveal">
@@ -373,5 +398,10 @@
   </dialog>
 
   <script src="script.js?v=11"></script>
+  <script src="hairline/kernel.js?v=1"></script>
+  <script src="hairline/mount.js?v=1"></script>
+  <script type="module" src="hairline/stairs.js?v=1"></script>
+  <script type="module" src="hairline/regions.js?v=1"></script>
+  <script type="module" src="hairline/rack.js?v=1"></script>
 </body>
 </html>
