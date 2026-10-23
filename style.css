@@ -198,8 +198,14 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .pcard-head img, .pcard-head .mono { width: 52px; height: 52px; border-radius: 12px; margin: 0; font-size: 15px; }
 .pcard h3 { font-size: 17px; text-align: right; margin-bottom: 4px; }
 .pcard .cat { margin: 0; }
-.pcard > p:not(.tags) { margin: 0; font-size: 15px; flex: 1; }
-.link-btn.arrow { align-self: flex-start; margin-top: 10px; text-decoration: none; }
+.headline { margin: 4px 0 6px; font-weight: 700; font-size: 16px; color: var(--accent); }
+.pitch { margin: 0; font-size: 15px; color: #33404d; flex: 1; }
+.pcard .more ul { font-size: 14px; }
+.pcard-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 12px; }
+.pcard-foot .tags { margin: 0; flex-basis: 100%; }
+.modal-body h4 { font-size: 15px; color: var(--accent); margin: 4px 0; }
+.project .sub { color: var(--accent); font-weight: 600; }
+.link-btn.arrow { text-decoration: none; }
 .link-btn.arrow::after { content: "←"; transform: none; }
 .tab small { font-size: 12px; opacity: .7; margin-inline-start: 4px; }
 
@@ -322,3 +328,4 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   .contact-grid { grid-template-columns: 1fr; }
   .bars i::after { width: var(--w) !important; transition: none; }
 }
+.pn { white-space: nowrap; direction: ltr; unicode-bidi: isolate; }

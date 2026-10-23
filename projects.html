@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <header class="topbar">
@@ -43,97 +43,151 @@
         <div class="pgrid filter-list">
           <article class="pcard card reveal" data-cat="ops">
             <div class="pcard-head"><img src="projects/sentinel.jpg" alt="شعار QB-Sentinel" width="52" height="52"><div><h3 dir="ltr">QB-Sentinel</h3><span class="cat">التشغيل والمطاعم والمخزون</span></div></div>
-            <p>نظام تقارير وسجلات تشغيلية لمحل عصائر (عصير تايم): حضور وانصراف الموظفين، وتذكير بتجديد الإقامات والعقود، وسجلات فحص الفواكه ومعايير المكونات وتنظيف المعدات، ومتابعة توفر المنتجات، وطلبات الاسترجاع، وتصنيع المواد الأولية، وتقرير نهاية اليوم، وسند صرف النقدية.</p>
-            <p class="tags"><span>PWA</span><span>مفتوح المصدر</span></p>
-            <a class="link-btn arrow" href="https://github.com/0-bilal/QB-Sentinel/" target="_blank" rel="noopener">عرض المشروع</a>
+            <p class="headline">وداعًا لأوراق التشغيل اليومية</p>
+            <p class="pitch">في محلات العصائر تتراكم الأوراق كل يوم: كشوف الحضور، وسجلات الفحص والتنظيف، وتقارير نهاية اليوم، فتضيع المعلومة وتتأخر المتابعة. وُلد <bdi class="pn">QB-Sentinel</bdi> من واقع العمل في عصير تايم ليجمع كل ذلك في تطبيق واحد على الجوال؛ فيعرف المدير ما يحدث في الفرع أولًا بأول، ولا يفوته موعد تجديد إقامة أو عقد، وتبقى معايير الجودة موثّقة في كل وردية.</p>
+            <div class="more" id="f-sentinel"><h4>المزايا</h4><ul><li>حضور وانصراف الموظفين، وتذكير بتجديد الإقامات والعقود.</li><li>سجلات فحص الفواكه، ومعايير المكونات، وتنظيف المعدات.</li><li>متابعة توفر المنتجات، وطلبات الاسترجاع، وتصنيع المواد الأولية.</li><li>تقرير نهاية اليوم، وسند صرف النقدية.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>PWA</span><span>مفتوح المصدر</span></p><button type="button" class="link-btn" data-toggle="f-sentinel">المزايا</button>
+            <a class="link-btn arrow" href="https://github.com/0-bilal/QB-Sentinel/" target="_blank" rel="noopener">عرض المشروع</a></div>
           </article>
           <article class="pcard card reveal" data-cat="ops">
             <div class="pcard-head"><span class="mono" aria-hidden="true">KDS</span><div><h3 dir="ltr">QB-Prax</h3><span class="cat">التشغيل والمطاعم والمخزون</span></div></div>
-            <p>شاشة عرض مطبخ رقمية لمطعم يستخدم نظام فوديكس: تلتقط بيانات الطباعة من طابعة Epson عبر الشبكة، وتعيد بناء صورة الفاتورة، وتقرأ رقم الطلب بالتعرف الضوئي (OCR)، ثم تعرض الطلبات تلقائيًا بدل أجهزة الاستدعاء.</p>
-            <p class="tags"><span>Python</span><span>SQLite</span><span>OCR</span></p>
+            <p class="headline">طلبات المطبخ على الشاشة، بلا أجهزة استدعاء</p>
+            <p class="pitch">الفواتير المطبوعة وأجهزة الاستدعاء تُبطئ المطبخ في أوقات الذروة وتُربك ترتيب الطلبات. يحوّل <bdi class="pn">QB-Prax</bdi> المطعم الذي يعمل بنظام فوديكس إلى مطبخ رقمي دون تغيير نظام نقاط البيع: يلتقط الفاتورة لحظة طباعتها ويعرض الطلب على شاشة المطبخ تلقائيًا، فيعرف الفريق ما يجهّزه أولًا، ويقل الخطأ ووقت انتظار العميل.</p>
+            <div class="more" id="f-prax"><h4>المزايا</h4><ul><li>يلتقط بيانات الطباعة من طابعة Epson عبر الشبكة.</li><li>يعيد بناء صورة الفاتورة ويقرأ رقم الطلب بالتعرف الضوئي (OCR).</li><li>يعرض الطلبات تلقائيًا على شاشة المطبخ بدل أجهزة الاستدعاء.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>Python</span><span>SQLite</span><span>OCR</span></p><button type="button" class="link-btn" data-toggle="f-prax">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="ops">
             <div class="pcard-head"><span class="mono" aria-hidden="true">FL</span><div><h3 dir="ltr">QB-FLOW</h3><span class="cat">التشغيل والمطاعم والمخزون</span></div></div>
-            <p>منصة حلول رقمية متكاملة للمطاعم والشركات: لوحة إدارة، ومركز اتصال، وإدارة عملاء، وقائمة طعام، واستقبال.</p>
-            <p class="tags"><span>PHP</span><span>SQL</span><span>Docker</span><span>Nginx</span></p>
+            <p class="headline">مطعمك أو شركتك في منصة واحدة</p>
+            <p class="pitch">تتوزع أعمال المطاعم والشركات بين برامج كثيرة لا يتحدث بعضها مع بعض، فتضيع البيانات بينها ويضيع وقت الفريق في التنقل. يجمع <bdi class="pn">QB-FLOW</bdi> الإدارة ومركز الاتصال والعملاء وقائمة الطعام والاستقبال في منصة واحدة، لتصبح الصورة كاملة أمام الإدارة ويخدم الفريق العميل بسرعة أكبر.</p>
+            <div class="more" id="f-flow"><h4>المزايا</h4><ul><li>لوحة إدارة.</li><li>مركز اتصال.</li><li>إدارة العملاء.</li><li>قائمة طعام إلكترونية.</li><li>الاستقبال.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>PHP</span><span>SQL</span><span>Docker</span><span>Nginx</span></p><button type="button" class="link-btn" data-toggle="f-flow">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="ops">
             <div class="pcard-head"><span class="mono" aria-hidden="true">ST</span><div><h3 dir="ltr">QB-Stocky</h3><span class="cat">التشغيل والمطاعم والمخزون</span></div></div>
-            <p>نظام لإدارة المخزون بثيم فاتح وداكن، مع شاشات للعرض والإعدادات وميزات إضافية.</p>
+            <p class="headline">اعرف ما في مخزونك بنظرة واحدة</p>
+            <p class="pitch">نقص صنف يوقف البيع، وتكدّسه يجمّد المال. <bdi class="pn">QB-Stocky</bdi> نظام مخزون بسيط وواضح يساعدك على معرفة ما لديك وما تحتاجه في أي لحظة، بواجهة مريحة للعين في الوضعين الفاتح والداكن.</p>
+            <div class="more" id="f-stocky"><h4>المزايا</h4><ul><li>إدارة أصناف المخزون.</li><li>ثيم فاتح وداكن.</li><li>شاشات للعرض والإعدادات وميزات إضافية.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-stocky">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="ops">
             <div class="pcard-head"><span class="mono" aria-hidden="true">SL</span><div><h3 dir="ltr">QB-Storelytics</h3><span class="cat">التشغيل والمطاعم والمخزون</span></div></div>
-            <p>أداة لتحليل بيانات المخزون: ترفع ملف حركة المخزون وملف مواد المخزون، فتعرض لك نتائج التحليل.</p>
+            <p class="headline">حوّل ملفات المخزون إلى قرارات</p>
+            <p class="pitch">ملفات حركة المخزون مليئة بالأرقام التي نادرًا ما يقرؤها أحد. ارفع الملفين، ويحلّلهما <bdi class="pn">QB-Storelytics</bdi> ليعرض لك الصورة بوضوح، فتبني قرارات الشراء والتخزين على البيانات لا على التخمين.</p>
+            <div class="more" id="f-storelytics"><h4>المزايا</h4><ul><li>رفع ملف حركة المخزون وملف مواد المخزون.</li><li>عرض نتائج التحليل مباشرة.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-storelytics">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="ops">
             <div class="pcard-head"><span class="mono" aria-hidden="true">WMS</span><div><h3 dir="ltr">QB-WMS</h3><span class="cat">التشغيل والمطاعم والمخزون</span></div></div>
-            <p>نظام لإدارة المستودعات: لوحة تحكم تعرض حركة الأصناف (اسم الصنف، نوع الحركة، الوجهة، التاريخ).</p>
-            <p class="tags"><span>Laravel</span><span>Vue</span></p>
+            <p class="headline">تتبّع كل حركة في مستودعك</p>
+            <p class="pitch">في المستودع، كل صنف يدخل أو يخرج دون تسجيل هو خسارة محتملة. يسجّل <bdi class="pn">QB-WMS</bdi> حركة الأصناف ووجهتها وتاريخها ويعرضها في لوحة واحدة، لتعرف أين ذهب كل شيء ومتى.</p>
+            <div class="more" id="f-wms"><h4>المزايا</h4><ul><li>لوحة تحكم لحركة الأصناف.</li><li>اسم الصنف، ونوع الحركة، والوجهة، والتاريخ.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>Laravel</span><span>Vue</span></p><button type="button" class="link-btn" data-toggle="f-wms">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="ops">
             <div class="pcard-head"><span class="mono" aria-hidden="true">FI</span><div><h3 dir="ltr">Foem-Inspection-Oven</h3><span class="cat">التشغيل والمطاعم والمخزون</span></div></div>
-            <p>نسخة تجريبية لإدارة مخزون الفواكه وفحصها (Fruit Inventory Manager).</p>
-            <p class="tags"><span>نسخة تجريبية</span></p>
+            <p class="headline">فحص الفواكه ومخزونها بلا هدر</p>
+            <p class="pitch">الفواكه تتلف بسرعة، وكل تأخير في فحصها يعني هدرًا وخسارة. نسخة تجريبية تنظّم مخزون الفواكه وفحصها، لتحافظ على الجودة وتقلل التالف.</p>
+            <div class="more" id="f-foem"><h4>المزايا</h4><ul><li>إدارة مخزون الفواكه (Fruit Inventory Manager).</li><li>تسجيل عمليات الفحص.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>نسخة تجريبية</span></p><button type="button" class="link-btn" data-toggle="f-foem">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="finance">
             <div class="pcard-head"><img src="projects/nexa.jpg" alt="شعار QB-Nexa" width="52" height="52"><div><h3 dir="ltr">QB-Nexa</h3><span class="cat">المالية والتمويل</span></div></div>
-            <p>حاسبة صفقات تمويل السيارات: تحسب السعر المرفوع للبنك، والسعر شامل الضريبة، ورسوم اللوحات والخدمات، ونسب الكاش باك والدعم، وصافي الربح، وتجهّز رسالة للعميل. فيها أيضًا محفظة وصندوق أدوات.</p>
+            <p class="headline">اعرف ربح الصفقة قبل أن تعرضها</p>
+            <p class="pitch">حساب صفقة تمويل سيارة يدويًا يتطلب أرقامًا كثيرة: سعر البنك، والضريبة، واللوحات، والكاش باك، والدعم، وأي خطأ صغير يضيّع الربح أو العميل. يحسب <bdi class="pn">QB-Nexa</bdi> كل ذلك في ثوانٍ، ويُظهر صافي الربح بوضوح، ويجهّز رسالة العرض للعميل جاهزة للإرسال، فيُغلق موظف المبيعات الصفقة أسرع وبثقة.</p>
+            <div class="more" id="f-nexa"><h4>المزايا</h4><ul><li>السعر المرفوع للبنك، والسعر شامل الضريبة.</li><li>رسوم اللوحات والخدمات.</li><li>نسب الكاش باك والدعم، وصافي الربح.</li><li>رسالة جاهزة للعميل، ومحفظة، وصندوق أدوات.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-nexa">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="finance">
             <div class="pcard-head"><span class="mono" aria-hidden="true">EP</span><div><h3 dir="ltr">QB-Eligibility Pro</h3><span class="cat">المالية والتمويل</span></div></div>
-            <p>أداة لفحص أهلية العملاء للتمويل البنكي: قائمة بنوك، ومحرّر لشروط كل بنك وقواعده، وإدخال بيانات العميل وحقول مخصصة، ثم عرض النتائج.</p>
-            <p class="tags"><span>LocalStorage</span></p>
+            <p class="headline">اعرف أي بنك سيقبل عميلك قبل أن تقدّم الطلب</p>
+            <p class="pitch">لكل بنك شروطه، وتقديم طلب عميل إلى بنك لن يقبله يضيّع أيامًا من الانتظار ويُضعف ثقة العميل. يقارن <bdi class="pn">QB-Eligibility Pro</bdi> بيانات العميل بشروط كل بنك ويعرض النتيجة فورًا، فتوجّه العميل إلى البنك المناسب من المرة الأولى.</p>
+            <div class="more" id="f-eligibility"><h4>المزايا</h4><ul><li>قائمة بنوك ومحرّر لشروط كل بنك وقواعده.</li><li>إدخال بيانات العميل وحقول مخصصة.</li><li>عرض النتائج فورًا، والبيانات محفوظة على الجهاز.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>LocalStorage</span></p><button type="button" class="link-btn" data-toggle="f-eligibility">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="finance">
             <div class="pcard-head"><span class="mono" aria-hidden="true">IN</span><div><h3 dir="ltr">QB-Invoice</h3><span class="cat">المالية والتمويل</span></div></div>
-            <p>مدير فواتير ذكي (InvoiceFlow) لإنشاء الفواتير وإدارتها.</p>
+            <p class="headline">فواتير احترافية في دقائق</p>
+            <p class="pitch">الفواتير اليدوية تأخذ وقتًا وتتعرض للأخطاء وتضيع مع الوقت. يُنشئ <bdi class="pn">QB-Invoice (InvoiceFlow)</bdi> الفواتير ويديرها في مكان واحد، فيبدو عملك أكثر احترافية وتتابع مستحقاتك بسهولة.</p>
+            <div class="more" id="f-invoice"><h4>المزايا</h4><ul><li>إنشاء الفواتير.</li><li>إدارة الفواتير في مكان واحد.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-invoice">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="finance">
             <div class="pcard-head"><span class="mono" aria-hidden="true">LG</span><div><h3 dir="ltr">QB-Ledg</h3><span class="cat">المالية والتمويل</span></div></div>
-            <p>نظام إدارة العهد والمصروفات: إضافة العهد وتسجيل المصروفات عليها، مع تقارير وملخص عام وتقرير لكل عهدة وطباعة.</p>
+            <p class="headline">كل ريال من العهدة له سجل</p>
+            <p class="pitch">العهد النقدية من أكثر ما يسبب ضياع المبالغ والخلافات عند التسوية. يسجّل <bdi class="pn">QB-Ledg</bdi> كل عهدة وما صُرف منها، ويُخرج تقارير جاهزة للطباعة، فتصبح التسوية سهلة وواضحة للطرفين.</p>
+            <div class="more" id="f-ledg"><h4>المزايا</h4><ul><li>إضافة العهد وتسجيل المصروفات عليها.</li><li>ملخص عام وتقرير لكل عهدة.</li><li>طباعة التقارير.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-ledg">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="finance">
             <div class="pcard-head"><span class="mono" aria-hidden="true">FN</span><div><h3 dir="ltr">QB-FinanceLog</h3><span class="cat">المالية والتمويل</span></div></div>
-            <p>نظام لإدارة المالية الشخصية والمصاريف، مع تسجيل دخول وتسجيل المصروفات ومتابعتها.</p>
+            <p class="headline">اعرف أين يذهب مالك</p>
+            <p class="pitch">كثيرون لا يعرفون كم صرفوا حتى ينتهي الشهر. يساعدك <bdi class="pn">QB-FinanceLog</bdi> على تسجيل مصاريفك ومتابعتها أولًا بأول، لتتحكم في ميزانيتك بدل أن تتحكم بك.</p>
+            <div class="more" id="f-financelog"><h4>المزايا</h4><ul><li>تسجيل دخول.</li><li>تسجيل المصروفات ومتابعتها.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-financelog">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="finance">
             <div class="pcard-head"><span class="mono" aria-hidden="true">NO</span><div><h3 dir="ltr">QB-Nomia</h3><span class="cat">المالية والتمويل</span></div></div>
-            <p>محفظة مالية شخصية لإدارة الحسابات والمصاريف والاشتراكات والسلف، بهوية «Nomia Mono» (أسود ورمادي وأبيض) وإيماءات سحب. تعمل كتطبيق PWA وتطبيق أندرويد.</p>
-            <p class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Capacitor</span></p>
+            <p class="headline">محفظتك المالية في جيبك</p>
+            <p class="pitch">الحسابات والاشتراكات والسلف تتوزع في أماكن كثيرة فتُنسى أو تتأخر. يجمعها <bdi class="pn">QB-Nomia</bdi> في تطبيق واحد أنيق على الجوال، بتصميم هادئ بالأسود والرمادي والأبيض وإيماءات سحب سريعة، لتعرف وضعك المالي في لحظة.</p>
+            <div class="more" id="f-nomia"><h4>المزايا</h4><ul><li>إدارة الحسابات والمصاريف والاشتراكات والسلف.</li><li>هوية «Nomia Mono» وإيماءات سحب.</li><li>يعمل كتطبيق PWA وتطبيق أندرويد.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Capacitor</span></p><button type="button" class="link-btn" data-toggle="f-nomia">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="manage">
             <div class="pcard-head"><span class="mono" aria-hidden="true">CO</span><div><h3 dir="ltr">QB-CooRbit</h3><span class="cat">الإدارة والإنتاجية</span></div></div>
-            <p>منصة لإدارة المشاريع والفروع: تسجيل دخول، ولوحة تحكم تعرض نظرة عامة على المشاريع وآخر النشاطات وأعضاء الفريق، وصفحات للفروع والمشاريع.</p>
+            <p class="headline">كل مشاريعك وفروعك في لوحة واحدة</p>
+            <p class="pitch">حين تدير أكثر من فرع أو مشروع، تضيع المتابعة بين المكالمات والرسائل. يعرض <bdi class="pn">QB-CooRbit</bdi> نظرة شاملة على المشاريع وآخر النشاطات وأعضاء الفريق، فتعرف ما يحدث في كل مكان دون أن تسأل.</p>
+            <div class="more" id="f-coorbit"><h4>المزايا</h4><ul><li>تسجيل دخول.</li><li>لوحة تحكم: نظرة عامة على المشاريع، وآخر النشاطات، وأعضاء الفريق.</li><li>صفحات للفروع والمشاريع.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-coorbit">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="manage">
             <div class="pcard-head"><span class="mono" aria-hidden="true">CD</span><div><h3 dir="ltr">QB-Code</h3><span class="cat">الإدارة والإنتاجية</span></div></div>
-            <p>مركز تحكم «الواحة الرقمية»: لوحة لإدارة منتجات رقمية (ويندوز، أوفيس، إكس بوكس، أدوبي، الألعاب، قنوات البث) مع آلة حاسبة وإدارة الموردين.</p>
+            <p class="headline">متجر المنتجات الرقمية تحت السيطرة</p>
+            <p class="pitch">بيع المنتجات الرقمية يعني عشرات الأصناف والموردين والأسعار المتغيرة. مركز التحكم «الواحة الرقمية» يجمع المنتجات والموردين مع آلة حاسبة للتسعير، لتدير متجرك الرقمي بسرعة ودون أخطاء.</p>
+            <div class="more" id="f-code"><h4>المزايا</h4><ul><li>إدارة منتجات رقمية: ويندوز، أوفيس، إكس بوكس، أدوبي، الألعاب، قنوات البث.</li><li>آلة حاسبة.</li><li>إدارة الموردين.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-code">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="manage">
             <div class="pcard-head"><img src="projects/bluepulse.jpg" alt="شعار QB-BluePulse" width="52" height="52"><div><h3 dir="ltr">QB-BluePulse</h3><span class="cat">الإدارة والإنتاجية</span></div></div>
-            <p>نظام إدارة المسبح الذكي: جدول صيانة شهري (4 أسابيع) بمهام محددة، وتتبع المهام المكتملة، وحساب كميات المواد الكيميائية المطلوبة. مصمم للجوال.</p>
+            <p class="headline">مسبح نظيف دائمًا، بلا مهام منسية</p>
+            <p class="pitch">صيانة المسبح تعتمد على الانتظام، ومهمة منسية أو جرعة كيميائية خاطئة تعني مياهًا غير آمنة. يضع <bdi class="pn">QB-BluePulse</bdi> جدول صيانة شهريًا واضحًا، ويتابع ما أُنجز، ويحسب كميات المواد الكيميائية بدقة، وكل ذلك من الجوال.</p>
+            <div class="more" id="f-bluepulse"><h4>المزايا</h4><ul><li>جدول صيانة شهري (4 أسابيع) بمهام محددة.</li><li>تتبع المهام المكتملة.</li><li>حساب كميات المواد الكيميائية المطلوبة.</li><li>مصمم للجوال.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-bluepulse">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="manage">
             <div class="pcard-head"><span class="mono" aria-hidden="true">MI</span><div><h3 dir="ltr">QB-Milee</h3><span class="cat">الإدارة والإنتاجية</span></div></div>
-            <p>متابعة المركبات: سجل للوقود (العداد، الكمية، السعر، التكلفة)، وسجل للصيانة مع تنبيهات، وملخص لاستهلاك كل مركبة.</p>
+            <p class="headline">سيارتك تخبرك متى تحتاج الصيانة</p>
+            <p class="pitch">مصاريف الوقود ومواعيد الصيانة تُنسى بسهولة حتى يقع العطل. يسجّل <bdi class="pn">QB-Milee</bdi> الوقود والصيانة لكل مركبة وينبّهك بمواعيدها، ويعرض استهلاك كل مركبة لتعرف تكلفتها الحقيقية.</p>
+            <div class="more" id="f-milee"><h4>المزايا</h4><ul><li>سجل الوقود: العداد، والكمية، والسعر، والتكلفة.</li><li>سجل الصيانة مع تنبيهات.</li><li>ملخص استهلاك كل مركبة.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-milee">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="manage">
             <div class="pcard-head"><span class="mono" aria-hidden="true">PO</span><div><h3 dir="ltr">QB-Pomodoro</h3><span class="cat">الإدارة والإنتاجية</span></div></div>
-            <p>مؤقت بومودورو للإنتاجية: أوقات عمل وراحة قابلة للتخصيص، ومهام مصنفة (عمل، دراسة، شخصي)، وإحصائيات للوقت الإجمالي والمهام المكتملة وسلسلة الإنجاز.</p>
+            <p class="headline">ركّز أكثر، وأنجز أكثر</p>
+            <p class="pitch">التشتت هو العدو الأول للإنتاجية. يقسّم <bdi class="pn">QB-Pomodoro</bdi> وقتك إلى فترات عمل وراحة، وينظّم مهامك حسب نوعها، ويعرض إحصائيات إنجازك وسلسلة أيامك المتتالية لتبقى متحفزًا.</p>
+            <div class="more" id="f-pomodoro"><h4>المزايا</h4><ul><li>أوقات عمل وراحة قابلة للتخصيص.</li><li>مهام مصنفة: عمل، دراسة، شخصي.</li><li>إحصائيات الوقت الإجمالي والمهام المكتملة وسلسلة الإنجاز.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-pomodoro">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="tools">
             <div class="pcard-head"><span class="mono" aria-hidden="true">CI</span><div><h3 dir="ltr">QB-Cipher</h3><span class="cat">أدوات وتطبيقات</span></div></div>
-            <p>تطبيق دردشة مشفرة: غرف بمعرّف، وتشفير الرسائل بمفتاح AES-GCM والتحقق من سلامتها بمفتاح HMAC-SHA256.</p>
-            <p class="tags"><span>AES-GCM</span><span>HMAC-SHA256</span></p>
+            <p class="headline">محادثاتك لك وحدك</p>
+            <p class="pitch">الخصوصية ليست رفاهية. يشفّر <bdi class="pn">QB-Cipher</bdi> الرسائل قبل إرسالها ويتحقق من سلامتها، فلا يقرؤها أحد غير المشاركين في الغرفة.</p>
+            <div class="more" id="f-cipher"><h4>المزايا</h4><ul><li>غرف دردشة بمعرّف.</li><li>تشفير الرسائل بمفتاح AES-GCM.</li><li>التحقق من سلامة الرسائل بمفتاح HMAC-SHA256.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>AES-GCM</span><span>HMAC-SHA256</span></p><button type="button" class="link-btn" data-toggle="f-cipher">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="tools">
             <div class="pcard-head"><span class="mono" aria-hidden="true">LI</span><div><h3 dir="ltr">QB-Liora</h3><span class="cat">أدوات وتطبيقات</span></div></div>
-            <p>تطبيق اختبارات اجتماعية: تنشئ اختبارًا شخصيًا من أسئلة جاهزة أو مخصصة، وترسل الرابط لأصدقائك لتعرف كم يعرفون عنك، وتظهر لك النتائج.</p>
-            <p class="tags"><span>Google Apps Script</span></p>
+            <p class="headline">كم يعرفك أصدقاؤك فعلًا؟</p>
+            <p class="pitch">طريقة ممتعة لكسر الروتين مع الأصدقاء: أنشئ اختبارًا عن نفسك، وأرسل الرابط، وشاهد من يعرفك أكثر.</p>
+            <div class="more" id="f-liora"><h4>المزايا</h4><ul><li>اختبار شخصي من أسئلة جاهزة أو مخصصة.</li><li>رابط للمشاركة مع الأصدقاء.</li><li>عرض النتائج.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>Google Apps Script</span></p><button type="button" class="link-btn" data-toggle="f-liora">المزايا</button></div>
           </article>
           <article class="pcard card reveal" data-cat="tools">
             <div class="pcard-head"><span class="mono" aria-hidden="true">QR</span><div><h3 dir="ltr">QB-QR</h3><span class="cat">أدوات وتطبيقات</span></div></div>
-            <p>لوحة لتوليد رموز QR وتخصيصها.</p>
+            <p class="headline">رموز QR بهوية نشاطك</p>
+            <p class="pitch">رمز QR العادي لا يعكس هوية نشاطك. يولّد <bdi class="pn">QB-QR</bdi> رموزًا قابلة للتخصيص، لتربط عملاءك بمحتواك بلمسة تشبهك.</p>
+            <div class="more" id="f-qr"><h4>المزايا</h4><ul><li>توليد رموز QR.</li><li>تخصيص شكل الرموز.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-qr">المزايا</button></div>
           </article>
         </div>
       </div>
