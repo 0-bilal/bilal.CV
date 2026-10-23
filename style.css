@@ -126,6 +126,18 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .more li { margin-bottom: 4px; }
 
 /* ===== الخبرات ===== */
+.regions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 22px; }
+.regions-label { font-weight: 700; color: var(--accent); font-size: 15px; }
+.regions ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.regions li {
+  display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500;
+  padding: 5px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line);
+}
+.regions li::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none;
+  background: var(--accent-2); box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.age { color: var(--muted); font-weight: 500; margin-inline-start: 4px; }
 .timeline { position: relative; padding-inline-start: 28px; }
 .timeline::before { content: ""; position: absolute; inset-inline-start: 8px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(var(--accent-2), var(--line)); }
 .job { position: relative; }
