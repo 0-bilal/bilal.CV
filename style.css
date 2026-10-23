@@ -176,7 +176,6 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .exit b { color: #8a5a00; }
 
 /* ===== رسومات Hairline التفاعلية ===== */
-.exp-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 26px; align-items: stretch; }
 .hl-card {
   margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
   padding: 14px 16px 12px; box-shadow: var(--shadow); display: flex; flex-direction: column;
@@ -194,6 +193,18 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .hl-card figcaption b { color: var(--accent); }
 .hl-read { color: var(--muted); font-size: 13px; transition: color .25s; }
 .hl-read.on { color: var(--accent); font-weight: 700; }
+/* الخريطة: قائمة المناطق بجانبها على الشاشات الكبيرة */
+.regions-card { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px 22px; align-items: center; margin-bottom: 16px; }
+.regions-card .regions { flex-direction: column; align-items: flex-start; margin: 0; }
+.regions-card .regions ul { flex-direction: column; }
+.regions-card .hl-stage { max-width: 560px; }
+.regions-card figcaption { grid-column: 1 / -1; }
+/* السلّم: مستطيل عريض يُظهر من الرسمة الشريط y 65–255؛ وعلى الجوال تُكبَّر الرسمة ويُقص جانباها الفارغان */
+.ladder-card { margin-bottom: 26px; }
+.hl-strip { position: relative; overflow: hidden; aspect-ratio: 400 / 190; }
+.hl-strip .hl-stage { position: absolute; top: 0; left: 0; width: 100%; max-width: none; margin: calc(-65 / 400 * 100%) 0 0; }
+.hl-stage text { fill: #4a5866; font-family: "IBM Plex Sans Arabic", sans-serif; font-weight: 600; transition: fill .26s; }
+.hl-stage text.hi { fill: var(--accent); }
 .proj-top { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; margin-bottom: 22px; }
 .proj-top .section-intro { margin: 0; font-size: 17px; }
 
@@ -385,11 +396,15 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 
 /* ===== الشاشات المتوسطة والصغيرة ===== */
 @media (max-width: 860px) {
-  .exp-visuals, .proj-top { grid-template-columns: 1fr; }
+  .proj-top { grid-template-columns: 1fr; }
   .projects { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
+  .regions-card { grid-template-columns: 1fr; }
+  .regions-card .regions ul { flex-direction: row; }
+  .hl-strip { aspect-ratio: 267 / 190; }
+  .hl-strip .hl-stage { width: 150%; left: -25%; margin-top: calc(-65 / 400 * 150%); }
   .menu-btn { display: block; }
   .nav {
     position: absolute; top: 100%; inset-inline: 0; margin: 0;
@@ -427,7 +442,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   .reveal { opacity: 1 !important; transform: none !important; }
   .intro, .intro-pop, .hero-name .word, .regions li, .steps li { opacity: 1 !important; animation: none !important; transform: none !important; filter: none !important; }
   .hero-name::after, .typing::after { display: none; }
-  .exp-visuals, .proj-top { grid-template-columns: 1fr 1fr; }
+  .proj-top { grid-template-columns: 1fr 1fr; }
   .hl-read { display: none; }
   .hero { padding: 0 0 12px; background: none; text-align: right; }
   .stats { margin-top: 12px; }
