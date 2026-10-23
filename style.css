@@ -145,6 +145,20 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .steps li::before { content: counter(s); font-weight: 700; color: var(--accent-2); margin-inline-end: 6px; font-size: 12px; }
 .steps li:last-child { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
 .steps li:last-child::before { color: #cfe0f2; }
+.marquee {
+  margin-top: 12px; overflow: hidden; position: relative;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track { list-style: none; margin: 0; padding: 4px 0; display: flex; width: max-content; animation: marquee 18s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track li {
+  flex: none; display: flex; align-items: center; gap: 10px; margin-inline-end: 12px;
+  padding: 8px 16px 8px 12px; border-radius: 999px; white-space: nowrap;
+  background: var(--bg-alt); border: 1px solid var(--line); font-weight: 600; font-size: 15px;
+}
+.marquee .dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; color: #fff; background: var(--accent-2); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(50%); } }
 .exit { margin: 12px 0 0; padding: 10px 14px; background: #fff8ec; border-radius: 10px; font-size: 15px; }
 .exit b { color: #8a5a00; }
 
@@ -277,6 +291,9 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   html { scroll-behavior: auto; }
   .reveal, .more, .bars i::after { transition: none; }
   .chips li, .modal[open] { animation: none; }
+  .marquee { mask-image: none; -webkit-mask-image: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; row-gap: 8px; }
+  .marquee-track .clone { display: none; }
 }
 
 /* ===== الشاشات المتوسطة والصغيرة ===== */
@@ -327,5 +344,8 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   .projects { grid-template-columns: 1fr 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .bars i::after { width: var(--w) !important; transition: none; }
+  .marquee { mask-image: none; -webkit-mask-image: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; row-gap: 6px; }
+  .marquee-track .clone { display: none; }
 }
 .pn { white-space: nowrap; direction: ltr; unicode-bidi: isolate; }

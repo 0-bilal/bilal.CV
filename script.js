@@ -52,6 +52,23 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     counters.forEach((el) => co.observe(el));
   } else counters.forEach(runCounter);
 
+  // شريط أماكن العمل المتحرك: نكرر العناصر حتى تبدو الحركة متصلة
+  document.querySelectorAll(".marquee-track").forEach((track) => {
+    const items = [...track.children];
+    const addCopies = () => items.forEach((li) => {
+      const copy = li.cloneNode(true);
+      copy.setAttribute("aria-hidden", "true");
+      copy.classList.add("clone");
+      track.appendChild(copy);
+    });
+    // نصف الشريط يجب أن يغطي عرض الإطار كاملًا، ثم نضاعفه
+    const setWidth = track.scrollWidth || 1;
+    const reps = Math.max(1, Math.ceil(track.parentElement.clientWidth / setWidth));
+    for (let i = 1; i < reps; i++) addCopies();
+    for (let i = 0; i < reps; i++) addCopies();
+    track.style.animationDuration = Math.round(6 * items.length * reps) + "s";
+  });
+
   // أزرار "اقرأ المزيد"
   document.querySelectorAll("[data-toggle]").forEach((btn) => {
     const panel = document.getElementById(btn.dataset.toggle);
