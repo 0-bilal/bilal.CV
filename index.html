@@ -2,66 +2,165 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>بلال الخواجه | السيرة الذاتية</title>
-  <meta name="description" content="السيرة الذاتية لبلال زكريا الخواجه: الخبرات العملية، الشهادات التدريبية، والأعمال البرمجية.">
-  <meta name="theme-color" content="#0f766e">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بلال زكريا الخواجه | السيرة الذاتية</title>
+  <meta name="description" content="السيرة الذاتية لبلال زكريا الخواجه: الخبرات العملية، الأعمال البرمجية (برمجيات QB)، والدورات التدريبية.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
-  <header class="hero" id="top">
-    <div class="avatar" aria-hidden="true">ب</div>
-    <h1 id="name"></h1>
-    <p class="name-en" id="name-en" dir="ltr"></p>
-    <p class="title" id="title"></p>
-    <div class="stats" id="stats"></div>
-  </header>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">طباعة / حفظ PDF</button>
+  </div>
 
-  <main>
-    <section id="about">
-      <h2>نبذة</h2>
-      <p class="about" id="about-text"></p>
+  <!-- الصفحة 1 -->
+  <article class="sheet">
+    <header class="cv-header">
+      <div>
+        <h1>بلال زكريا الخواجه</h1>
+        <p class="name-en" dir="ltr">Bilal Zakaria Al-Khawaja</p>
+        <p class="role">إدارة تشغيل الفروع · المشتريات · التدريب · تطوير الأنظمة الإلكترونية</p>
+      </div>
+      <ul class="contact">
+        <li><span>GitHub</span> <a href="https://github.com/0-bilal" dir="ltr">github.com/0-bilal</a></li>
+        <li><span>الخبرة</span> في مجال الأعمال منذ 2015</li>
+      </ul>
+    </header>
+
+    <section>
+      <h2>الملخص المهني</h2>
+      <p>
+        أعمل في مجال الأعمال منذ عام 2015، وبدأت من أرض المتجر في الاستقبال والكاشير والتحضير.
+        ترقّيت درجةً درجة حتى أدرت فرعًا ثم فرعين، ثم توليت إدارة المشتريات وإدارة التدريب.
+        أهتم بتنظيم العمل وتطوير فرقه وضبط التكاليف، وأبني أنظمة إلكترونية تحت اسم <b>برمجيات QB</b>
+        تساعد المنشآت والموظفين والمستخدمين على أن يسير العمل بشكل جيد.
+      </p>
     </section>
 
-    <section id="experience">
+    <section>
       <h2>الخبرات العملية</h2>
-      <div class="timeline" id="timeline"></div>
-    </section>
 
-    <section id="certificates">
-      <h2>الشهادات التدريبية</h2>
-      <p class="muted" id="cert-summary"></p>
-      <div class="chips" id="filters" role="tablist"></div>
-      <div class="cert-grid" id="cert-grid"></div>
-    </section>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>عصير تايم</h3>
+          <span class="date" dir="ltr">2020 – 2025</span>
+        </div>
+        <p class="entry-sub">بدأت عاملًا وتدرّجت في المناصب حتى إدارة المشتريات ثم إدارة التدريب</p>
+        <p class="path">
+          عامل ← موظف تحضير منتجات ← كاشير ← مدير فرع ← مدير فرعين ← إدارة المشتريات ← <b>إدارة التدريب</b>
+        </p>
+        <ul>
+          <li>إدارة التشغيل اليومي لفرع ثم لفرعين، والإشراف على فريق العمل.</li>
+          <li>إدارة المشتريات وتوفير احتياجات الفروع.</li>
+          <li>إدارة التدريب وتأهيل الموظفين.</li>
+          <li>أعمال ومهام متعددة في أقسام أخرى من المؤسسة.</li>
+        </ul>
+        <p class="exit"><b>سبب ترك العمل:</b> استقالة طوعية؛ رأيت أن المؤسسة لم تعد بحاجة إلى منصب بخبرتي، فكان خروجي لتقليل التكاليف هو الأفضل للمؤسسة.</p>
+      </div>
 
-    <section id="projects">
-      <h2>الأعمال البرمجية <span class="badge">QB</span></h2>
-      <p class="about" id="projects-intro"></p>
-      <div id="project-list"></div>
-      <div class="other-works">
-        <h3>أعمال أخرى تحت برمجيات QB</h3>
-        <ul id="other-works"></ul>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>فروز <small>متجر آيس كريم</small></h3>
+          <span class="date" dir="ltr">2019 – 2020</span>
+        </div>
+        <p class="path">موظف استقبال في صالة المتجر ← كاشير ← <b>تحضير منتجات الآيس كريم</b></p>
+        <p class="exit"><b>سبب ترك العمل:</b> تقليص عدد الموظفين بسبب جائحة كورونا.</p>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>أعمال متنوعة</h3>
+          <span class="date" dir="ltr">2015 – 2019</span>
+        </div>
+        <p class="entry-sub">بداية مسيرتي في مجال الأعمال والعمل مع العملاء.</p>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <a id="github-link" href="#" target="_blank" rel="noopener">GitHub</a>
-    <span>© <span id="year"></span> <span id="footer-name"></span></span>
-  </footer>
+    <section>
+      <h2>المهارات</h2>
+      <ul class="skills">
+        <li>إدارة الفروع والتشغيل</li>
+        <li>إدارة المشتريات</li>
+        <li>التدريب وتأهيل الموظفين</li>
+        <li>قيادة فرق العمل</li>
+        <li>خدمة العملاء</li>
+        <li>نقاط البيع والمدفوعات</li>
+        <li>مبادئ المحاسبة المالية</li>
+        <li>تطوير الأنظمة الإلكترونية</li>
+      </ul>
+    </section>
 
-  <nav class="bottom-nav" aria-label="التنقل">
-    <a href="#top"><span class="ic">◉</span>الرئيسية</a>
-    <a href="#experience"><span class="ic">▤</span>الخبرات</a>
-    <a href="#certificates"><span class="ic">✦</span>الشهادات</a>
-    <a href="#projects"><span class="ic">⌘</span>الأعمال</a>
-  </nav>
+    <footer class="page-no">صفحة 1 من 2</footer>
+  </article>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <!-- الصفحة 2 -->
+  <article class="sheet">
+    <section>
+      <h2>الأعمال البرمجية — برمجيات QB</h2>
+      <p>أهدف دائمًا إلى تنظيم العمل ببناء أنظمة إلكترونية تساعد المنشآت والموظفين والمستخدمين على أن يسير العمل بشكل جيد، بدقة وشفافية وبأقل قدر من الأخطاء البشرية.</p>
+
+      <div class="project">
+        <img src="projects/nexa.jpg" alt="شعار QB-Nexa" width="44" height="44">
+        <div>
+          <h3><span dir="ltr">QB-Nexa</span> — منصة حساب وتمويل السيارات</h3>
+          <p>منصة ذكية لمعارض السيارات وشركات التمويل، توفر حاسبة تمويل احترافية تحدد خطط التمويل المناسبة للعملاء، وتحتسب الأقساط والفوائد والدفعات المقدمة والالتزامات تلقائيًا وبشفافية، فتحوّل العمليات التقليدية إلى تجربة رقمية دقيقة وسريعة.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="projects/bluepulse.jpg" alt="شعار QB-BluePulse" width="44" height="44">
+        <div>
+          <h3><span dir="ltr">QB-BluePulse</span> — نظام إدارة تنظيف وصيانة المسابح</h3>
+          <p>نظام متكامل يتتبع مواعيد الصيانة الدورية، ويسجل المهام المنجزة، ويراقب جودة المياه، ويدير المواد الكيميائية المستخدمة، ليرفع كفاءة فرق الصيانة ويقلل الأخطاء البشرية عبر أتمتة العمليات وجدولتها.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="projects/sentinel.jpg" alt="شعار QB-Sentinel" width="44" height="44">
+        <div>
+          <h3><span dir="ltr">QB-Sentinel</span> — منصة إدارة الجودة <small>مفتوح المصدر</small></h3>
+          <p>منصة تستبدل التقارير الورقية بنظام ذكي لإدارة عمليات الفحص والتفتيش، وإنشاء التقارير ومراجعتها، وتسجيل المخالفات، وإرسال التذكيرات الآلية، وتتبع الإجراءات التصحيحية من مكان واحد.</p>
+          <p class="link"><a href="https://github.com/0-bilal/QB-Sentinel/" dir="ltr">github.com/0-bilal/QB-Sentinel</a></p>
+        </div>
+      </div>
+
+      <p class="other"><b>أعمال أخرى:</b> أنظمة للمتاجر والمطاعم في الفروع، وقائمة طعام (منيو) إلكترونية للعملاء على الهاتف.</p>
+    </section>
+
+    <section>
+      <h2>الدورات والشهادات التدريبية</h2>
+      <p class="note">شهادات إتمام دورات إلكترونية من منصة دروب (صندوق تنمية الموارد البشرية – هدف). اضغط على اسم الدورة لعرض الشهادة.</p>
+      <table class="courses">
+        <thead>
+          <tr><th>الدورة</th><th>الساعات</th><th>التاريخ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="certificates/photography.pdf">التصوير الفوتوغرافي وتحرير الصور</a></td><td>25</td><td dir="ltr">2020/04/10</td></tr>
+          <tr><td><a href="certificates/accounting-cycle.pdf">مبادئ المحاسبة المالية – الدورة المحاسبية</a></td><td>8</td><td dir="ltr">2020/04/08</td></tr>
+          <tr><td><a href="certificates/accounting-framework.pdf">مبادئ المحاسبة المالية – الإطار العام للمحاسبة</a></td><td>7</td><td dir="ltr">2020/04/08</td></tr>
+          <tr><td><a href="certificates/accounting-statements.pdf">مبادئ المحاسبة المالية – التسوية الجردية وإعداد القوائم المالية</a></td><td>7</td><td dir="ltr">2020/04/10</td></tr>
+          <tr><td><a href="certificates/customer-service.pdf">خدمة العملاء – تعامل باحترافية</a></td><td>5</td><td dir="ltr">2020/04/08</td></tr>
+          <tr><td><a href="certificates/customer-communication.pdf">التواصل الفعال مع العملاء</a></td><td>4</td><td dir="ltr">2020/04/07</td></tr>
+          <tr><td><a href="certificates/store-safety.pdf">السلامة وعمليات المتجر اليومية</a></td><td>3</td><td dir="ltr">2020/04/11</td></tr>
+          <tr><td><a href="certificates/retail-teamwork.pdf">العمل الجماعي في متجر البيع بالتجزئة</a></td><td>3</td><td dir="ltr">2020/04/11</td></tr>
+          <tr><td><a href="certificates/point-of-sale.pdf">إجراءات نقطة البيع</a></td><td>3</td><td dir="ltr">2020/04/13</td></tr>
+          <tr><td><a href="certificates/customer-payments.pdf">التعامل مع مدفوعات العميل</a></td><td>3</td><td dir="ltr">2020/04/15</td></tr>
+          <tr><td><a href="certificates/cyber-security.pdf">أمن المعلومات</a></td><td>3</td><td dir="ltr">2020/04/08</td></tr>
+          <tr><td><a href="certificates/sales-marketing.pdf">المبيعات والتسويق</a></td><td>2</td><td dir="ltr">2020/04/12</td></tr>
+          <tr><td><a href="certificates/mobile-maintenance.pdf">أساسيات صيانة الجوالات</a></td><td>2</td><td dir="ltr">2020/04/07</td></tr>
+          <tr><td><a href="certificates/covid-prevention.pdf">إجراءات الوقاية ومكافحة العدوى من فيروس كورونا</a></td><td>2</td><td dir="ltr">2020/04/09</td></tr>
+          <tr><td><a href="certificates/customer-data.pdf">إدارة بيانات العملاء</a></td><td>1</td><td dir="ltr">2020/04/11</td></tr>
+          <tr><td><a href="certificates/work-ethics.pdf">أخلاقيات العمل الذكية</a></td><td>1</td><td dir="ltr">2020/04/07</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>المجموع: 16 دورة</td><td>79</td><td></td></tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <footer class="page-no">صفحة 2 من 2</footer>
+  </article>
 </body>
 </html>
