@@ -55,13 +55,18 @@ const PHONE_DISPLAY = "+966 53 838 1612";
 
   // عدّاد الأرقام
   const counters = document.querySelectorAll("[data-count]");
-  const runCounter = (el) => {
+  const counterFinal = (el) => {
     const target = el.dataset.count === "years" ? new Date().getFullYear() - 2015 : +el.dataset.count;
     const suffix = el.dataset.suffix || (el.dataset.count === "years" ? "+" : "");
+    return [target, suffix];
+  };
+  const runCounter = (el) => {
+    const [target, suffix] = counterFinal(el);
     if (reduceMotion) { el.textContent = target + suffix; return; }
     const start = performance.now() + (+el.dataset.delay || 0), dur = 1200;
     const step = (t) => {
       const p = Math.max(0, Math.min((t - start) / dur, 1));
+      if (el.dataset.done) return;
       el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (p === 1 ? suffix : "");
       if (p < 1) requestAnimationFrame(step);
     };
@@ -85,7 +90,8 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     });
     // نصف الشريط يجب أن يغطي عرض الإطار كاملًا، ثم نضاعفه
     const setWidth = track.scrollWidth || 1;
-    const reps = Math.max(1, Math.ceil(track.parentElement.clientWidth / setWidth));
+    const widest = Math.max(track.parentElement.clientWidth, window.screen.width || 0, 1920);
+    const reps = Math.max(1, Math.ceil(widest / setWidth));
     for (let i = 1; i < reps; i++) addCopies();
     for (let i = 0; i < reps; i++) addCopies();
     track.style.animationDuration = Math.round(6 * items.length * reps) + "s";
@@ -156,7 +162,16 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     btn.setAttribute("aria-controls", panel.id);
     btn.addEventListener("click", () => {
       const open = panel.classList.toggle("open");
-      panel.style.maxHeight = open ? panel.scrollHeight + "px" : "0px";
+      if (open) {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        const release = (e) => { if (e.target === panel && panel.classList.contains("open")) panel.style.maxHeight = "none"; };
+        panel.addEventListener("transitionend", release, { once: true });
+        if (reduceMotion) panel.style.maxHeight = "none";
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        panel.getBoundingClientRect(); // يثبت الارتفاع الحالي قبل الإغلاق ليعمل الانتقال
+        panel.style.maxHeight = "0px";
+      }
       btn.setAttribute("aria-expanded", String(open));
       btn.textContent = open ? "إخفاء" : label;
       if (open && btn.hasAttribute("data-type-more") && !panel.dataset.typed) {
@@ -204,25 +219,27 @@ const PHONE_DISPLAY = "+966 53 838 1612";
       const open = nav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(open));
     });
-    nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
-      nav.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-    }));
+    const closeMenu = () => { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); };
+    nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+    document.addEventListener("click", (e) => { if (!nav.contains(e.target) && !menuBtn.contains(e.target)) closeMenu(); });
   }
 
   // تمييز القسم الحالي في شريط التنقل
   const links = nav ? [...nav.querySelectorAll('a[href^="#"]')] : [];
   const sections = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
-  if (sections.length) {
-    const onScroll = () => {
-      let current = null;
-      sections.forEach((s) => { if (s.getBoundingClientRect().top < window.innerHeight * 0.35) current = s.id; });
-      links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
-      document.querySelector(".topbar").classList.toggle("scrolled", window.scrollY > 8);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
+  const topbar = document.querySelector(".topbar");
+  const onScroll = () => {
+    if (topbar) topbar.classList.toggle("scrolled", window.scrollY > 8);
+    if (!sections.length) return;
+    let current = null;
+    sections.forEach((s) => { if (s.getBoundingClientRect().top < window.innerHeight * 0.35) current = s.id; });
+    // في نهاية الصفحة يكون القسم الأخير هو الحالي حتى لو كان قصيرًا
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = sections[sections.length - 1].id;
+    links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
   // التصفية حسب المجال (صفحتا الشهادات والمشاريع)
   const filters = document.querySelectorAll("[data-filter]");
@@ -240,6 +257,7 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     reveals.forEach((el) => el.classList.add("in"));
     instant = true;
     typers.forEach((stop) => stop());
+    counters.forEach((el) => { const [t, sfx] = counterFinal(el); el.dataset.done = "1"; el.textContent = t + sfx; });
     document.querySelectorAll(".waiting").forEach((li) => li.classList.remove("waiting"));
   });
 })();
