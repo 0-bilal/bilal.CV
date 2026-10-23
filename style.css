@@ -41,17 +41,16 @@ body {
 a { color: var(--accent); }
 
 /* الترويسة */
-.cv-header {
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
-  padding-bottom: 14px; margin-bottom: 6px;
-  border-bottom: 2px solid var(--accent);
-}
+.cv-header { padding-bottom: 14px; margin-bottom: 6px; border-bottom: 2px solid var(--accent); }
 h1 { margin: 0; font-size: 30px; font-weight: 700; line-height: 1.3; color: var(--accent); }
 .name-en { margin: 0; color: var(--muted); font-size: 13px; letter-spacing: .5px; text-align: right; }
 .role { margin: 6px 0 0; font-weight: 500; font-size: 14px; }
-.contact { list-style: none; margin: 0; padding: 0; font-size: 13px; text-align: left; }
-.contact li { white-space: nowrap; }
-.contact span { color: var(--muted); margin-inline-end: 4px; }
+
+/* المعلومات الشخصية */
+.info { margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 24px; }
+.info div { display: flex; gap: 8px; }
+.info dt { flex: none; width: 92px; color: var(--muted); }
+.info dd { margin: 0; font-weight: 500; }
 
 /* الأقسام */
 section { margin-top: 20px; }
@@ -71,14 +70,23 @@ h3 small { font-weight: 400; color: var(--muted); font-size: 13px; margin-inline
 .path { margin: 4px 0; font-size: 14px; }
 .entry ul { margin: 4px 0; padding-inline-start: 20px; }
 .entry li { margin-bottom: 2px; }
-.exit { margin: 6px 0 0; font-size: 14px; color: #333; }
+.label { margin: 8px 0 2px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 0; font-size: 14px; }
+.steps li:not(:last-child)::after { content: "←"; color: var(--accent); margin: 0 8px; }
+.steps li:last-child { font-weight: 700; }
+.entry > p { margin: 0; }
+.exit { margin: 8px 0 0; padding-top: 6px; border-top: 1px dashed var(--rule); font-size: 14px; color: #333; }
 .exit b { font-weight: 600; }
 
-.skills {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 24px;
-}
-.skills li::before { content: "▪"; color: var(--accent); margin-inline-end: 8px; }
+.skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 28px; }
+.skill-groups h3 { font-size: 14px; margin-bottom: 2px; }
+.skill-groups ul { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.skill-groups li { padding-inline-start: 16px; position: relative; margin-bottom: 1px; }
+.skill-groups li::before { content: "▪"; color: var(--accent); position: absolute; inset-inline-start: 0; }
+.skill-groups .highlight { grid-column: 1 / -1; background: #f4f6f9; border-inline-start: 3px solid var(--accent); padding: 8px 12px; }
+.highlight p { margin: 0; font-size: 14px; text-align: justify; }
+.level { font-size: 12px; color: var(--muted); margin-inline-start: 4px; }
+.level::before { content: "— "; }
 
 /* المشاريع */
 .project { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
@@ -96,29 +104,29 @@ h3 small { font-weight: 400; color: var(--muted); font-size: 13px; margin-inline
 .courses td:nth-child(3), .courses th:nth-child(3) { text-align: left; width: 96px; white-space: nowrap; color: var(--muted); }
 .courses a { color: inherit; text-decoration: none; border-bottom: 1px dotted #9aa; }
 .courses a:hover { color: var(--accent); }
+.courses tr.group td { font-weight: 700; color: var(--accent); background: #f4f6f9; border-bottom-color: var(--rule); padding-top: 5px; }
+.courses tbody tr:not(.group) td:first-child { padding-inline-start: 16px; }
 .courses tfoot td { font-weight: 700; border-bottom: none; border-top: 1px solid var(--rule); }
 
-.page-no { position: absolute; bottom: 10mm; left: 0; right: 0; text-align: center; font-size: 11px; color: #999; }
 
 /* الهاتف: نفس الورقة بهوامش أصغر */
 @media (max-width: 640px) {
   body { padding: 12px 8px 32px; font-size: 14px; }
   .sheet { min-height: 0; padding: 24px 20px 44px; margin-bottom: 12px; }
-  .cv-header { flex-direction: column; align-items: flex-start; }
-  .contact { text-align: right; }
-  h1 { font-size: 25px; }
-  .skills { grid-template-columns: 1fr; }
-  .page-no { bottom: 14px; }
+  h1 { font-size: 24px; }
+  .info, .skill-groups { grid-template-columns: 1fr; }
   .courses { font-size: 13px; }
   .courses td:nth-child(3), .courses th:nth-child(3) { width: auto; }
 }
 
-/* الطباعة: صفحتان A4 */
-@page { size: A4; margin: 0; }
+/* الطباعة: صفحات A4 */
+@page { size: A4; }
 @media print {
   body { background: #fff; padding: 0; font-size: 13.5px; }
   .toolbar { display: none; }
-  .sheet { box-shadow: none; margin: 0; max-width: none; width: 210mm; min-height: 297mm; padding: 16mm 16mm 18mm; break-after: page; }
-  .sheet:last-of-type { break-after: auto; }
+  .sheet { box-shadow: none; margin: 0; max-width: none; width: 210mm; min-height: 0; padding: 0; }
+  @page { margin: 14mm 15mm; }
+  .entry, .project, .skill-groups > div, .courses tr, h2 { break-inside: avoid; }
+  h2 { break-after: avoid; }
   a { text-decoration: none; }
 }
