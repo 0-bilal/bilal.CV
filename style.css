@@ -298,12 +298,64 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 /* ===== حركة الظهور ===== */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
-.projects .reveal:nth-child(3n+2), .filter-list .reveal:nth-child(3n+2) { transition-delay: .08s; }
-.projects .reveal:nth-child(3n), .filter-list .reveal:nth-child(3n) { transition-delay: .16s; }
+.project.reveal, .pcard.reveal, .cert.reveal { transform: translateY(28px) scale(.97); }
+.project.reveal.in, .pcard.reveal.in, .cert.reveal.in { transform: none; }
+
+/* ===== حركة الواجهة عند فتح الموقع ===== */
+.intro { animation: intro-up .8s cubic-bezier(.2, .7, .2, 1) both; animation-delay: var(--d, 0s); }
+.intro-pop { animation: pop-in .65s cubic-bezier(.3, 1.4, .5, 1) both; animation-delay: var(--d, 0s); }
+.hero-name.split { animation: none; }
+.hero-name .word {
+  display: inline-block;
+  animation: word-in .75s cubic-bezier(.2, .7, .2, 1) both;
+  animation-delay: calc(var(--d, 0s) + var(--i) * .13s);
+}
+.hero-name::after {
+  content: ""; display: block; height: 3px; width: 0; margin: 14px auto 0; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  animation: line-grow .9s cubic-bezier(.2, .7, .2, 1) .85s forwards;
+}
+.hero-welcome b, .hero-welcome span { display: block; }
+@keyframes intro-up { from { opacity: 0; transform: translateY(22px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes word-in { from { opacity: 0; transform: translateY(34px) scale(.92); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(16px) scale(.85); } to { opacity: 1; transform: none; } }
+@keyframes line-grow { to { width: 96px; } }
+
+/* ===== الكتابة الحيّة ===== */
+.typing::after {
+  content: ""; display: inline-block; width: 2px; height: 1.1em; margin-inline-start: 3px;
+  vertical-align: -.2em; background: var(--accent-2); animation: blink .8s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+.waiting { display: none !important; }
+.after-type { transition: opacity .4s; }
+.type-pending .after-type { opacity: 0; visibility: hidden; }
+
+/* ===== الخبرات: ظهور متتابع ===== */
+.regions li { opacity: 0; }
+.regions.in li { animation: chip-in .45s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(.15s + var(--i) * .1s); }
+.job.reveal { transform: translateX(46px); }
+.job.reveal.in { transform: none; }
+.job.reveal:not(.in)::before { transform: scale(0); }
+.job.reveal.in::before { animation: dot-pop .5s cubic-bezier(.3, 1.6, .5, 1) .25s both; }
+.job.reveal .steps li { opacity: 0; }
+.job.reveal.in .steps li { animation: chip-in .4s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(.4s + var(--i) * .09s); }
+@keyframes chip-in { from { opacity: 0; transform: translateY(10px) scale(.9); } to { opacity: 1; transform: none; } }
+@keyframes dot-pop { from { transform: scale(0); } to { transform: scale(1); } }
+
+/* ===== الشهادات ===== */
+.bars i::after { transition-delay: calc(.2s + var(--i, 0) * .15s); }
+.big-num { color: var(--accent); font-size: 1.15em; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .more, .bars i::after { transition: none; }
   .chips li, .modal[open] { animation: none; }
+  .intro, .intro-pop, .hero-name .word { animation: none; }
+  .hero-name::after { animation: none; width: 96px; }
+  .regions li, .job.reveal .steps li { opacity: 1; animation: none !important; }
+  .job.reveal::before { animation: none !important; transform: none !important; }
+  .typing::after { display: none; }
   .marquee { mask-image: none; -webkit-mask-image: none; }
   .marquee-track { animation: none; flex-wrap: wrap; width: auto; row-gap: 8px; }
   .marquee-track .clone { display: none; }
@@ -347,6 +399,8 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   body { font-size: 12.5px; line-height: 1.6; }
   .topbar, .hero-cta, .link-btn, .tabs, .contact-card, .footer, .modal, .hero::before, .cert-summary .btn { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  .intro, .intro-pop, .hero-name .word, .regions li, .steps li { opacity: 1 !important; animation: none !important; transform: none !important; filter: none !important; }
+  .hero-name::after, .typing::after { display: none; }
   .hero { padding: 0 0 12px; background: none; text-align: right; }
   .stats { margin-top: 12px; }
   .stat, .card { box-shadow: none; }
