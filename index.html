@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -48,7 +48,7 @@
           <div class="stat"><b data-count="years">0</b><span>سنوات خبرة</span></div>
           <div class="stat"><b data-count="16">0</b><span>شهادة تدريبية</span></div>
           <div class="stat"><b data-count="79">0</b><span>ساعة تدريب</span></div>
-          <div class="stat"><b data-count="3" data-suffix="+">0</b><span>أنظمة QB</span></div>
+          <div class="stat"><b data-count="20" data-suffix="+">0</b><span>مشروع برمجي</span></div>
         </div>
       </div>
     </section>
@@ -197,49 +197,89 @@
 
         <div class="projects">
           <article class="project card reveal">
+            <img src="projects/sentinel.jpg" alt="شعار QB-Sentinel" width="64" height="64">
+            <h3 dir="ltr">QB-Sentinel</h3>
+            <p class="sub">نظام التقارير والسجلات التشغيلية · مفتوح المصدر</p>
+            <p>بنيته لمحلات عصير تايم: الحضور والانصراف، وسجلات الفحص والتنظيف، وتقرير نهاية اليوم.</p>
+            <button type="button" class="link-btn" data-modal="m-sentinel">التفاصيل</button>
+            <template id="m-sentinel">
+              <p>نظام تقارير وسجلات تشغيلية لمحل عصائر (عصير تايم)، يستبدل الأوراق اليومية بتطبيق واحد يعمل على الجوال (PWA).</p>
+              <ul>
+                <li>حضور وانصراف الموظفين، وتذكير بتجديد الإقامات والعقود.</li>
+                <li>سجلات فحص الفواكه، ومعايير المكونات، وتنظيف المعدات.</li>
+                <li>متابعة توفر المنتجات، وطلبات الاسترجاع، وتصنيع المواد الأولية.</li>
+                <li>تقرير نهاية اليوم، وسند صرف النقدية.</li>
+              </ul>
+              <p><a class="btn btn-primary" href="https://github.com/0-bilal/QB-Sentinel/" target="_blank" rel="noopener">عرض المشروع</a></p>
+            </template>
+          </article>
+
+          <article class="project card reveal">
+            <span class="mono" aria-hidden="true">KDS</span>
+            <h3 dir="ltr">QB-Prax</h3>
+            <p class="sub">شاشة عرض المطبخ (KDS)</p>
+            <p>تعرض طلبات المطعم تلقائيًا على شاشة بدل أجهزة الاستدعاء.</p>
+            <button type="button" class="link-btn" data-modal="m-prax">التفاصيل</button>
+            <template id="m-prax">
+              <p>شاشة عرض مطبخ رقمية لمطعم يستخدم نظام فوديكس. تلتقط بيانات الطباعة من طابعة Epson عبر الشبكة، وتعيد بناء صورة الفاتورة، وتقرأ رقم الطلب بالتعرف الضوئي (OCR)، ثم تعرض الطلبات تلقائيًا بدل أجهزة الاستدعاء.</p>
+              <p class="tags"><span>Python</span><span>SQLite</span><span>OCR</span></p>
+            </template>
+          </article>
+
+          <article class="project card reveal">
+            <span class="mono" aria-hidden="true">FL</span>
+            <h3 dir="ltr">QB-FLOW</h3>
+            <p class="sub">منصة حلول رقمية للمطاعم والشركات</p>
+            <p>لوحة إدارة، ومركز اتصال، وإدارة عملاء، وقائمة طعام، واستقبال.</p>
+            <button type="button" class="link-btn" data-modal="m-flow">التفاصيل</button>
+            <template id="m-flow">
+              <p>منصة حلول رقمية متكاملة للمطاعم والشركات، تجمع في مكان واحد: لوحة الإدارة، ومركز الاتصال، وإدارة العملاء، وقائمة الطعام، والاستقبال.</p>
+              <p class="tags"><span>PHP</span><span>SQL</span><span>Docker</span><span>Nginx</span></p>
+            </template>
+          </article>
+
+          <article class="project card reveal">
             <img src="projects/nexa.jpg" alt="شعار QB-Nexa" width="64" height="64">
             <h3 dir="ltr">QB-Nexa</h3>
-            <p class="sub">منصة حساب وتمويل السيارات</p>
-            <p>حاسبة تمويل احترافية لمعارض السيارات وشركات التمويل.</p>
+            <p class="sub">حاسبة صفقات تمويل السيارات</p>
+            <p>تحسب تفاصيل صفقة التمويل وصافي الربح، وتجهّز رسالة للعميل.</p>
             <button type="button" class="link-btn" data-modal="m-nexa">التفاصيل</button>
             <template id="m-nexa">
-              <p>منصة إلكترونية ذكية متخصصة في حساب وتمويل السيارات، صُممت لتلبية احتياجات المعارض وشركات التمويل بأسلوب سريع ودقيق. توفر حاسبة تمويل احترافية تساعد على تحديد خطط التمويل المناسبة للعملاء، مع احتساب الأقساط والفوائد والدفعات المقدمة والالتزامات بشكل تلقائي وشفاف.</p>
-              <p>تهدف إلى تحويل العمليات التقليدية في المعارض وشركات التمويل إلى تجربة رقمية مريحة تضمن دقة البيانات وسرعة الإنجاز وتقلل الأخطاء البشرية.</p>
+              <p>حاسبة لصفقات تمويل السيارات تحسب:</p>
+              <ul>
+                <li>السعر المرفوع للبنك، والسعر شامل الضريبة.</li>
+                <li>رسوم اللوحات والخدمات.</li>
+                <li>نسب الكاش باك والدعم، وصافي الربح.</li>
+              </ul>
+              <p>ثم تجهّز رسالة جاهزة للعميل. وفيها أيضًا محفظة وصندوق أدوات.</p>
+            </template>
+          </article>
+
+          <article class="project card reveal">
+            <span class="mono" aria-hidden="true">EP</span>
+            <h3 dir="ltr">QB-Eligibility Pro</h3>
+            <p class="sub">فحص أهلية العملاء للتمويل البنكي</p>
+            <p>يقارن بيانات العميل بشروط كل بنك ويعرض النتيجة.</p>
+            <button type="button" class="link-btn" data-modal="m-elig">التفاصيل</button>
+            <template id="m-elig">
+              <p>أداة لفحص أهلية العملاء للتمويل البنكي: قائمة بنوك، ومحرّر لشروط كل بنك وقواعده، وإدخال بيانات العميل وحقول مخصصة، ثم عرض النتائج. البيانات محفوظة على الجهاز (LocalStorage).</p>
             </template>
           </article>
 
           <article class="project card reveal">
             <img src="projects/bluepulse.jpg" alt="شعار QB-BluePulse" width="64" height="64">
             <h3 dir="ltr">QB-BluePulse</h3>
-            <p class="sub">نظام إدارة تنظيف وصيانة المسابح</p>
-            <p>جدولة الصيانة ومتابعة جودة المياه والمواد الكيميائية.</p>
+            <p class="sub">نظام إدارة المسبح الذكي</p>
+            <p>جدول صيانة شهري، وتتبع المهام، وحساب كميات المواد الكيميائية.</p>
             <button type="button" class="link-btn" data-modal="m-blue">التفاصيل</button>
             <template id="m-blue">
-              <p>نظام إلكتروني متكامل لإدارة وتنظيم عمليات تنظيف وصيانة المسابح بطريقة ذكية ومنهجية. يساعد على تتبع مواعيد الصيانة الدورية، وتسجيل المهام المنجزة، ومراقبة جودة المياه، وإدارة المواد الكيميائية المستخدمة بواجهة سهلة وواضحة.</p>
-              <p>يهدف إلى رفع كفاءة فرق الصيانة، وضمان نظافة المسابح وسلامتها بشكل مستمر، وتقليل الأخطاء البشرية عبر أتمتة العمليات وجدولتها بدقة وشفافية.</p>
-            </template>
-          </article>
-
-          <article class="project card reveal">
-            <img src="projects/sentinel.jpg" alt="شعار QB-Sentinel" width="64" height="64">
-            <h3 dir="ltr">QB-Sentinel</h3>
-            <p class="sub">منصة إدارة الجودة · مفتوح المصدر</p>
-            <p>بديل رقمي للتقارير الورقية في الفحص والتفتيش.</p>
-            <button type="button" class="link-btn" data-modal="m-sentinel">التفاصيل</button>
-            <template id="m-sentinel">
-              <p>منصة إلكترونية متكاملة لإدارة الجودة، صُممت لاستبدال التقارير الورقية التقليدية بنظام ذكي ينظّم عمليات الرقابة والجودة بكفاءة أعلى وشفافية أكبر.</p>
-              <p>تتيح للمنشآت إدارة عمليات الفحص والتفتيش، وإنشاء التقارير ومراجعتها، وتسجيل المخالفات، وإرسال التذكيرات الآلية، وتتبع الإجراءات التصحيحية من مكان واحد، فتصبح إدارة الجودة أسهل وأسرع وأكثر موثوقية.</p>
-              <p><a class="btn btn-primary" href="https://github.com/0-bilal/QB-Sentinel/" target="_blank" rel="noopener">عرض المشروع</a></p>
+              <p>نظام لإدارة المسبح مصمم للجوال: جدول صيانة شهري (4 أسابيع) بمهام محددة، وتتبع المهام المكتملة، وحساب كميات المواد الكيميائية المطلوبة.</p>
             </template>
           </article>
         </div>
 
-        <div class="card other reveal">
-          <h3>أعمال أخرى</h3>
-          <ul>
-            <li>أنظمة للمتاجر والمطاعم في الفروع.</li>
-            <li>قائمة طعام (منيو) إلكترونية للعملاء على الهاتف.</li>
-          </ul>
+        <div class="more-projects reveal">
+          <a class="btn btn-primary" href="projects.html">عرض جميع المشاريع (21)</a>
         </div>
       </div>
     </section>
@@ -297,13 +337,13 @@
 
   <dialog class="modal" id="modal">
     <div class="modal-head">
-      <img id="modal-img" alt="" width="48" height="48">
+      <img id="modal-img" alt="" width="48" height="48"><span class="mono" id="modal-mono" aria-hidden="true" hidden></span>
       <div><h3 id="modal-title" dir="ltr"></h3><p class="sub" id="modal-sub"></p></div>
       <button type="button" class="close" id="modal-close" aria-label="إغلاق">✕</button>
     </div>
     <div class="modal-body" id="modal-body"></div>
   </dialog>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

@@ -81,7 +81,10 @@ const PHONE_DISPLAY = "+000 00 000 0000";
   if (modal) {
     document.querySelectorAll("[data-modal]").forEach((btn) => btn.addEventListener("click", () => {
       const card = btn.closest(".project");
-      document.getElementById("modal-img").src = card.querySelector("img").src;
+      const logo = card.querySelector("img"), mono = card.querySelector(".mono");
+      const modalImg = document.getElementById("modal-img"), modalMono = document.getElementById("modal-mono");
+      modalImg.hidden = !logo; modalMono.hidden = !!logo;
+      if (logo) modalImg.src = logo.src; else modalMono.textContent = mono.textContent;
       document.getElementById("modal-title").textContent = card.querySelector("h3").textContent;
       document.getElementById("modal-sub").textContent = card.querySelector(".sub").textContent;
       const body = document.getElementById("modal-body");
@@ -120,11 +123,11 @@ const PHONE_DISPLAY = "+000 00 000 0000";
     onScroll();
   }
 
-  // تصفية الشهادات (صفحة الشهادات)
+  // التصفية حسب المجال (صفحتا الشهادات والمشاريع)
   const filters = document.querySelectorAll("[data-filter]");
   filters.forEach((f) => f.addEventListener("click", () => {
     filters.forEach((x) => x.setAttribute("aria-selected", String(x === f)));
-    document.querySelectorAll(".cert").forEach((c) => {
+    document.querySelectorAll(".filter-list > [data-cat]").forEach((c) => {
       c.hidden = f.dataset.filter !== "all" && c.dataset.cat !== f.dataset.filter;
     });
   }));
