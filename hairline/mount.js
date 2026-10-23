@@ -29,6 +29,10 @@
     };
 
     figure.mount({ stage, svg, read }, figure.range[1]);
+    // الضغط على الرسمة يرسل اسم ما تحت المؤشر إلى الصفحة (حدث hl-pick)
+    stage.addEventListener("click", () => {
+      if (text && text !== "rest") stage.dispatchEvent(new CustomEvent("hl-pick", { detail: text, bubbles: true }));
+    });
     // الجولة التلقائية: مؤشر خفي يمرّ على الرسمة حتى يلمسها الزائر بنفسه
     HL.tour(stage, figure.tour || HL.LAP);
   };

@@ -210,6 +210,20 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     typeChips(document.getElementById(tab.dataset.tab), 90);
   }));
 
+  // خزانة المشاريع: الضغط على درج يعرض تعريف مشروعه في اللوحة المجاورة
+  const panel = document.querySelector(".qb-panel");
+  if (panel) {
+    document.addEventListener("hl-pick", (e) => {
+      const info = [...panel.querySelectorAll(".qb-info[data-name]")].find((x) => x.dataset.name === e.detail);
+      if (!info) return;
+      panel.querySelectorAll(".qb-info").forEach((x) => { x.hidden = x !== info; });
+      info.classList.remove("show");
+      void info.offsetWidth; // يعيد تشغيل حركة الظهور
+      info.classList.add("show");
+      if (window.innerWidth <= 860) panel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+    });
+  }
+
   // نافذة تفاصيل المشاريع
   const modal = document.getElementById("modal");
   if (modal) {
