@@ -25,12 +25,26 @@ const PHONE_DISPLAY = "+966 53 838 1612";
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ظهور الأقسام عند التمرير
+  // اسم الواجهة: كل كلمة تظهر بعد الأخرى
+  document.querySelectorAll(".hero-name").forEach((h) => {
+    h.innerHTML = h.textContent.trim().split(/\s+/)
+      .map((w, i) => `<span class="word" style="--i:${i}">${w}</span>`).join(" ");
+    h.classList.add("split");
+  });
+
+  // ترقيم عناصر القوائم لتظهر واحدًا تلو الآخر
+  document.querySelectorAll(".regions li, .steps li, .bars li").forEach((li) => {
+    li.style.setProperty("--i", [...li.parentElement.children].indexOf(li));
+  });
+
+  // ظهور الأقسام عند التمرير: العناصر التي تظهر معًا تتتابع بفاصل بسيط
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !reduceMotion) {
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      (entries) => entries.filter((e) => e.isIntersecting).forEach((e, i) => {
+        e.target.style.transitionDelay = i * 0.14 + "s";
+        e.target.classList.add("in");
+        io.unobserve(e.target);
       }),
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
@@ -45,9 +59,9 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     const target = el.dataset.count === "years" ? new Date().getFullYear() - 2015 : +el.dataset.count;
     const suffix = el.dataset.suffix || (el.dataset.count === "years" ? "+" : "");
     if (reduceMotion) { el.textContent = target + suffix; return; }
-    const start = performance.now(), dur = 1200;
+    const start = performance.now() + (+el.dataset.delay || 0), dur = 1200;
     const step = (t) => {
-      const p = Math.min((t - start) / dur, 1);
+      const p = Math.max(0, Math.min((t - start) / dur, 1));
       el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (p === 1 ? suffix : "");
       if (p < 1) requestAnimationFrame(step);
     };
@@ -77,6 +91,63 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     track.style.animationDuration = Math.round(6 * items.length * reps) + "s";
   });
 
+  // الكتابة الحيّة: يُكتب النص حرفًا حرفًا كأنه يُكتب أمام الزائر
+  const typers = [];
+  let instant = reduceMotion; // يصبح true عند الطباعة لإظهار كل شيء فورًا
+  const typeInto = (el, speed = 16) => new Promise((resolve) => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push([walker.currentNode, walker.currentNode.data]);
+    const finish = () => { nodes.forEach(([n, t]) => (n.data = t)); el.classList.remove("typing"); el.style.minHeight = ""; resolve(); };
+    if (instant) return finish();
+    el.style.minHeight = el.getBoundingClientRect().height + "px";
+    nodes.forEach(([n]) => (n.data = ""));
+    el.classList.add("typing");
+    let ni = 0, ci = 0, done = false;
+    typers.push(() => { if (!done) { done = true; finish(); } });
+    const tick = () => {
+      if (done) return;
+      while (ni < nodes.length && ci >= nodes[ni][1].length) { ni++; ci = 0; }
+      if (ni >= nodes.length) { done = true; return finish(); }
+      const [n, t] = nodes[ni];
+      ci = Math.min(t.length, ci + (t[ci] === " " ? 2 : 1));
+      n.data = t.slice(0, ci);
+      setTimeout(tick, speed);
+    };
+    tick();
+  });
+  const typeChips = async (list, speed = 22) => {
+    if (list.dataset.typed) return;
+    list.dataset.typed = "1";
+    const items = [...list.children];
+    if (instant) return items.forEach((li) => li.classList.remove("waiting"));
+    items.forEach((li) => li.classList.add("waiting"));
+    for (const li of items) { li.classList.remove("waiting"); await typeInto(li, speed); }
+  };
+  const whenVisible = (el, fn) => {
+    if (!("IntersectionObserver" in window)) return fn();
+    const ob = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { ob.disconnect(); setTimeout(fn, 300); }
+    }, { rootMargin: "0px 0px -30% 0px" });
+    ob.observe(el);
+  };
+
+  if (!reduceMotion) document.querySelectorAll("[data-type-chips] .chips li").forEach((li) => li.classList.add("waiting"));
+  document.querySelectorAll("[data-type]").forEach((el) => {
+    const card = el.closest(".card") || el;
+    card.classList.add("type-pending");
+    whenVisible(card, async () => {
+      await typeInto(el);
+      card.classList.remove("type-pending");
+      const chipsCard = card.closest("section") && card.closest("section").querySelector("[data-type-chips]");
+      if (chipsCard && !chipsCard.dataset.typed) {
+        chipsCard.dataset.typed = "1";
+        const active = chipsCard.querySelector(".tab-panel:not([hidden])");
+        if (active) typeChips(active);
+      }
+    });
+  });
+
   // أزرار "اقرأ المزيد"
   document.querySelectorAll("[data-toggle]").forEach((btn) => {
     const panel = document.getElementById(btn.dataset.toggle);
@@ -88,6 +159,10 @@ const PHONE_DISPLAY = "+966 53 838 1612";
       panel.style.maxHeight = open ? panel.scrollHeight + "px" : "0px";
       btn.setAttribute("aria-expanded", String(open));
       btn.textContent = open ? "إخفاء" : label;
+      if (open && btn.hasAttribute("data-type-more") && !panel.dataset.typed) {
+        panel.dataset.typed = "1";
+        (async () => { for (const para of panel.querySelectorAll("p")) await typeInto(para, 12); })();
+      }
     });
   });
 
@@ -99,6 +174,7 @@ const PHONE_DISPLAY = "+966 53 838 1612";
       t.setAttribute("aria-selected", String(on));
       document.getElementById(t.dataset.tab).hidden = !on;
     });
+    typeChips(document.getElementById(tab.dataset.tab), 14);
   }));
 
   // نافذة تفاصيل المشاريع
@@ -162,5 +238,8 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     document.querySelectorAll(".more").forEach((p) => { p.classList.add("open"); p.style.maxHeight = "none"; });
     document.querySelectorAll(".tab-panel").forEach((p) => (p.hidden = false));
     reveals.forEach((el) => el.classList.add("in"));
+    instant = true;
+    typers.forEach((stop) => stop());
+    document.querySelectorAll(".waiting").forEach((li) => li.classList.remove("waiting"));
   });
 })();

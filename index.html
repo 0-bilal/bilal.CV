@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -35,23 +35,23 @@
     <!-- الواجهة -->
     <section class="hero" id="home">
       <div class="wrap hero-inner">
-        <p class="eyebrow reveal">السيرة الذاتية</p>
-        <h1 class="reveal">محمد بلال زكريا الخواجة</h1>
-        <p class="name-en reveal" dir="ltr">Mohammad Bilal Zakaria Al-Khawaja</p>
-        <p class="hero-welcome reveal">
-          <b>أهلًا وسهلًا بك في صفحتي الشخصية.</b>
-          هنا تتعرّف على مسيرتي العملية ومهاراتي وأعمالي البرمجية، ويسعدني تواصلك معي في أي وقت.
+        <p class="eyebrow intro" style="--d: .1s">السيرة الذاتية</p>
+        <h1 class="intro hero-name" style="--d: .25s">محمد بلال زكريا الخواجة</h1>
+        <p class="name-en intro" dir="ltr" style="--d: .9s">Mohammad Bilal Zakaria Al-Khawaja</p>
+        <p class="hero-welcome">
+          <b class="intro" style="--d: 1.15s">أهلًا وسهلًا بك في صفحتي الشخصية.</b>
+          <span class="intro" style="--d: 1.4s">هنا تتعرّف على مسيرتي العملية ومهاراتي وأعمالي البرمجية، ويسعدني تواصلك معي في أي وقت.</span>
         </p>
-        <div class="hero-cta reveal">
+        <div class="hero-cta intro" style="--d: 1.65s">
           <a class="btn btn-primary" href="#experience">استعرض خبراتي</a>
           <a class="btn btn-ghost" href="#contact">تواصل معي</a>
           <button type="button" class="btn btn-ghost" onclick="window.print()">تحميل PDF</button>
         </div>
-        <div class="stats reveal">
-          <div class="stat"><b data-count="years">0</b><span>سنوات خبرة</span></div>
-          <div class="stat"><b data-count="16">0</b><span>شهادة تدريبية</span></div>
-          <div class="stat"><b data-count="79">0</b><span>ساعة تدريب</span></div>
-          <div class="stat"><b data-count="20" data-suffix="+">0</b><span>مشروع برمجي</span></div>
+        <div class="stats">
+          <div class="stat intro-pop" style="--d: 1.85s"><b data-count="years" data-delay="1900">0</b><span>سنوات خبرة</span></div>
+          <div class="stat intro-pop" style="--d: 1.97s"><b data-count="16" data-delay="2000">0</b><span>شهادة تدريبية</span></div>
+          <div class="stat intro-pop" style="--d: 2.09s"><b data-count="79" data-delay="2100">0</b><span>ساعة تدريب</span></div>
+          <div class="stat intro-pop" style="--d: 2.21s"><b data-count="20" data-suffix="+" data-delay="2200">0</b><span>مشروع برمجي</span></div>
         </div>
       </div>
     </section>
@@ -61,7 +61,7 @@
       <div class="wrap">
         <div class="head reveal"><span class="num">01</span><h2>نبذة عني</h2></div>
         <div class="card reveal">
-          <p class="lead">
+          <p class="lead" data-type>
             شخص عملي يحب أن يفهم العمل من الداخل: أباشره بيدي، وألاحظ أين يتعطّل، ثم أبحث عن طريقة أفضل لإنجازه.
             أؤمن بأن التنظيم أساس أي عمل ناجح، وأن كل مشكلة تحمل في داخلها فرصة للتطوير.
           </p>
@@ -75,7 +75,7 @@
               أتعلم باستمرار، وأستمتع بتحويل الفوضى إلى نظام، وأجد في التصوير الفوتوغرافي هواية أحبها ومساحة للإبداع.
             </p>
           </div>
-          <button type="button" class="link-btn" data-toggle="about-more">اقرأ المزيد</button>
+          <button type="button" class="link-btn after-type" data-toggle="about-more" data-type-more>اقرأ المزيد</button>
         </div>
       </div>
     </section>
@@ -176,7 +176,7 @@
 
         <div class="card feature reveal">
           <h3>حل المشكلات وتطوير العمل</h3>
-          <p>أحب ملاحظة الأخطاء وإيجاد حلول لها، وهي أكثر ما أجيده: أباشر العمل بيدي، وأكتشف مواطن الخلل فيه، ثم أبتكر طريقة أفضل لأدائه، سواء كانت المشكلة برمجية أو على أرض الواقع.</p>
+          <p data-type>أحب ملاحظة الأخطاء وإيجاد حلول لها، وهي أكثر ما أجيده: أباشر العمل بيدي، وأكتشف مواطن الخلل فيه، ثم أبتكر طريقة أفضل لأدائه، سواء كانت المشكلة برمجية أو على أرض الواقع.</p>
         </div>
 
         <div class="tabs reveal" role="tablist">
@@ -185,7 +185,7 @@
           <button type="button" role="tab" class="tab" aria-selected="false" data-tab="sk-tech">التقنية والبرامج</button>
           <button type="button" role="tab" class="tab" aria-selected="false" data-tab="sk-hobby">الهوايات</button>
         </div>
-        <div class="card reveal">
+        <div class="card reveal" data-type-chips>
           <ul class="chips tab-panel" id="sk-ops">
             <li>إدارة الفروع والتشغيل اليومي</li>
             <li>تطوير آليات التحضير وعمليات المتاجر والمطاعم</li>
@@ -316,13 +316,13 @@
       <div class="wrap">
         <div class="head reveal"><span class="num">05</span><h2>الدورات والشهادات</h2></div>
         <div class="card cert-summary reveal">
-          <p>16 دورة إلكترونية بإجمالي 79 ساعة تدريبية من منصة دروب (صندوق تنمية الموارد البشرية – هدف).</p>
+          <p><b class="big-num" data-count="16">0</b> دورة إلكترونية بإجمالي <b class="big-num" data-count="79" data-delay="200">0</b> ساعة تدريبية من منصة دروب (صندوق تنمية الموارد البشرية – هدف).</p>
           <ul class="bars">
-            <li><span>مهارات عامة</span><i style="--w: 100%"></i><b>28</b></li>
-            <li><span>المحاسبة المالية</span><i style="--w: 79%"></i><b>22</b></li>
-            <li><span>التجزئة وعمليات المتجر</span><i style="--w: 50%"></i><b>14</b></li>
-            <li><span>خدمة العملاء</span><i style="--w: 36%"></i><b>10</b></li>
-            <li><span>التقنية</span><i style="--w: 18%"></i><b>5</b></li>
+            <li><span>مهارات عامة</span><i style="--w: 100%"></i><b data-count="28">0</b></li>
+            <li><span>المحاسبة المالية</span><i style="--w: 79%"></i><b data-count="22" data-delay="150">0</b></li>
+            <li><span>التجزئة وعمليات المتجر</span><i style="--w: 50%"></i><b data-count="14" data-delay="300">0</b></li>
+            <li><span>خدمة العملاء</span><i style="--w: 36%"></i><b data-count="10" data-delay="450">0</b></li>
+            <li><span>التقنية</span><i style="--w: 18%"></i><b data-count="5" data-delay="600">0</b></li>
           </ul>
           <a class="btn btn-primary" href="certificates.html">عرض جميع الشهادات</a>
         </div>
@@ -371,6 +371,6 @@
     <div class="modal-body" id="modal-body"></div>
   </dialog>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
