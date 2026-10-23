@@ -205,8 +205,18 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .hl-strip .hl-stage { position: absolute; top: 0; left: 0; width: 100%; max-width: none; margin: calc(-65 / 400 * 100%) 0 0; }
 .hl-stage text { fill: #4a5866; font-family: "IBM Plex Sans Arabic", sans-serif; font-weight: 600; transition: fill .26s; }
 .hl-stage text.hi { fill: var(--accent); }
-.proj-top { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; margin-bottom: 22px; }
+.proj-top { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: center; margin-bottom: 22px; }
 .proj-top .section-intro { margin: 0; font-size: 17px; }
+.rack-card .hl-stage { max-width: 560px; cursor: pointer; }
+/* لوحة تعريف المشروع بجانب الخزانة */
+.qb-panel { min-height: 220px; }
+.qb-info h3 { font-size: 24px; color: var(--accent); text-align: right; }
+.qb-info .qb-head { margin: 4px 0 8px; font-weight: 700; font-size: 17px; }
+.qb-info p { margin: 0 0 10px; }
+.qb-info .tags { margin-bottom: 10px; }
+.qb-tip { color: var(--muted); font-size: 15px; margin-top: 10px !important; }
+.qb-tip::before { content: "← "; color: var(--accent-2); }
+.qb-info.show { animation: intro-up .5s cubic-bezier(.2, .7, .2, 1) both; }
 
 /* ===== المهارات ===== */
 .feature { border-inline-start: 4px solid var(--accent); background: linear-gradient(90deg, #fff, var(--accent-soft)); }
@@ -383,7 +393,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .more, .bars i::after { transition: none; }
-  .chips li, .modal[open] { animation: none; }
+  .chips li, .modal[open], .qb-info.show { animation: none; }
   .intro, .intro-pop, .hero-name .word { animation: none; }
   .hero-name::after { animation: none; width: 96px; }
   .regions li, .job.reveal .steps li { opacity: 1; animation: none !important; }
@@ -397,6 +407,9 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 /* ===== الشاشات المتوسطة والصغيرة ===== */
 @media (max-width: 860px) {
   .proj-top { grid-template-columns: 1fr; }
+  /* على الجوال تأتي الخزانة أولًا وتعريف المشروع تحتها، فلا تتحرك الخزانة عند تغيّر التعريف */
+  .rack-card { order: -1; }
+  .qb-tip::before { content: "↑ "; }
   .projects { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 }

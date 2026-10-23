@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -235,99 +235,109 @@
       <div class="wrap">
         <div class="head reveal"><span class="num">04</span><h2>الأعمال البرمجية — برمجيات QB</h2></div>
         <div class="proj-top">
-          <p class="section-intro reveal">أنظمة إلكترونية أطوّرها لتنظيم العمل ومساعدة المنشآت والموظفين والمستخدمين على أن يسير العمل بدقة وشفافية وبأقل قدر من الأخطاء البشرية.</p>
-          <figure class="hl-card reveal">
-            <div class="hl-stage" data-figure="rack" aria-label="رسمة تفاعلية: خزانة خوادم من ثماني وحدات، لكل نظام من أنظمة QB وحدة"></div>
+          <div class="qb-panel reveal" aria-live="polite">
+            <div class="qb-info is-default">
+              <p class="section-intro">أنظمة إلكترونية أطوّرها لتنظيم العمل ومساعدة المنشآت والموظفين والمستخدمين على أن يسير العمل بدقة وشفافية وبأقل قدر من الأخطاء البشرية.</p>
+              <p class="qb-tip">اضغط على أي درج في الخزانة لتتعرّف على المشروع.</p>
+            </div>
+            <div class="qb-info" data-name="QB-Sentinel" hidden>
+              <h3 dir="ltr">QB-Sentinel</h3>
+              <p class="qb-head">وداعًا لأوراق التشغيل اليومية</p>
+              <p>في محلات العصائر تتراكم الأوراق كل يوم: كشوف الحضور، وسجلات الفحص والتنظيف، وتقارير نهاية اليوم، فتضيع المعلومة وتتأخر المتابعة. وُلد <bdi class="pn">QB-Sentinel</bdi> من واقع العمل في عصير تايم ليجمع كل ذلك في تطبيق واحد على الجوال؛ فيعرف المدير ما يحدث في الفرع أولًا بأول، ولا يفوته موعد تجديد إقامة أو عقد، وتبقى معايير الجودة موثّقة في كل وردية.</p>
+              <p class="tags"><span>PWA</span><span>مفتوح المصدر</span></p><a class="link-btn arrow" href="https://github.com/0-bilal/QB-Sentinel/" target="_blank" rel="noopener">عرض المشروع على GitHub</a>
+            </div>
+            <div class="qb-info" data-name="QB-Prax" hidden>
+              <h3 dir="ltr">QB-Prax</h3>
+              <p class="qb-head">طلبات المطبخ على الشاشة، بلا أجهزة استدعاء</p>
+              <p>الفواتير المطبوعة وأجهزة الاستدعاء تُبطئ المطبخ في أوقات الذروة وتُربك ترتيب الطلبات. يحوّل <bdi class="pn">QB-Prax</bdi> المطعم الذي يعمل بنظام فوديكس إلى مطبخ رقمي دون تغيير نظام نقاط البيع: يلتقط الفاتورة لحظة طباعتها ويعرض الطلب على شاشة المطبخ تلقائيًا، فيعرف الفريق ما يجهّزه أولًا، ويقل الخطأ ووقت انتظار العميل.</p>
+              <p class="tags"><span>Python</span><span>SQLite</span><span>OCR</span></p>
+            </div>
+            <div class="qb-info" data-name="QB-Ledg" hidden>
+              <h3 dir="ltr">QB-Ledg</h3>
+              <p class="qb-head">كل ريال من العهدة له سجل</p>
+              <p>العهد النقدية من أكثر ما يسبب ضياع المبالغ والخلافات عند التسوية، وقد عشت هذه المشكلة بنفسي في إدارة المشتريات، فصنعت <bdi class="pn">QB-Ledg</bdi> لحلها. يسجّل كل عهدة وما صُرف منها، ويُخرج تقارير جاهزة للطباعة، فتصبح التسوية سهلة وواضحة للطرفين.</p>
+              
+            </div>
+            <div class="qb-info" data-name="QB-FLOW" hidden>
+              <h3 dir="ltr">QB-FLOW</h3>
+              <p class="qb-head">مطعمك أو شركتك في منصة واحدة</p>
+              <p>تتوزع أعمال المطاعم والشركات بين برامج كثيرة لا يتحدث بعضها مع بعض، فتضيع البيانات بينها ويضيع وقت الفريق في التنقل. يجمع <bdi class="pn">QB-FLOW</bdi> الإدارة ومركز الاتصال والعملاء وقائمة الطعام والاستقبال في منصة واحدة، لتصبح الصورة كاملة أمام الإدارة ويخدم الفريق العميل بسرعة أكبر.</p>
+              <p class="tags"><span>PHP</span><span>SQL</span><span>Docker</span><span>Nginx</span></p>
+            </div>
+            <div class="qb-info" data-name="QB-Dine" hidden>
+              <h3 dir="ltr">QB-Dine</h3>
+              <p class="qb-head">أبعد من قائمة طعام، أبعد من المألوف</p>
+              <p>منصة رقمية حديثة للمطاعم تغيّر طريقة عرض المنتجات، والتعامل مع العملاء، وتنظيم العمل اليومي. من قائمة الطعام الرقمية التفاعلية إلى واجهة الكاشير ولوحة الإدارة، يجمع <bdi class="pn">QB-Dine</bdi> أدوات المطعم الأساسية في تجربة واحدة مترابطة. لأن قائمة الطعام يجب أن تفعل أكثر من عرض المنتجات: يمنح <bdi class="pn">QB-Dine</bdi> عملاء المطعم تجربة رقمية جذابة، ويبسّط على فريقه العمل اليومي بتقنيات ويب حديثة وسهلة الوصول. منصة واحدة، تجربة أفضل، وتشغيل أذكى.</p>
+              <p class="tags"><span>PWA</span><span>QR</span></p>
+            </div>
+            <div class="qb-info" data-name="QB-Eligibility Pro" hidden>
+              <h3 dir="ltr">QB-Eligibility Pro</h3>
+              <p class="qb-head">اعرف أي بنك سيقبل عميلك قبل أن تقدّم الطلب</p>
+              <p>لكل بنك شروطه، وتقديم طلب عميل إلى بنك لن يقبله يضيّع أيامًا من الانتظار ويُضعف ثقة العميل. يقارن <bdi class="pn">QB-Eligibility Pro</bdi> بيانات العميل بشروط كل بنك ويعرض النتيجة فورًا، فتوجّه العميل إلى البنك المناسب من المرة الأولى.</p>
+              <p class="tags"><span>LocalStorage</span></p>
+            </div>
+            <div class="qb-info" data-name="QB-BluePulse" hidden>
+              <h3 dir="ltr">QB-BluePulse</h3>
+              <p class="qb-head">مسبح نظيف دائمًا، بلا مهام منسية</p>
+              <p>صيانة المسبح تعتمد على الانتظام، ومهمة منسية أو جرعة كيميائية خاطئة تعني مياهًا غير آمنة. يضع <bdi class="pn">QB-BluePulse</bdi> جدول صيانة شهريًا واضحًا، ويتابع ما أُنجز، ويحسب كميات المواد الكيميائية بدقة، وكل ذلك من الجوال.</p>
+              
+            </div>
+            <div class="qb-info" data-name="QB-Nexa" hidden>
+              <h3 dir="ltr">QB-Nexa</h3>
+              <p class="qb-head">اعرف ربح الصفقة قبل أن تعرضها</p>
+              <p>حساب صفقة تمويل سيارة يدويًا يتطلب أرقامًا كثيرة: سعر البنك، والضريبة، واللوحات، والكاش باك، والدعم، وأي خطأ صغير يضيّع الربح أو العميل. يحسب <bdi class="pn">QB-Nexa</bdi> كل ذلك في ثوانٍ، ويُظهر صافي الربح بوضوح، ويجهّز رسالة العرض للعميل جاهزة للإرسال، فيُغلق موظف المبيعات الصفقة أسرع وبثقة. استُخدم فعليًا في معرض سيارات.</p>
+              
+            </div>
+          </div>
+          <figure class="hl-card rack-card reveal">
+            <div class="hl-stage" data-figure="rack" aria-label="رسمة تفاعلية: خزانة مشاريع من ثمانية أدراج، على كل درج اسم مشروع من مشاريع QB"></div>
             <figcaption>
-              <b>خزانة أنظمة QB</b>
-              <span class="hl-read" aria-live="polite">مرّر المؤشر على الوحدات</span>
+              <b>خزانة مشاريع QB</b>
+              <span class="hl-read" aria-live="polite">اضغط على أي درج</span>
             </figcaption>
           </figure>
         </div>
 
         <div class="projects">
           <article class="project card reveal">
-            <img src="projects/sentinel.jpg" alt="شعار QB-Sentinel" width="64" height="64">
-            <h3 dir="ltr">QB-Sentinel</h3>
-            <p class="sub">وداعًا لأوراق التشغيل اليومية</p>
-            <p>بُني من واقع العمل في عصير تايم ليستبدل أوراق الفرع اليومية بتطبيق واحد على الجوال.</p>
-            <button type="button" class="link-btn" data-modal="m-sentinel">التفاصيل</button>
-            <template id="m-sentinel">
-              <p>في محلات العصائر تتراكم الأوراق كل يوم: كشوف الحضور، وسجلات الفحص والتنظيف، وتقارير نهاية اليوم، فتضيع المعلومة وتتأخر المتابعة. وُلد <bdi class="pn">QB-Sentinel</bdi> من واقع العمل في عصير تايم ليجمع كل ذلك في تطبيق واحد على الجوال؛ فيعرف المدير ما يحدث في الفرع أولًا بأول، ولا يفوته موعد تجديد إقامة أو عقد، وتبقى معايير الجودة موثّقة في كل وردية.</p>
+            <span class="mono" aria-hidden="true">NO</span>
+            <h3 dir="ltr">QB-Nomia</h3>
+            <p class="sub">محفظتك المالية في جيبك</p>
+            <p>الحسابات والاشتراكات والسلف تتوزع في أماكن كثيرة فتُنسى أو تتأخر.</p>
+            <button type="button" class="link-btn" data-modal="m-nomia">التفاصيل</button>
+            <template id="m-nomia">
+              <p>الحسابات والاشتراكات والسلف تتوزع في أماكن كثيرة فتُنسى أو تتأخر. يجمعها <bdi class="pn">QB-Nomia</bdi> في تطبيق واحد أنيق على الجوال، بتصميم هادئ بالأسود والرمادي والأبيض وإيماءات سحب سريعة، لتعرف وضعك المالي في لحظة.</p>
               <h4>المزايا</h4>
-              <ul><li>حضور وانصراف الموظفين، وتذكير بتجديد الإقامات والعقود.</li><li>سجلات فحص الفواكه، ومعايير المكونات، وتنظيف المعدات.</li><li>متابعة توفر المنتجات، وطلبات الاسترجاع، وتصنيع المواد الأولية.</li><li>تقرير نهاية اليوم، وسند صرف النقدية.</li></ul>
-              <p class="tags"><span>PWA</span><span>مفتوح المصدر</span></p>
-              <p><a class="btn btn-primary" href="https://github.com/0-bilal/QB-Sentinel/" target="_blank" rel="noopener">عرض المشروع</a></p>
+              <ul><li>إدارة الحسابات والمصاريف والاشتراكات والسلف.</li><li>هوية «Nomia Mono» وإيماءات سحب.</li><li>يعمل كتطبيق PWA وتطبيق أندرويد.</li></ul>
+              <p class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Capacitor</span></p>
             </template>
           </article>
 
           <article class="project card reveal">
-            <span class="mono" aria-hidden="true">KDS</span>
-            <h3 dir="ltr">QB-Prax</h3>
-            <p class="sub">طلبات المطبخ على الشاشة، بلا أجهزة استدعاء</p>
-            <p>يحوّل مطبخ المطعم إلى مطبخ رقمي دون تغيير نظام نقاط البيع.</p>
-            <button type="button" class="link-btn" data-modal="m-prax">التفاصيل</button>
-            <template id="m-prax">
-              <p>الفواتير المطبوعة وأجهزة الاستدعاء تُبطئ المطبخ في أوقات الذروة وتُربك ترتيب الطلبات. يحوّل <bdi class="pn">QB-Prax</bdi> المطعم الذي يعمل بنظام فوديكس إلى مطبخ رقمي دون تغيير نظام نقاط البيع: يلتقط الفاتورة لحظة طباعتها ويعرض الطلب على شاشة المطبخ تلقائيًا، فيعرف الفريق ما يجهّزه أولًا، ويقل الخطأ ووقت انتظار العميل.</p>
+            <span class="mono" aria-hidden="true">CO</span>
+            <h3 dir="ltr">QB-CooRbit</h3>
+            <p class="sub">كل مشاريعك وفروعك في لوحة واحدة</p>
+            <p>حين تدير أكثر من فرع أو مشروع، تضيع المتابعة بين المكالمات والرسائل.</p>
+            <button type="button" class="link-btn" data-modal="m-coorbit">التفاصيل</button>
+            <template id="m-coorbit">
+              <p>حين تدير أكثر من فرع أو مشروع، تضيع المتابعة بين المكالمات والرسائل. يعرض <bdi class="pn">QB-CooRbit</bdi> نظرة شاملة على المشاريع وآخر النشاطات وأعضاء الفريق، فتعرف ما يحدث في كل مكان دون أن تسأل.</p>
               <h4>المزايا</h4>
-              <ul><li>يلتقط بيانات الطباعة من طابعة Epson عبر الشبكة.</li><li>يعيد بناء صورة الفاتورة ويقرأ رقم الطلب بالتعرف الضوئي (OCR).</li><li>يعرض الطلبات تلقائيًا على شاشة المطبخ بدل أجهزة الاستدعاء.</li></ul>
-              <p class="tags"><span>Python</span><span>SQLite</span><span>OCR</span></p>
-            </template>
-          </article>
-
-          <article class="project card reveal">
-            <img src="projects/nexa.jpg" alt="شعار QB-Nexa" width="64" height="64">
-            <h3 dir="ltr">QB-Nexa</h3>
-            <p class="sub">اعرف ربح الصفقة قبل أن تعرضها</p>
-            <p>يحسب صفقة التمويل وصافي ربحها في ثوانٍ، واستُخدم فعليًا في معرض سيارات.</p>
-            <button type="button" class="link-btn" data-modal="m-nexa">التفاصيل</button>
-            <template id="m-nexa">
-              <p>حساب صفقة تمويل سيارة يدويًا يتطلب أرقامًا كثيرة: سعر البنك، والضريبة، واللوحات، والكاش باك، والدعم، وأي خطأ صغير يضيّع الربح أو العميل. يحسب <bdi class="pn">QB-Nexa</bdi> كل ذلك في ثوانٍ، ويُظهر صافي الربح بوضوح، ويجهّز رسالة العرض للعميل جاهزة للإرسال، فيُغلق موظف المبيعات الصفقة أسرع وبثقة. استُخدم فعليًا في معرض سيارات.</p>
-              <h4>المزايا</h4>
-              <ul><li>السعر المرفوع للبنك، والسعر شامل الضريبة.</li><li>رسوم اللوحات والخدمات.</li><li>نسب الكاش باك والدعم، وصافي الربح.</li><li>رسالة جاهزة للعميل، ومحفظة، وصندوق أدوات.</li></ul>
+              <ul><li>تسجيل دخول.</li><li>لوحة تحكم: نظرة عامة على المشاريع، وآخر النشاطات، وأعضاء الفريق.</li><li>صفحات للفروع والمشاريع.</li></ul>
               
             </template>
           </article>
 
           <article class="project card reveal">
-            <span class="mono" aria-hidden="true">LG</span>
-            <h3 dir="ltr">QB-Ledg</h3>
-            <p class="sub">كل ريال من العهدة له سجل</p>
-            <p>صُنع من تجربة إدارة المشتريات لضبط العهد النقدية وتسويتها بوضوح.</p>
-            <button type="button" class="link-btn" data-modal="m-ledg">التفاصيل</button>
-            <template id="m-ledg">
-              <p>العهد النقدية من أكثر ما يسبب ضياع المبالغ والخلافات عند التسوية، وقد عشت هذه المشكلة بنفسي في إدارة المشتريات، فصنعت <bdi class="pn">QB-Ledg</bdi> لحلها. يسجّل كل عهدة وما صُرف منها، ويُخرج تقارير جاهزة للطباعة، فتصبح التسوية سهلة وواضحة للطرفين.</p>
+            <span class="mono" aria-hidden="true">WMS</span>
+            <h3 dir="ltr">QB-WMS</h3>
+            <p class="sub">تتبّع كل حركة في مستودعك</p>
+            <p>في المستودع، كل صنف يدخل أو يخرج دون تسجيل هو خسارة محتملة.</p>
+            <button type="button" class="link-btn" data-modal="m-wms">التفاصيل</button>
+            <template id="m-wms">
+              <p>في المستودع، كل صنف يدخل أو يخرج دون تسجيل هو خسارة محتملة. يسجّل <bdi class="pn">QB-WMS</bdi> حركة الأصناف ووجهتها وتاريخها ويعرضها في لوحة واحدة، لتعرف أين ذهب كل شيء ومتى.</p>
               <h4>المزايا</h4>
-              <ul><li>إضافة العهد وتسجيل المصروفات عليها.</li><li>ملخص عام وتقرير لكل عهدة.</li><li>طباعة التقارير.</li></ul>
-              
-            </template>
-          </article>
-
-          <article class="project card reveal">
-            <span class="mono" aria-hidden="true">FL</span>
-            <h3 dir="ltr">QB-FLOW</h3>
-            <p class="sub">مطعمك أو شركتك في منصة واحدة</p>
-            <p>يجمع الإدارة ومركز الاتصال والعملاء وقائمة الطعام في منصة واحدة.</p>
-            <button type="button" class="link-btn" data-modal="m-flow">التفاصيل</button>
-            <template id="m-flow">
-              <p>تتوزع أعمال المطاعم والشركات بين برامج كثيرة لا يتحدث بعضها مع بعض، فتضيع البيانات بينها ويضيع وقت الفريق في التنقل. يجمع <bdi class="pn">QB-FLOW</bdi> الإدارة ومركز الاتصال والعملاء وقائمة الطعام والاستقبال في منصة واحدة، لتصبح الصورة كاملة أمام الإدارة ويخدم الفريق العميل بسرعة أكبر.</p>
-              <h4>المزايا</h4>
-              <ul><li>لوحة إدارة.</li><li>مركز اتصال.</li><li>إدارة العملاء.</li><li>قائمة طعام إلكترونية.</li><li>الاستقبال.</li></ul>
-              <p class="tags"><span>PHP</span><span>SQL</span><span>Docker</span><span>Nginx</span></p>
-            </template>
-          </article>
-
-          <article class="project card reveal">
-            <span class="mono" aria-hidden="true">EP</span>
-            <h3 dir="ltr">QB-Eligibility Pro</h3>
-            <p class="sub">اعرف أي بنك سيقبل عميلك قبل أن تقدّم الطلب</p>
-            <p>يقارن بيانات العميل بشروط كل بنك ليوجّهه إلى البنك المناسب من المرة الأولى.</p>
-            <button type="button" class="link-btn" data-modal="m-eligibility">التفاصيل</button>
-            <template id="m-eligibility">
-              <p>لكل بنك شروطه، وتقديم طلب عميل إلى بنك لن يقبله يضيّع أيامًا من الانتظار ويُضعف ثقة العميل. يقارن <bdi class="pn">QB-Eligibility Pro</bdi> بيانات العميل بشروط كل بنك ويعرض النتيجة فورًا، فتوجّه العميل إلى البنك المناسب من المرة الأولى.</p>
-              <h4>المزايا</h4>
-              <ul><li>قائمة بنوك ومحرّر لشروط كل بنك وقواعده.</li><li>إدخال بيانات العميل وحقول مخصصة.</li><li>عرض النتائج فورًا، والبيانات محفوظة على الجهاز.</li></ul>
-              <p class="tags"><span>LocalStorage</span></p>
+              <ul><li>لوحة تحكم لحركة الأصناف.</li><li>اسم الصنف، ونوع الحركة، والوجهة، والتاريخ.</li></ul>
+              <p class="tags"><span>Laravel</span><span>Vue</span></p>
             </template>
           </article>
         </div>
@@ -398,11 +408,11 @@
     <div class="modal-body" id="modal-body"></div>
   </dialog>
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=12"></script>
   <script src="hairline/kernel.js?v=1"></script>
-  <script src="hairline/mount.js?v=1"></script>
+  <script src="hairline/mount.js?v=2"></script>
   <script type="module" src="hairline/saudi.js?v=1"></script>
   <script type="module" src="hairline/ladder.js?v=1"></script>
-  <script type="module" src="hairline/rack.js?v=1"></script>
+  <script type="module" src="hairline/rack.js?v=3"></script>
 </body>
 </html>
