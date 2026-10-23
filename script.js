@@ -100,35 +100,52 @@ const PHONE_DISPLAY = "+966 53 838 1612";
   // الكتابة الحيّة: يُكتب النص حرفًا حرفًا كأنه يُكتب أمام الزائر
   const typers = [];
   let instant = reduceMotion; // يصبح true عند الطباعة لإظهار كل شيء فورًا
-  const typeInto = (el, speed = 16) => new Promise((resolve) => {
+  // prepareType يُفرغ النص فورًا ويحجز مكانه، ويعيد دالة تبدأ الكتابة.
+  // نُفرغ كل الفقرات أولًا ثم نكتبها بالترتيب، حتى لا تظهر فقرة ثم تختفي ثم تُكتب.
+  const prepareType = (el, speed = 16) => {
     const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
     const nodes = [];
     while (walker.nextNode()) nodes.push([walker.currentNode, walker.currentNode.data]);
-    const finish = () => { nodes.forEach(([n, t]) => (n.data = t)); el.classList.remove("typing"); el.style.minHeight = ""; resolve(); };
-    if (instant) return finish();
+    let done = false, resolveRun = () => {};
+    const finish = () => { done = true; nodes.forEach(([n, t]) => (n.data = t)); el.classList.remove("typing"); el.style.minHeight = ""; resolveRun(); };
+    if (instant) { finish(); return () => Promise.resolve(); }
     el.style.minHeight = el.getBoundingClientRect().height + "px";
     nodes.forEach(([n]) => (n.data = ""));
-    el.classList.add("typing");
-    let ni = 0, ci = 0, done = false;
-    typers.push(() => { if (!done) { done = true; finish(); } });
+    typers.push(() => { if (!done) finish(); });
+    return () => new Promise((resolve) => {
+      resolveRun = resolve;
+      if (done) return resolve();
+      el.classList.add("typing");
+      typeLoop(nodes, speed, () => done, finish);
+    });
+  };
+  const typeLoop = (nodes, speed, isDone, finish) => {
+    let ni = 0, ci = 0;
     const tick = () => {
-      if (done) return;
+      if (isDone()) return;
       while (ni < nodes.length && ci >= nodes[ni][1].length) { ni++; ci = 0; }
-      if (ni >= nodes.length) { done = true; return finish(); }
+      if (ni >= nodes.length) return finish();
       const [n, t] = nodes[ni];
       ci = Math.min(t.length, ci + (t[ci] === " " ? 2 : 1));
       n.data = t.slice(0, ci);
       setTimeout(tick, speed);
     };
     tick();
-  });
-  const typeChips = async (list, speed = 22) => {
+  };
+  const typeInto = (el, speed) => prepareType(el, speed)();
+  // التصنيفات لا تُكتب: تظهر واحدة تلو الأخرى فقط
+  const typeChips = async (list, gap = 140) => {
     if (list.dataset.typed) return;
     list.dataset.typed = "1";
     const items = [...list.children];
     if (instant) return items.forEach((li) => li.classList.remove("waiting"));
     items.forEach((li) => li.classList.add("waiting"));
-    for (const li of items) { li.classList.remove("waiting"); await typeInto(li, speed); }
+    for (const li of items) {
+      if (instant) break;
+      li.classList.remove("waiting");
+      await new Promise((r) => setTimeout(r, gap));
+    }
+    items.forEach((li) => li.classList.remove("waiting"));
   };
   const whenVisible = (el, fn) => {
     if (!("IntersectionObserver" in window)) return fn();
@@ -176,7 +193,8 @@ const PHONE_DISPLAY = "+966 53 838 1612";
       btn.textContent = open ? "إخفاء" : label;
       if (open && btn.hasAttribute("data-type-more") && !panel.dataset.typed) {
         panel.dataset.typed = "1";
-        (async () => { for (const para of panel.querySelectorAll("p")) await typeInto(para, 12); })();
+        const runs = [...panel.querySelectorAll("p")].map((para) => prepareType(para, 12));
+        (async () => { for (const run of runs) await run(); })();
       }
     });
   });
@@ -189,7 +207,7 @@ const PHONE_DISPLAY = "+966 53 838 1612";
       t.setAttribute("aria-selected", String(on));
       document.getElementById(t.dataset.tab).hidden = !on;
     });
-    typeChips(document.getElementById(tab.dataset.tab), 14);
+    typeChips(document.getElementById(tab.dataset.tab), 90);
   }));
 
   // نافذة تفاصيل المشاريع
