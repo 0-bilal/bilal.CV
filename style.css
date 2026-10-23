@@ -381,6 +381,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   .actions { margin-inline-start: auto; }
 }
 @media (max-width: 560px) {
+  .tabs { flex-wrap: wrap; overflow: visible; }
   body { font-size: 15px; }
   .brand-name { font-size: 15px; }
   .hero { padding: 48px 0 40px; }
@@ -396,6 +397,8 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 /* ===== الطباعة: سيرة ذاتية كاملة ===== */
 @media print {
   @page { size: A4; margin: 14mm; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .chips li { opacity: 1 !important; }
   body { font-size: 12.5px; line-height: 1.6; }
   .topbar, .hero-cta, .link-btn, .tabs, .contact-card, .footer, .modal, .hero::before, .cert-summary .btn { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
@@ -416,3 +419,11 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   .marquee-track .clone { display: none; }
 }
 .pn { white-space: nowrap; direction: ltr; unicode-bidi: isolate; }
+
+/* شاشات صغيرة جدًا (320px) */
+@media (max-width: 380px) {
+  .topbar-inner { gap: 10px; padding: 10px 14px; }
+  .brand { gap: 8px; }
+  .brand-name { font-size: 14px; }
+  .btn-sm { padding: 6px 10px; }
+}
