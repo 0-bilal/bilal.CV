@@ -194,15 +194,11 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .hl-read { color: var(--muted); font-size: 13px; transition: color .25s; }
 .hl-read.on { color: var(--accent); font-weight: 700; }
 /* الخريطة: قائمة المناطق بجانبها على الشاشات الكبيرة */
-.regions-card { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px 22px; align-items: center; margin-bottom: 16px; }
+.regions-card { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px 22px; align-items: center; margin-bottom: 26px; }
 .regions-card .regions { flex-direction: column; align-items: flex-start; margin: 0; }
 .regions-card .regions ul { flex-direction: column; }
 .regions-card .hl-stage { max-width: 560px; }
 .regions-card figcaption { grid-column: 1 / -1; }
-/* السلّم: مستطيل عريض يُظهر من الرسمة الشريط y 65–255؛ وعلى الجوال تُكبَّر الرسمة ويُقص جانباها الفارغان */
-.ladder-card { margin-bottom: 26px; }
-.hl-strip { position: relative; overflow: hidden; aspect-ratio: 400 / 190; }
-.hl-strip .hl-stage { position: absolute; top: 0; left: 0; width: 100%; max-width: none; margin: calc(-65 / 400 * 100%) 0 0; }
 .hl-stage text { fill: #4a5866; font-family: "IBM Plex Sans Arabic", sans-serif; font-weight: 600; transition: fill .26s; }
 .hl-stage text.hi { fill: var(--accent); }
 .proj-top { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: center; margin-bottom: 22px; }
@@ -416,8 +412,6 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 @media (max-width: 760px) {
   .regions-card { grid-template-columns: 1fr; }
   .regions-card .regions ul { flex-direction: row; }
-  .hl-strip { aspect-ratio: 267 / 190; }
-  .hl-strip .hl-stage { width: 150%; left: -25%; margin-top: calc(-65 / 400 * 150%); }
   .menu-btn { display: block; }
   .nav {
     position: absolute; top: 100%; inset-inline: 0; margin: 0;
