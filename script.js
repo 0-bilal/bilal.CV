@@ -12,6 +12,14 @@ const PHONE_DISPLAY = "+966 53 838 1612";
   });
   document.querySelectorAll(".phone-text").forEach((el) => (el.textContent = PHONE_DISPLAY));
 
+  // العمر الحالي من تاريخ الميلاد
+  document.querySelectorAll("[data-birth]").forEach((el) => {
+    const birth = new Date(el.dataset.birth + "T00:00:00"), now = new Date();
+    let age = now.getFullYear() - birth.getFullYear();
+    if (now.getMonth() < birth.getMonth() || (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate())) age--;
+    el.textContent = `(العمر ${age} ${age >= 3 && age <= 10 ? "سنوات" : "سنة"})`;
+  });
+
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
