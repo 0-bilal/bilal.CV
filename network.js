@@ -1,5 +1,6 @@
 // شبكة العلاقات: رسم على شكل شبكة عصبية. في المركز صاحب السيرة، حوله المجالات،
-// وحول كل مجال الجهات التي فيه. البيانات في عنصر <script type="application/json" id="network-data">.
+// وحول كل مجال الجهات التي تواصل مع مسؤوليها. البيانات في عنصر
+// <script type="application/json" id="network-data">: [{ label, names: [{ n: الجهة, c: [المدن] }] }]
 (function () {
   const root = document.getElementById("network");
   const dataEl = document.getElementById("network-data");
@@ -11,6 +12,9 @@
   const tip = root.querySelector(".net-tip");
   const panel = root.querySelector(".net-panel");
   const defaultPanel = panel.innerHTML;
+  const esc = (t) => String(t).replace(/[<>&"]/g, (ch) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[ch]));
+  const who = (e) => "مسؤول في " + e.n;
+  const where = (e) => e.c.join("، ");
   const el = (tag, attrs, parent) => {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -56,7 +60,7 @@
         const qx = (hx + x) / 2 + (rnd() - 0.5) * 24, qy = (hy + y) / 2 + (rnd() - 0.5) * 24;
         const twig = el("path", { d: `M${hx},${hy} Q${qx},${qy} ${x},${y}`, class: "net-twig" }, gEdges);
         const leaf = el("circle", { cx: x, cy: y, r: small ? 4 : 3.6, class: "net-leaf", tabindex: "-1" }, gNodes);
-        leaf.dataset.name = name; leaf.dataset.cat = ci;
+        leaf.dataset.name = who(name) + (name.c.length ? " — " + where(name) : ""); leaf.dataset.cat = ci;
         hub.leaves.push(leaf); hub.twigs.push(twig);
         edges.push({ path: twig, hub: ci, main: false });
       });
@@ -66,7 +70,7 @@
     // المجالات فوق الجهات، والمركز فوق الجميع
     hubs.forEach((h) => {
       const cat = CATS[h.ci];
-      const g = el("g", { class: "net-hub", tabindex: "0", role: "button", "aria-label": `${cat.label}: ${cat.names.length} جهة` }, gNodes);
+      const g = el("g", { class: "net-hub", tabindex: "0", role: "button", "aria-label": `${cat.label}: مسؤولون في ${cat.names.length} جهة` }, gNodes);
       el("circle", { cx: h.x, cy: h.y, r: small ? 30 : 27, class: "net-hub-ring" }, g);
       el("text", { x: h.x, y: h.y + 1, class: "net-hub-num", "text-anchor": "middle", "dominant-baseline": "central" }, g).textContent = cat.names.length;
       // اسم المجال خارج الدائرة، بعيدًا عن المركز
@@ -121,7 +125,8 @@
       h.leaves.forEach((l) => l.classList.toggle("on", on));
     });
     const cat = CATS[ci];
-    panel.innerHTML = `<h3>${cat.label} <span>${cat.names.length} جهة</span></h3><ul class="net-names">${cat.names.map((n) => `<li>${n.replace(/[<>&]/g, "")}</li>`).join("")}</ul>`;
+    panel.innerHTML = `<h3>${esc(cat.label)} <span>تواصل مع مسؤولين في ${cat.names.length} جهة</span></h3><ul class="net-names">${cat.names
+      .map((e) => `<li>${esc(who(e))}${e.c.length ? `<small>${esc(where(e))}</small>` : ""}</li>`).join("")}</ul>`;
     if (!silent) for (let k = 0; k < 4; k++) spawn(ci);
   }
   root.addEventListener("mouseleave", () => {
