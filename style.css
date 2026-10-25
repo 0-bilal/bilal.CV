@@ -214,6 +214,32 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .qb-tip::before { content: "← "; color: var(--accent-2); }
 .qb-info.show { animation: intro-up .5s cubic-bezier(.2, .7, .2, 1) both; }
 
+/* شهادة الخبرة والإنجازات في بطاقة عصير تايم */
+.verified {
+  display: inline-flex; align-items: center; gap: 6px; margin: 0 0 10px; padding: 3px 12px 3px 10px;
+  border-radius: 999px; background: #e9f6ef; color: #1f7a4d; font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.verified::before { content: "✓"; font-weight: 700; }
+.verified:hover { background: #dcf1e5; }
+.achievements { margin: 14px 0 4px; }
+.achievements h4 { margin: 0 0 8px; font-size: 15px; color: var(--accent); }
+.achievements h4 small { font-weight: 400; color: var(--muted); font-size: 12px; margin-inline-start: 6px; }
+.ach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.ach { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px; padding: 10px 8px; text-align: center; }
+.ach b { display: block; font-size: 24px; color: var(--accent); line-height: 1.2; direction: ltr; }
+.ach span { font-size: 13px; color: var(--muted); }
+.achievements ul { margin: 10px 0 0; padding-inline-start: 20px; font-size: 15px; }
+.recommend { margin: 14px 0 6px; padding: 12px 16px; border-inline-start: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+.recommend p { margin: 0; font-weight: 600; }
+.recommend cite { display: block; margin-top: 4px; font-style: normal; font-size: 13px; color: var(--muted); }
+/* بطاقة شهادة الخبرة في قسم الشهادات */
+.exp-cert { display: grid; grid-template-columns: 220px 1fr; gap: 18px; align-items: center; text-decoration: none; color: inherit; margin-bottom: 14px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.exp-cert:hover { transform: translateY(-3px); border-color: var(--accent-2); box-shadow: 0 12px 26px rgba(23, 32, 43, .09); }
+.exp-cert img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+.exp-cert h3 { font-size: 18px; margin: 6px 0 4px; }
+.exp-cert p { margin: 0 0 6px; color: var(--muted); font-size: 15px; }
+.cert-exp { border-color: var(--accent-2); }
+
 /* ===== المهارات ===== */
 .feature { border-inline-start: 4px solid var(--accent); background: linear-gradient(90deg, #fff, var(--accent-soft)); }
 .feature h3 { color: var(--accent); margin-bottom: 6px; font-size: 18px; }
@@ -426,6 +452,8 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   .actions { margin-inline-start: auto; }
 }
 @media (max-width: 560px) {
+  .ach-grid { grid-template-columns: 1fr 1fr; }
+  .exp-cert { grid-template-columns: 1fr; }
   .tabs { flex-wrap: wrap; overflow: visible; }
   body { font-size: 15px; }
   .brand-name { font-size: 15px; }
