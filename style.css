@@ -301,6 +301,47 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .link-btn.arrow::after { content: "←"; transform: none; }
 .tab small { font-size: 12px; opacity: .7; margin-inline-start: 4px; }
 
+/* ===== شبكة العلاقات المهنية ===== */
+.net { position: relative; padding: 8px 12px 16px; overflow: hidden; background: radial-gradient(ellipse at center, #f2f6fb 0%, #fff 70%); }
+.net-svg svg { width: 100%; height: auto; display: block; }
+.net-spine { fill: none; stroke: #c3cfdd; stroke-width: 2; transition: stroke .3s, stroke-width .3s, opacity .3s; }
+.net-twig { fill: none; stroke: #e2e8f0; stroke-width: 1; transition: stroke .3s, opacity .3s; }
+.net-leaf { fill: #b4c1d0; transition: fill .25s, opacity .3s, r .25s; cursor: default; }
+.net-leaf.hover, .net-leaf.fire { fill: var(--accent); r: 6; }
+.net.focused .net-twig:not(.on), .net.focused .net-leaf:not(.on), .net.focused .net-spine:not(.on) { opacity: .3; }
+.net-spine.on { stroke: var(--accent-2); stroke-width: 3; }
+.net-twig.on { stroke: #a9c1dc; }
+.net-leaf.on { fill: var(--accent-2); }
+.net-hub { cursor: pointer; outline: none; }
+.net-hub-ring { fill: #fff; stroke: var(--accent-2); stroke-width: 2; transition: fill .25s, stroke .25s; }
+.net-hub:hover .net-hub-ring, .net-hub:focus-visible .net-hub-ring, .net-hub.on .net-hub-ring { fill: var(--accent); stroke: var(--accent); }
+.net-hub-num { font: 700 16px "IBM Plex Sans", sans-serif; fill: var(--accent); transition: fill .25s; }
+.net-hub:hover .net-hub-num, .net-hub:focus-visible .net-hub-num, .net-hub.on .net-hub-num { fill: #fff; }
+.net-hub-label { font: 600 15px "IBM Plex Sans Arabic", sans-serif; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 5px; stroke-linejoin: round; }
+.net-hub.on .net-hub-label { fill: var(--accent); }
+.net.small .net-hub-num { font-size: 22px; }
+.net.small .net-hub-label { font-size: 20px; }
+.net-core-halo { fill: var(--accent-soft); transform-origin: center; transform-box: fill-box; animation: halo 3.2s ease-in-out infinite; }
+.net-core-ring { fill: var(--accent); }
+.net-core-name { fill: #fff; font: 700 17px "IBM Plex Sans Arabic", sans-serif; }
+.net-core-sub { fill: #cfe0f2; font: 500 13px "IBM Plex Sans Arabic", sans-serif; }
+.net.small .net-core-name { font-size: 22px; }
+.net.small .net-core-sub { font-size: 17px; }
+.net-pulse { fill: var(--accent-2); filter: drop-shadow(0 0 4px rgba(47, 111, 176, .85)); pointer-events: none; }
+@keyframes halo { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.12); opacity: .5; } }
+.net-tip {
+  position: absolute; z-index: 2; transform: translate(-50%, calc(-100% - 8px)); pointer-events: none; white-space: nowrap;
+  background: var(--accent); color: #fff; padding: 3px 10px; border-radius: 8px; font-size: 13px; font-weight: 600;
+}
+.net-panel { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 12px; min-height: 96px; }
+.net-panel h3 { font-size: 17px; color: var(--accent); }
+.net-panel h3 span { font-size: 13px; color: var(--muted); font-weight: 500; margin-inline-start: 6px; }
+.net-stats { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 6px; }
+.net-stats b { font-size: 26px; color: var(--accent); margin-inline-end: 6px; }
+.net-hint { margin: 0; color: var(--muted); font-size: 14px; }
+.net-names { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 10px 0 0; max-height: 210px; overflow: auto; }
+.net-names li { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--bg-alt); border: 1px solid var(--line); animation: pop .3s ease both; }
+
 /* ===== الشهادات (الملخص) ===== */
 .cert-summary p { margin: 0 0 16px; }
 .bars { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 10px; }
@@ -416,6 +457,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
   html { scroll-behavior: auto; }
   .reveal, .more, .bars i::after { transition: none; }
   .chips li, .modal[open], .qb-info.show { animation: none; }
+  .net-core-halo, .net-names li { animation: none; }
   .intro, .intro-pop, .hero-name .word { animation: none; }
   .hero-name::after { animation: none; width: 96px; }
   .regions li, .job.reveal .steps li { opacity: 1; animation: none !important; }
