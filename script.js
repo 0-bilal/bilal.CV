@@ -19,6 +19,20 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     a.href = a.getAttribute("href").replace(/CV-(AR|EN)\.pdf/, `CV-${lang}.pdf`);
   });
 
+  // قائمة «تحميل PDF»: خياران (السيرة المصممة ونسخة ATS)، تُغلق بالاختيار أو Esc أو الضغط خارجها
+  document.querySelectorAll("[data-cv-toggle]").forEach((btn) => {
+    const menu = document.getElementById(btn.getAttribute("aria-controls"));
+    const set = (open) => { menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
+    btn.addEventListener("click", () => {
+      set(menu.hidden);
+      if (!menu.hidden) menu.querySelector("a").focus();
+    });
+    // يُغلق بعد بدء التحميل، لا قبله
+    menu.addEventListener("click", (e) => { if (e.target.closest("a")) setTimeout(() => set(false), 0); });
+    document.addEventListener("click", (e) => { if (!menu.hidden && !btn.parentElement.contains(e.target)) set(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { set(false); btn.focus(); } });
+  });
+
   // روابط الجوال وواتساب
   document.querySelectorAll("[data-phone-link]").forEach((a) => {
     a.href = a.dataset.phoneLink === "whatsapp" ? `https://wa.me/${PHONE}` : `tel:+${PHONE}`;

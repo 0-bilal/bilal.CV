@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -48,7 +48,14 @@
         <div class="hero-cta intro" style="--d: 1.65s">
           <a class="btn btn-primary" href="#experience">استعرض خبراتي</a>
           <a class="btn btn-ghost" href="#contact">تواصل معي</a>
-          <a class="btn btn-ghost" href="cv/Bilal-Zakaria-AlKhawaja-CV-AR.pdf?v=1.29" download data-cv>تحميل PDF</a>
+          <!-- زر «تحميل PDF»: يفتح خيارين، السيرة المصممة أو نسخة ATS -->
+          <div class="cv-menu">
+            <button type="button" class="btn btn-ghost" aria-expanded="false" aria-controls="cv-options" data-cv-toggle>تحميل PDF <span class="caret" aria-hidden="true">▾</span></button>
+            <div class="cv-options" id="cv-options" hidden>
+              <a href="cv/Bilal-Zakaria-AlKhawaja-CV-AR.pdf?v=1.30" download data-cv><b>السيرة الذاتية</b><small>تصميم احترافي في صفحة واحدة مع رمز QR للموقع</small></a>
+              <a href="cv/Bilal-Zakaria-AlKhawaja-ATS-CV-AR.pdf?v=1.30" download data-cv><b>نسخة ATS</b><small>نص بسيط بعمود واحد تقرؤه أنظمة فرز السير الذاتية في الشركات</small></a>
+            </div>
+          </div>
         </div>
         <div class="stats">
           <div class="stat intro-pop" style="--d: 1.85s"><b data-count="years" data-delay="1900">0</b><span>سنوات خبرة</span></div>
@@ -426,7 +433,7 @@
   <footer class="footer">
     <div class="wrap">
       <span>© <span id="year">2026</span> بلال زكريا الخواجة</span>
-      <span class="ver">الإصدار <b dir="ltr">v1.29</b> · آخر تحديث <time datetime="2026-10-26">26 أكتوبر 2026</time></span>
+      <span class="ver">الإصدار <b dir="ltr">v1.30</b> · آخر تحديث <time datetime="2026-10-26">26 أكتوبر 2026</time></span>
       <a href="#home">العودة للأعلى ↑</a>
     </div>
   </footer>
@@ -440,7 +447,7 @@
     <div class="modal-body" id="modal-body"></div>
   </dialog>
 
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=18"></script>
   <script src="network.js?v=3"></script>
   <script src="hairline/kernel.js?v=1"></script>
   <script src="hairline/mount.js?v=2"></script>
