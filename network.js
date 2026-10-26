@@ -15,8 +15,8 @@
   const esc = (t) => String(t).replace(/[<>&"]/g, (ch) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[ch]));
   const EN = document.documentElement.lang === "en";
   const T = EN
-    ? { who: "Decision-maker at ", sep: ", ", title: "Professional network", hub: (n) => `decision-makers at ${n} organizations`, panel: (n) => `In touch with decision-makers at ${n} organizations`, core: ["M. Bilal", "Al-Khawaja"] }
-    : { who: "مسؤول في ", sep: "، ", title: "شبكة العلاقات المهنية", hub: (n) => `مسؤولون في ${n} جهة`, panel: (n) => `تواصل مع مسؤولين في ${n} جهة`, core: ["محمد بلال", "الخواجة"] };
+    ? { who: "Decision-maker at ", sep: ", ", title: "Professional network", hub: (n) => `decision-makers at ${n} organizations`, panel: (n) => `In touch with decision-makers at ${n} organizations`, core: ["Bilal", "Al-Khawaja"] }
+    : { who: "مسؤول في ", sep: "، ", title: "شبكة العلاقات المهنية", hub: (n) => `مسؤولون في ${n} جهة`, panel: (n) => `تواصل مع مسؤولين في ${n} جهة`, core: ["بلال زكريا", "الخواجة"] };
   const who = (e) => T.who + e.n;
   const where = (e) => e.c.join(T.sep);
   const el = (tag, attrs, parent) => {

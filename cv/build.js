@@ -5,8 +5,8 @@ const path = require("path");
 const { chromium } = require(process.env.PLAYWRIGHT_PATH || "playwright");
 
 const files = [
-  ["cv-ar.html", "Mohammad-Bilal-AlKhawaja-CV-AR.pdf"],
-  ["cv-en.html", "Mohammad-Bilal-AlKhawaja-CV-EN.pdf"],
+  ["cv-ar.html", "Bilal-Zakaria-AlKhawaja-CV-AR.pdf"],
+  ["cv-en.html", "Bilal-Zakaria-AlKhawaja-CV-EN.pdf"],
 ];
 
 (async () => {
