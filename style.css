@@ -106,7 +106,23 @@ a.lang-btn { display: inline-block; text-decoration: none; line-height: 1.4; }
 .name-en { margin: 4px 0 0; color: var(--muted); font-size: 15px; letter-spacing: .4px; }
 .hero-welcome { margin: 16px auto 0; font-size: 17px; color: var(--muted); max-width: 600px; line-height: 1.9; text-wrap: balance; }
 .hero-welcome b { display: block; color: var(--ink); font-size: 19px; font-weight: 600; }
-.hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+.hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; position: relative; z-index: 5; }
+/* قائمة «تحميل PDF» بخياريها */
+.cv-menu { position: relative; }
+.cv-menu .caret { font-size: 11px; margin-inline-start: 4px; display: inline-block; transition: transform .2s; }
+.cv-menu [aria-expanded="true"] .caret { transform: rotate(180deg); }
+.cv-options {
+  position: absolute; z-index: 20; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  width: 290px; max-width: calc(100vw - 32px); padding: 6px; text-align: start;
+  background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 32px rgba(23, 32, 43, .16);
+  animation: cv-in .18s ease both;
+}
+@keyframes cv-in { from { opacity: 0; transform: translate(-50%, 6px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.cv-options a { display: block; padding: 10px 12px; border-radius: 10px; text-decoration: none; color: var(--ink); }
+.cv-options a + a { margin-top: 2px; }
+.cv-options a:hover, .cv-options a:focus-visible { background: var(--accent-soft); outline: none; }
+.cv-options b { display: block; color: var(--accent); font-size: 15px; }
+.cv-options small { display: block; color: var(--muted); font-size: 13px; line-height: 1.5; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 40px auto 0; max-width: 760px; }
 .stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 8px; box-shadow: var(--shadow); }
 .stat b { display: block; font-size: 30px; font-weight: 700; color: var(--accent); line-height: 1.2; direction: ltr; }
