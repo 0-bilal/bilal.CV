@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=21">
+  <link rel="stylesheet" href="style.css?v=22">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -207,18 +207,17 @@
           <p data-type>أحب ملاحظة الأخطاء وإيجاد حلول لها، وهي أكثر ما أجيده: أباشر العمل بيدي، وأكتشف مواطن الخلل فيه، ثم أبتكر طريقة أفضل لأدائه، سواء كانت المشكلة برمجية أو على أرض الواقع.</p>
         </div>
 
-        <div class="card reveal skill-groups">
-          <div class="sk-group">
-            <h3 class="sk-title">الإدارة والتشغيل</h3>
+        <div class="skill-cards">
+          <article class="sk-card reveal">
+            <header class="sk-head"><span class="sk-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><div><h3 class="sk-title">الإدارة والتشغيل</h3><small>6 مهارات</small></div></header>
             <div class="marquee skills"><ul class="marquee-track"><li>إدارة الفروع والتشغيل اليومي</li><li>تطوير آليات التحضير وعمليات المتاجر والمطاعم</li><li>رفع الطاقة الاستيعابية</li><li>إدارة المشتريات وضبط التكاليف</li><li>التدريب وتأهيل الموظفين</li><li>قيادة فرق العمل</li></ul></div>
-          </div>
-          <div class="sk-group">
-            <h3 class="sk-title">المبيعات والعملاء</h3>
+          </article>
+          <article class="sk-card reveal">
+            <header class="sk-head"><span class="sk-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><div><h3 class="sk-title">المبيعات والعملاء</h3><small>4 مهارات</small></div></header>
             <div class="marquee skills rev"><ul class="marquee-track"><li>خدمة العملاء والتواصل الفعّال</li><li>نقاط البيع والمدفوعات</li><li>المبيعات والتسويق</li><li>مبادئ المحاسبة المالية</li></ul></div>
-          </div>
-          <div class="sk-group tech-panel" id="sk-tech">
-            <h3 class="sk-title">التقنية والبرامج</h3>
-            <p class="apps-hint">اضغط على أي برنامج لتعرف كيف أستخدمه.</p>
+          </article>
+          <article class="sk-card wide reveal tech-panel" id="sk-tech">
+            <header class="sk-head"><span class="sk-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><div><h3 class="sk-title">التقنية والبرامج</h3><small>اضغط على أي برنامج لتعرف كيف أستخدمه</small></div></header>
             <div class="marquee apps">
               <ul class="marquee-track"><li class="app" tabindex="0" role="button" data-name="Microsoft Excel" data-use="جداول وتقارير وتحليل بيانات · إتقان" aria-label="Microsoft Excel: جداول وتقارير وتحليل بيانات · إتقان"><img src="icons/microsoftexcel.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Microsoft Word" data-use="كتابة المستندات والتقارير" aria-label="Microsoft Word: كتابة المستندات والتقارير"><img src="icons/microsoftword.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Sheets" data-use="جداول مشتركة وتقارير للفريق" aria-label="Google Sheets: جداول مشتركة وتقارير للفريق"><img src="icons/googlesheets.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Docs" data-use="مستندات مشتركة" aria-label="Google Docs: مستندات مشتركة"><img src="icons/googledocs.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Forms" data-use="نماذج واستبيانات" aria-label="Google Forms: نماذج واستبيانات"><img src="icons/googleforms.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Drive" data-use="تخزين الملفات ومشاركتها" aria-label="Google Drive: تخزين الملفات ومشاركتها"><img src="icons/googledrive.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Cloud" data-use="خدمات جوجل السحابية" aria-label="Google Cloud: خدمات جوجل السحابية"><img src="icons/googlecloud.svg" alt="" width="26" height="26" loading="lazy"></li></ul>
             </div>
@@ -226,11 +225,7 @@
               <ul class="marquee-track"><li class="app" tabindex="0" role="button" data-name="Figma" data-use="تصميم الواجهات" aria-label="Figma: تصميم الواجهات"><img src="icons/figma.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Canva" data-use="تصميم المنشورات والمطبوعات" aria-label="Canva: تصميم المنشورات والمطبوعات"><img src="icons/canva.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="GitHub" data-use="إدارة مشاريع برمجيات QB" aria-label="GitHub: إدارة مشاريع برمجيات QB"><img src="icons/github.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="VS Code" data-use="كتابة الأكواد وتطوير الأنظمة" aria-label="VS Code: كتابة الأكواد وتطوير الأنظمة"><img src="icons/visualstudiocode.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Ads" data-use="حملات الدعاية والإعلان" aria-label="Google Ads: حملات الدعاية والإعلان"><img src="icons/googleads.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Meta Business Suite" data-use="إدارة الأنشطة التجارية والحملات الإعلانية (مدير الإعلانات)" aria-label="Meta Business Suite: إدارة الأنشطة التجارية والحملات الإعلانية (مدير الإعلانات)"><img src="icons/meta.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Facebook" data-use="إدارة صفحات الأنشطة التجارية والإعلانات" aria-label="Facebook: إدارة صفحات الأنشطة التجارية والإعلانات"><img src="icons/facebook.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Instagram" data-use="حسابات الأعمال والمحتوى والإعلانات" aria-label="Instagram: حسابات الأعمال والمحتوى والإعلانات"><img src="icons/instagram.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="WhatsApp Business" data-use="التواصل مع العملاء والكتالوج والرسائل التلقائية" aria-label="WhatsApp Business: التواصل مع العملاء والكتالوج والرسائل التلقائية"><img src="icons/whatsapp.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Maps" data-use="إدارة الأنشطة التجارية · إتقان عالٍ" aria-label="Google Maps: إدارة الأنشطة التجارية · إتقان عالٍ"><img src="icons/googlemaps.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Business Profile" data-use="إدارة ملفات الأنشطة التجارية" aria-label="Google Business Profile: إدارة ملفات الأنشطة التجارية"><img src="icons/googlemybusiness.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Foodics" data-use="إدارة نقاط البيع في المطاعم" aria-label="Foodics: إدارة نقاط البيع في المطاعم"><span class="txt-icon" aria-hidden="true">f</span></li></ul>
             </div>
             <div class="app-tip" role="tooltip" hidden></div>
-          </div>
-          <div class="sk-group">
-            <h3 class="sk-title">الهوايات</h3>
-            <div class="marquee skills"><ul class="marquee-track"><li>التصوير الفوتوغرافي وتحرير الصور</li></ul></div>
-          </div>
+          </article>
         </div>
       </div>
     </section>

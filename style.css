@@ -173,12 +173,22 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .marquee .dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; color: #fff; background: var(--accent-2); }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(50%); } }
 /* شريطا أيقونات البرامج في تبويب «التقنية والبرامج»: يتحركان باتجاهين متعاكسين */
-/* المهارات: كل مجموعة عنوان وتحته شريط متحرك */
-.sk-group + .sk-group { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
-.sk-title { margin: 0 0 4px; font-size: 16px; color: var(--accent); }
-.marquee.skills { margin-top: 8px; }
+/* المهارات: كل مجموعة بطاقة مستقلة بعنوان وتحته شريط متحرك */
+.skill-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.sk-card {
+  min-width: 0; border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 16px;
+  background: linear-gradient(180deg, var(--accent-soft), #fff 70px); box-shadow: var(--shadow);
+}
+.sk-card.wide { grid-column: 1 / -1; }
+.sk-head { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.sk-ic { width: 42px; height: 42px; border-radius: 12px; background: var(--accent); display: grid; place-items: center; flex: none; }
+.sk-ic svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.sk-title { margin: 0; font-size: 17px; line-height: 1.4; }
+.sk-head small { color: var(--muted); font-size: 13px; }
+.marquee.skills { margin-top: 0; }
+.marquee.skills .marquee-track li { background: #fff; }
+@media (max-width: 700px) { .skill-cards { grid-template-columns: 1fr; } }
 .tech-panel { position: relative; }
-.apps-hint { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
 .marquee.apps { margin: 0 0 10px; }
 .marquee.rev .marquee-track { animation-direction: reverse; }
 .marquee.paused .marquee-track { animation-play-state: paused; }
