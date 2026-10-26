@@ -13,8 +13,12 @@
   const panel = root.querySelector(".net-panel");
   const defaultPanel = panel.innerHTML;
   const esc = (t) => String(t).replace(/[<>&"]/g, (ch) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[ch]));
-  const who = (e) => "مسؤول في " + e.n;
-  const where = (e) => e.c.join("، ");
+  const EN = document.documentElement.lang === "en";
+  const T = EN
+    ? { who: "Decision-maker at ", sep: ", ", title: "Professional network", hub: (n) => `decision-makers at ${n} organizations`, panel: (n) => `In touch with decision-makers at ${n} organizations`, core: ["M. Bilal", "Al-Khawaja"] }
+    : { who: "مسؤول في ", sep: "، ", title: "شبكة العلاقات المهنية", hub: (n) => `مسؤولون في ${n} جهة`, panel: (n) => `تواصل مع مسؤولين في ${n} جهة`, core: ["محمد بلال", "الخواجة"] };
+  const who = (e) => T.who + e.n;
+  const where = (e) => e.c.join(T.sep);
   const el = (tag, attrs, parent) => {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -36,7 +40,7 @@
     const R1 = small ? 190 : 205, R2 = small ? 248 : 300, SPREAD = small ? 0.55 : 0.7;
     svgBox.replaceChildren();
     root.classList.toggle("small", small);
-    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "شبكة العلاقات المهنية" }, svgBox);
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": T.title }, svgBox);
     const gEdges = el("g", { class: "net-edges" }, svg);
     const gNodes = el("g", {}, svg);
     edges = []; hubs = [];
@@ -70,7 +74,7 @@
     // المجالات فوق الجهات، والمركز فوق الجميع
     hubs.forEach((h) => {
       const cat = CATS[h.ci];
-      const g = el("g", { class: "net-hub", tabindex: "0", role: "button", "aria-label": `${cat.label}: مسؤولون في ${cat.names.length} جهة` }, gNodes);
+      const g = el("g", { class: "net-hub", tabindex: "0", role: "button", "aria-label": `${cat.label}: ${T.hub(cat.names.length)}` }, gNodes);
       el("circle", { cx: h.x, cy: h.y, r: small ? 30 : 27, class: "net-hub-ring" }, g);
       el("text", { x: h.x, y: h.y + 1, class: "net-hub-num", "text-anchor": "middle", "dominant-baseline": "central" }, g).textContent = cat.names.length;
       // اسم المجال خارج الدائرة، بعيدًا عن المركز
@@ -78,8 +82,8 @@
       const ox = Math.cos(h.a), oy = Math.sin(h.a);
       const side = !small && Math.abs(ox) >= 0.5;
       const lx = side ? h.x + ox * 44 : h.x, ly = small ? h.y + (oy < 0 ? -50 : 50) : side ? h.y + oy * 40 : h.y + (oy < 0 ? -44 : 46);
-      // الرسم من اليمين لليسار: "end" يمدّ النص يمينًا و"start" يمدّه يسارًا
-      const anchor = !side ? "middle" : ox > 0 ? "end" : "start";
+      // في الصفحة العربية (من اليمين لليسار) "end" يمدّ النص يمينًا و"start" يمدّه يسارًا، وفي الإنجليزية العكس
+      const anchor = !side ? "middle" : (ox > 0) !== EN ? "end" : "start";
       const lab = el("text", { x: lx, y: ly, class: "net-hub-label", "text-anchor": anchor, "dominant-baseline": "central" }, g);
       lab.textContent = cat.label;
       h.g = g;
@@ -93,8 +97,8 @@
     const core = el("g", { class: "net-core" }, svg);
     el("circle", { cx, cy, r: small ? 62 : 58, class: "net-core-halo" }, core);
     el("circle", { cx, cy, r: small ? 50 : 46, class: "net-core-ring" }, core);
-    el("text", { x: cx, y: cy - 10, class: "net-core-name", "text-anchor": "middle", "dominant-baseline": "central" }, core).textContent = "محمد بلال";
-    el("text", { x: cx, y: cy + 16, class: "net-core-sub", "text-anchor": "middle", "dominant-baseline": "central" }, core).textContent = "الخواجة";
+    el("text", { x: cx, y: cy - 10, class: "net-core-name", "text-anchor": "middle", "dominant-baseline": "central" }, core).textContent = T.core[0];
+    el("text", { x: cx, y: cy + 16, class: "net-core-sub", "text-anchor": "middle", "dominant-baseline": "central" }, core).textContent = T.core[1];
 
     // اسم الجهة عند المرور على نقطتها
     gNodes.addEventListener("pointerover", (e) => {
@@ -125,7 +129,7 @@
       h.leaves.forEach((l) => l.classList.toggle("on", on));
     });
     const cat = CATS[ci];
-    panel.innerHTML = `<h3>${esc(cat.label)} <span>تواصل مع مسؤولين في ${cat.names.length} جهة</span></h3><ul class="net-names">${cat.names
+    panel.innerHTML = `<h3>${esc(cat.label)} <span>${T.panel(cat.names.length)}</span></h3><ul class="net-names">${cat.names
       .map((e) => `<li>${esc(who(e))}${e.c.length ? `<small>${esc(where(e))}</small>` : ""}</li>`).join("")}</ul>`;
     if (!silent) for (let k = 0; k < 4; k++) spawn(ci);
   }
