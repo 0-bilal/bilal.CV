@@ -172,8 +172,31 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 }
 .marquee .dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; color: #fff; background: var(--accent-2); }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(50%); } }
-.exit { margin: 12px 0 0; padding: 10px 14px; background: #fff8ec; border-radius: 10px; font-size: 15px; }
-.exit b { color: #8a5a00; }
+/* شريطا أيقونات البرامج في تبويب «التقنية والبرامج»: يتحركان باتجاهين متعاكسين */
+.tech-panel { position: relative; }
+.apps-hint { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+.marquee.apps { margin: 0 0 10px; }
+.marquee.rev .marquee-track { animation-direction: reverse; }
+.marquee.paused .marquee-track { animation-play-state: paused; }
+.marquee.apps .app {
+  width: 54px; height: 54px; padding: 0; justify-content: center; margin-inline-end: 12px;
+  border-radius: 14px; background: #fff; cursor: pointer; transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.marquee.apps .app:hover, .marquee.apps .app:focus-visible { transform: translateY(-2px); border-color: var(--accent-2); box-shadow: 0 6px 14px rgba(23, 32, 43, .1); outline: none; }
+.marquee.apps img { width: 26px; height: 26px; display: block; }
+.txt-icon {
+  width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center;
+  background: #5b2ee5; color: #fff; font: 700 17px "IBM Plex Sans", sans-serif; line-height: 1;
+}
+.app-tip {
+  position: absolute; z-index: 3; transform: translate(-50%, -100%); pointer-events: none; width: max-content; max-width: min(260px, 90%);
+  background: var(--accent); color: #fff; padding: 7px 12px; border-radius: 10px; text-align: center;
+  box-shadow: 0 8px 20px rgba(23, 32, 43, .18); animation: tip-in .2s ease both;
+}
+@keyframes tip-in { from { opacity: 0; transform: translate(-50%, calc(-100% + 6px)); } to { opacity: 1; transform: translate(-50%, -100%); } }
+.app-tip::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--accent); }
+.app-tip b { display: block; font-size: 14px; }
+.app-tip span { display: block; font-size: 13px; opacity: .9; }
 
 /* ===== رسومات Hairline التفاعلية ===== */
 .hl-card {
