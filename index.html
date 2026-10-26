@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -207,28 +207,17 @@
           <p data-type>أحب ملاحظة الأخطاء وإيجاد حلول لها، وهي أكثر ما أجيده: أباشر العمل بيدي، وأكتشف مواطن الخلل فيه، ثم أبتكر طريقة أفضل لأدائه، سواء كانت المشكلة برمجية أو على أرض الواقع.</p>
         </div>
 
-        <div class="tabs reveal" role="tablist">
-          <button type="button" role="tab" class="tab" aria-selected="true" data-tab="sk-ops">الإدارة والتشغيل</button>
-          <button type="button" role="tab" class="tab" aria-selected="false" data-tab="sk-sales">المبيعات والعملاء</button>
-          <button type="button" role="tab" class="tab" aria-selected="false" data-tab="sk-tech">التقنية والبرامج</button>
-          <button type="button" role="tab" class="tab" aria-selected="false" data-tab="sk-hobby">الهوايات</button>
-        </div>
-        <div class="card reveal" data-type-chips>
-          <ul class="chips tab-panel" id="sk-ops">
-            <li>إدارة الفروع والتشغيل اليومي</li>
-            <li>تطوير آليات التحضير وعمليات المتاجر والمطاعم</li>
-            <li>رفع الطاقة الاستيعابية</li>
-            <li>إدارة المشتريات وضبط التكاليف</li>
-            <li>التدريب وتأهيل الموظفين</li>
-            <li>قيادة فرق العمل</li>
-          </ul>
-          <ul class="chips tab-panel" id="sk-sales" hidden>
-            <li>خدمة العملاء والتواصل الفعّال</li>
-            <li>نقاط البيع والمدفوعات</li>
-            <li>المبيعات والتسويق</li>
-            <li>مبادئ المحاسبة المالية</li>
-          </ul>
-          <div class="tab-panel tech-panel" id="sk-tech" hidden>
+        <div class="card reveal skill-groups">
+          <div class="sk-group">
+            <h3 class="sk-title">الإدارة والتشغيل</h3>
+            <div class="marquee skills"><ul class="marquee-track"><li>إدارة الفروع والتشغيل اليومي</li><li>تطوير آليات التحضير وعمليات المتاجر والمطاعم</li><li>رفع الطاقة الاستيعابية</li><li>إدارة المشتريات وضبط التكاليف</li><li>التدريب وتأهيل الموظفين</li><li>قيادة فرق العمل</li></ul></div>
+          </div>
+          <div class="sk-group">
+            <h3 class="sk-title">المبيعات والعملاء</h3>
+            <div class="marquee skills rev"><ul class="marquee-track"><li>خدمة العملاء والتواصل الفعّال</li><li>نقاط البيع والمدفوعات</li><li>المبيعات والتسويق</li><li>مبادئ المحاسبة المالية</li></ul></div>
+          </div>
+          <div class="sk-group tech-panel" id="sk-tech">
+            <h3 class="sk-title">التقنية والبرامج</h3>
             <p class="apps-hint">اضغط على أي برنامج لتعرف كيف أستخدمه.</p>
             <div class="marquee apps">
               <ul class="marquee-track"><li class="app" tabindex="0" role="button" data-name="Microsoft Excel" data-use="جداول وتقارير وتحليل بيانات · إتقان" aria-label="Microsoft Excel: جداول وتقارير وتحليل بيانات · إتقان"><img src="icons/microsoftexcel.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Microsoft Word" data-use="كتابة المستندات والتقارير" aria-label="Microsoft Word: كتابة المستندات والتقارير"><img src="icons/microsoftword.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Sheets" data-use="جداول مشتركة وتقارير للفريق" aria-label="Google Sheets: جداول مشتركة وتقارير للفريق"><img src="icons/googlesheets.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Docs" data-use="مستندات مشتركة" aria-label="Google Docs: مستندات مشتركة"><img src="icons/googledocs.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Forms" data-use="نماذج واستبيانات" aria-label="Google Forms: نماذج واستبيانات"><img src="icons/googleforms.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Drive" data-use="تخزين الملفات ومشاركتها" aria-label="Google Drive: تخزين الملفات ومشاركتها"><img src="icons/googledrive.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Cloud" data-use="خدمات جوجل السحابية" aria-label="Google Cloud: خدمات جوجل السحابية"><img src="icons/googlecloud.svg" alt="" width="26" height="26" loading="lazy"></li></ul>
@@ -238,9 +227,10 @@
             </div>
             <div class="app-tip" role="tooltip" hidden></div>
           </div>
-          <ul class="chips tab-panel" id="sk-hobby" hidden>
-            <li>التصوير الفوتوغرافي وتحرير الصور</li>
-          </ul>
+          <div class="sk-group">
+            <h3 class="sk-title">الهوايات</h3>
+            <div class="marquee skills"><ul class="marquee-track"><li>التصوير الفوتوغرافي وتحرير الصور</li></ul></div>
+          </div>
         </div>
       </div>
     </section>
@@ -449,7 +439,7 @@
     <div class="modal-body" id="modal-body"></div>
   </dialog>
 
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=15"></script>
   <script src="network.js?v=1"></script>
   <script src="hairline/kernel.js?v=1"></script>
   <script src="hairline/mount.js?v=2"></script>
