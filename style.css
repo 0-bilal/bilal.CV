@@ -402,6 +402,14 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .info dt { width: 110px; flex: none; color: var(--muted); }
 .info dd { margin: 0; font-weight: 600; }
 .info a { text-decoration: none; }
+/* اللغات: شريط مستوى لكل لغة يمتلئ عند ظهور البطاقة */
+.info .langs { flex: 1; display: flex; flex-direction: column; gap: 8px; padding-top: 2px; }
+.lang { display: grid; grid-template-columns: 74px 1fr 42px; align-items: center; gap: 10px; }
+.lang em { font-style: normal; color: var(--accent); font-weight: 700; font-size: 14px; }
+.lbar { height: 8px; border-radius: 999px; background: #e7ecf2; overflow: hidden; }
+.lbar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--accent-2), var(--accent)); transition: width 1.2s cubic-bezier(.2, .7, .2, 1) .3s; }
+.in .lbar i { width: calc(var(--v) * 1%); }
+@media (max-width: 480px) { .info .lang-row { flex-direction: column; gap: 6px; } .lang { grid-template-columns: 84px 1fr 42px; } }
 .contact-card h3 { color: var(--accent); font-size: 19px; }
 .contact-card p { margin: 6px 0 16px; color: var(--muted); }
 .contact-btns { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -494,6 +502,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 .big-num { color: var(--accent); font-size: 1.15em; }
 
 @media (prefers-reduced-motion: reduce) {
+  .lbar i { transition: none; width: calc(var(--v) * 1%); }
   html { scroll-behavior: auto; }
   .reveal, .more, .bars i::after { transition: none; }
   .chips li, .modal[open], .qb-info.show { animation: none; }
@@ -551,6 +560,7 @@ h2 { font-size: clamp(22px, 3.4vw, 28px); color: var(--accent); }
 
 /* ===== الطباعة: سيرة ذاتية كاملة ===== */
 @media print {
+  .lbar i { transition: none; width: calc(var(--v) * 1%); }
   @page { size: A4; margin: 14mm; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .chips li { opacity: 1 !important; }

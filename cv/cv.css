@@ -13,7 +13,7 @@ body {
 }
 html[lang="en"] body { font-family: "IBM Plex Sans", "IBM Plex Sans Arabic", Tahoma, sans-serif; line-height: 1.45; }
 html[lang="en"] .name h1 { font-size: 18pt; white-space: nowrap; }
-html[lang="en"] .side { gap: 4.4mm; }
+html[lang="en"] .side { gap: 3.6mm; }
 .page {
   width: 210mm; height: 297mm; margin: 0 auto; background: #fff; overflow: hidden;
   display: grid; grid-template-columns: 66mm 1fr;
@@ -21,9 +21,9 @@ html[lang="en"] .side { gap: 4.4mm; }
 @media screen { .page { margin: 10mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.12); } }
 
 /* الشريط الجانبي */
-.side { background: #f4f6f8; color: var(--ink); border-inline-end: 0.3mm solid var(--line); padding: 13mm 7mm 9mm; display: flex; flex-direction: column; gap: 5.2mm; }
+.side { background: #f4f6f8; color: var(--ink); border-inline-end: 0.3mm solid var(--line); padding: 10mm 7mm 8mm; display: flex; flex-direction: column; gap: 4.2mm; }
 .mono {
-  width: 22mm; height: 22mm; border-radius: 50%; margin: 0 auto 1mm; display: grid; place-items: center;
+  width: 19mm; height: 19mm; border-radius: 50%; margin: 0 auto; display: grid; place-items: center;
   border: 0.6mm solid var(--accent); color: var(--accent); font-size: 17pt; font-weight: 700; letter-spacing: .5pt;
 }
 .side h3 {
@@ -32,13 +32,18 @@ html[lang="en"] .side { gap: 4.4mm; }
 }
 html[lang="en"] .side h3 { text-transform: uppercase; }
 .side ul { list-style: none; margin: 0; padding: 0; }
-.side li { margin: 0 0 1.1mm; font-size: 8.6pt; line-height: 1.45; }
+.side li { margin: 0 0 .8mm; font-size: 8.3pt; line-height: 1.4; }
 .kv li { display: flex; flex-direction: column; }
 .kv span { color: var(--muted); font-size: 7.6pt; }
 .kv b { font-weight: 600; }
 .dots li { padding-inline-start: 3mm; position: relative; }
 .dots li::before { content: ""; position: absolute; inset-inline-start: 0; top: 1.9mm; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: var(--accent-2); }
-.tags { display: flex; flex-wrap: wrap; gap: 1.2mm; }
+.langs li { margin-bottom: 1.2mm; }
+.langs span { display: flex; justify-content: space-between; gap: 2mm; font-size: 7.8pt; color: var(--muted); }
+.langs span b { font-size: 8.6pt; color: var(--ink); font-weight: 600; }
+.langs i { display: block; height: 1.1mm; margin-top: .6mm; border-radius: 1mm; background: linear-gradient(var(--accent), var(--accent)) 100% 0 / calc(var(--v) * 1%) 100% no-repeat, #dfe5ec; }
+html[lang="en"] .langs i { background-position: 0 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 1mm; }
 .tags li { margin: 0; padding: .3mm 2mm; border-radius: 1.2mm; background: #fff; border: 0.25mm solid #d5dce5; font-size: 7.8pt; }
 .qr { margin-top: auto; display: flex; align-items: center; gap: 3mm; }
 .qr .code { flex: none; width: 23mm; height: 23mm; padding: 1.6mm; background: #fff; border: 0.25mm solid #d5dce5; border-radius: 2mm; }
