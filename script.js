@@ -6,6 +6,12 @@ const PHONE = "966538381612";
 const PHONE_DISPLAY = "+966 53 838 1612";
 
 (function () {
+  // زر «تحميل PDF»: ملف السيرة الذاتية حسب لغة الصفحة (المصدر والبناء في مجلد cv/)
+  document.querySelectorAll("[data-cv]").forEach((a) => {
+    const lang = document.documentElement.lang === "en" ? "EN" : "AR";
+    a.href = a.getAttribute("href").replace(/CV-(AR|EN)\.pdf/, `CV-${lang}.pdf`);
+  });
+
   // روابط الجوال وواتساب
   document.querySelectorAll("[data-phone-link]").forEach((a) => {
     a.href = a.dataset.phoneLink === "whatsapp" ? `https://wa.me/${PHONE}` : `tel:+${PHONE}`;

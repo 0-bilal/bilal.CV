@@ -1,0 +1,80 @@
+/* السيرة الذاتية المطبوعة (A4) — مصدر ملفات PDF في هذا المجلد. تُبنى بـ build.js */
+:root {
+  --ink: #17202b; --muted: #5f6b78; --line: #dfe4eb;
+  --accent: #1f3a5f; --accent-2: #2f6fb0; --soft: #eaf1f8;
+}
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", Tahoma, sans-serif;
+  color: var(--ink); font-size: 9.2pt; line-height: 1.55;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #e9edf2;
+}
+html[lang="en"] body { font-family: "IBM Plex Sans", "IBM Plex Sans Arabic", Tahoma, sans-serif; line-height: 1.45; }
+html[lang="en"] .name h1 { font-size: 18pt; white-space: nowrap; }
+html[lang="en"] .side { gap: 4.4mm; }
+.page {
+  width: 210mm; height: 297mm; margin: 0 auto; background: #fff; overflow: hidden;
+  display: grid; grid-template-columns: 66mm 1fr;
+}
+@media screen { .page { margin: 10mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.12); } }
+
+/* الشريط الجانبي */
+.side { background: #f4f6f8; color: var(--ink); border-inline-end: 0.3mm solid var(--line); padding: 13mm 7mm 9mm; display: flex; flex-direction: column; gap: 5.2mm; }
+.mono {
+  width: 22mm; height: 22mm; border-radius: 50%; margin: 0 auto 1mm; display: grid; place-items: center;
+  border: 0.6mm solid var(--accent); color: var(--accent); font-size: 17pt; font-weight: 700; letter-spacing: .5pt;
+}
+.side h3 {
+  margin: 0 0 1.8mm; font-size: 8.6pt; font-weight: 700; letter-spacing: .6pt; color: var(--accent);
+  border-bottom: 0.3mm solid #cfd7e1; padding-bottom: 1mm;
+}
+html[lang="en"] .side h3 { text-transform: uppercase; }
+.side ul { list-style: none; margin: 0; padding: 0; }
+.side li { margin: 0 0 1.1mm; font-size: 8.6pt; line-height: 1.45; }
+.kv li { display: flex; flex-direction: column; }
+.kv span { color: var(--muted); font-size: 7.6pt; }
+.kv b { font-weight: 600; }
+.dots li { padding-inline-start: 3mm; position: relative; }
+.dots li::before { content: ""; position: absolute; inset-inline-start: 0; top: 1.9mm; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: var(--accent-2); }
+.tags { display: flex; flex-wrap: wrap; gap: 1.2mm; }
+.tags li { margin: 0; padding: .3mm 2mm; border-radius: 1.2mm; background: #fff; border: 0.25mm solid #d5dce5; font-size: 7.8pt; }
+.qr { margin-top: auto; display: flex; align-items: center; gap: 3mm; }
+.qr .code { flex: none; width: 23mm; height: 23mm; padding: 1.6mm; background: #fff; border: 0.25mm solid #d5dce5; border-radius: 2mm; }
+.qr .code img { width: 100%; height: 100%; display: block; }
+.qr p { margin: 0; font-size: 7.8pt; line-height: 1.45; color: var(--muted); }
+.qr p b { display: block; color: var(--accent); font-size: 8.4pt; }
+[dir="ltr"].ltr, .ltr { direction: ltr; unicode-bidi: isolate; }
+
+/* المحتوى الرئيسي */
+.main { padding: 12mm 11mm 9mm; display: flex; flex-direction: column; gap: 4.4mm; }
+.name h1 { margin: 0; font-size: 21pt; line-height: 1.2; color: var(--accent); }
+.name .alt { margin: .6mm 0 0; color: var(--muted); font-size: 9pt; }
+.name .role { margin: 2mm 0 0; font-size: 10.6pt; font-weight: 600; color: var(--accent-2); }
+.summary { margin: 0; color: #2c3744; }
+.main h2 {
+  margin: 0 0 2mm; font-size: 10.6pt; color: var(--accent); display: flex; align-items: center; gap: 2.5mm;
+}
+html[lang="en"] .main h2 { text-transform: uppercase; letter-spacing: .5pt; font-size: 10pt; }
+.main h2::after { content: ""; flex: 1; height: 0.3mm; background: var(--line); }
+.job { margin-bottom: 3mm; }
+.job:last-child { margin-bottom: 0; }
+.job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+.job-head h4 { margin: 0; font-size: 10pt; }
+.job-head time { flex: none; font-size: 8.4pt; color: var(--muted); font-weight: 600; }
+.job .org { margin: 0; color: var(--accent-2); font-size: 8.8pt; font-weight: 600; }
+.ladder { margin: 1.2mm 0 1.4mm; font-size: 8.2pt; color: var(--muted); }
+.ladder b { color: var(--accent); }
+.job ul { margin: 0; padding-inline-start: 4mm; }
+.job li { margin-bottom: .6mm; }
+.wins { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; margin: 2mm 0 1.6mm; }
+.wins div { background: var(--soft); border-radius: 1.6mm; padding: 1.4mm 1mm; text-align: center; line-height: 1.25; }
+.wins b { display: block; font-size: 12pt; color: var(--accent); }
+.wins span { font-size: 7.4pt; color: var(--muted); }
+.quote { margin: 1.4mm 0 0; padding-inline-start: 3mm; border-inline-start: 0.6mm solid var(--accent-2); color: #3b4756; font-style: italic; font-size: 8.6pt; }
+.projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 5mm; margin: 0; padding: 0; list-style: none; }
+.projects li { font-size: 8.5pt; line-height: 1.4; }
+.projects b { color: var(--accent); }
+.note { margin: 1.6mm 0 0; font-size: 8.2pt; color: var(--muted); }
+.foot { margin-top: auto; font-size: 7.4pt; color: #8a95a3; display: flex; justify-content: space-between; border-top: 0.3mm solid var(--line); padding-top: 1.6mm; }
