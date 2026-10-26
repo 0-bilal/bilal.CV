@@ -79,8 +79,11 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     counters.forEach((el) => co.observe(el));
   } else counters.forEach(runCounter);
 
-  // شريط أماكن العمل المتحرك: نكرر العناصر حتى تبدو الحركة متصلة
-  document.querySelectorAll(".marquee-track").forEach((track) => {
+  // الأشرطة المتحركة: نكرر العناصر حتى تبدو الحركة متصلة. الشريط داخل تبويب مخفي
+  // يُجهَّز عند فتح التبويب، لأن عرضه وهو مخفي صفر.
+  const initMarquee = (track) => {
+    if (track.dataset.ready || !track.offsetParent) return;
+    track.dataset.ready = "1";
     const items = [...track.children];
     const addCopies = () => items.forEach((li) => {
       const copy = li.cloneNode(true);
@@ -95,7 +98,8 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     for (let i = 1; i < reps; i++) addCopies();
     for (let i = 0; i < reps; i++) addCopies();
     track.style.animationDuration = Math.round(6 * items.length * reps) + "s";
-  });
+  };
+  document.querySelectorAll(".marquee-track").forEach(initMarquee);
 
   // الكتابة الحيّة: يُكتب النص حرفًا حرفًا كأنه يُكتب أمام الزائر
   const typers = [];
@@ -137,7 +141,8 @@ const PHONE_DISPLAY = "+966 53 838 1612";
   const typeChips = async (list, gap = 140) => {
     if (list.dataset.typed) return;
     list.dataset.typed = "1";
-    const items = [...list.children];
+    const chipList = list.matches(".chips") ? list : list.querySelector(".chips") || list;
+    const items = [...chipList.children];
     if (instant) return items.forEach((li) => li.classList.remove("waiting"));
     items.forEach((li) => li.classList.add("waiting"));
     for (const li of items) {
@@ -207,7 +212,9 @@ const PHONE_DISPLAY = "+966 53 838 1612";
       t.setAttribute("aria-selected", String(on));
       document.getElementById(t.dataset.tab).hidden = !on;
     });
-    typeChips(document.getElementById(tab.dataset.tab), 90);
+    const shown = document.getElementById(tab.dataset.tab);
+    shown.querySelectorAll(".marquee-track").forEach(initMarquee);
+    typeChips(shown, 90);
   }));
 
   // خزانة المشاريع: الضغط على درج يعرض تعريف مشروعه في اللوحة المجاورة
