@@ -88,6 +88,7 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     const addCopies = () => items.forEach((li) => {
       const copy = li.cloneNode(true);
       copy.setAttribute("aria-hidden", "true");
+      copy.setAttribute("tabindex", "-1");
       copy.classList.add("clone");
       track.appendChild(copy);
     });
@@ -141,7 +142,8 @@ const PHONE_DISPLAY = "+966 53 838 1612";
   const typeChips = async (list, gap = 140) => {
     if (list.dataset.typed) return;
     list.dataset.typed = "1";
-    const chipList = list.matches(".chips") ? list : list.querySelector(".chips") || list;
+    const chipList = list.matches(".chips") ? list : list.querySelector(".chips");
+    if (!chipList) return;
     const items = [...chipList.children];
     if (instant) return items.forEach((li) => li.classList.remove("waiting"));
     items.forEach((li) => li.classList.add("waiting"));
@@ -216,6 +218,44 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     shown.querySelectorAll(".marquee-track").forEach(initMarquee);
     typeChips(shown, 90);
   }));
+
+  // أيقونات البرامج: الضغط على أيقونة يوقف الشريطين ويُظهر فوقها اسم البرنامج واستخدامه
+  const techPanel = document.getElementById("sk-tech");
+  if (techPanel) {
+    const tip = techPanel.querySelector(".app-tip");
+    const strips = techPanel.querySelectorAll(".marquee");
+    let pinned = null;
+    const show = (app) => {
+      tip.innerHTML = `<b dir="ltr">${app.dataset.name}</b><span>${app.dataset.use}</span>`;
+      tip.hidden = false;
+      const p = techPanel.getBoundingClientRect(), r = app.getBoundingClientRect();
+      const half = tip.offsetWidth / 2, x = r.left - p.left + r.width / 2;
+      tip.style.left = Math.min(Math.max(x, half + 4), p.width - half - 4) + "px";
+      tip.style.top = r.top - p.top - 10 + "px";
+      strips.forEach((m) => m.classList.add("paused"));
+    };
+    const hide = () => { tip.hidden = true; pinned = null; strips.forEach((m) => m.classList.remove("paused")); };
+    techPanel.addEventListener("click", (e) => {
+      const app = e.target.closest(".app");
+      if (!app) return hide();
+      if (pinned === app) return hide();
+      pinned = app; show(app);
+    });
+    techPanel.addEventListener("keydown", (e) => {
+      const app = e.target.closest(".app");
+      if (app && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); pinned = app; show(app); }
+      if (e.key === "Escape") hide();
+    });
+    techPanel.addEventListener("pointerover", (e) => {
+      const app = e.target.closest(".app");
+      if (app && e.pointerType === "mouse" && !pinned) show(app);
+    });
+    techPanel.addEventListener("pointerout", (e) => {
+      const app = e.target.closest(".app");
+      if (app && e.pointerType === "mouse" && !pinned && !app.contains(e.relatedTarget)) hide();
+    });
+    document.addEventListener("click", (e) => { if (pinned && !techPanel.contains(e.target)) hide(); });
+  }
 
   // خزانة المشاريع: الضغط على درج يعرض تعريف مشروعه في اللوحة المجاورة
   const panel = document.querySelector(".qb-panel");

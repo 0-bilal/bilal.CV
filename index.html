@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=20">
 </head>
 <body>
   <!-- شريط التنقل -->
@@ -229,23 +229,14 @@
             <li>مبادئ المحاسبة المالية</li>
           </ul>
           <div class="tab-panel tech-panel" id="sk-tech" hidden>
-            <div class="marquee apps" aria-label="البرامج والتطبيقات التي أستخدمها">
-              <ul class="marquee-track"><li><img src="icons/microsoftexcel.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Excel</span></li><li><img src="icons/microsoftword.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Word</span></li><li><img src="icons/googlesheets.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Sheets</span></li><li><img src="icons/googledocs.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Docs</span></li><li><img src="icons/googleforms.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Forms</span></li><li><img src="icons/googledrive.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Drive</span></li><li><img src="icons/googlecloud.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Cloud</span></li></ul>
+            <p class="apps-hint">اضغط على أي برنامج لتعرف كيف أستخدمه.</p>
+            <div class="marquee apps">
+              <ul class="marquee-track"><li class="app" tabindex="0" role="button" data-name="Microsoft Excel" data-use="جداول وتقارير وتحليل بيانات · إتقان" aria-label="Microsoft Excel: جداول وتقارير وتحليل بيانات · إتقان"><img src="icons/microsoftexcel.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Microsoft Word" data-use="كتابة المستندات والتقارير" aria-label="Microsoft Word: كتابة المستندات والتقارير"><img src="icons/microsoftword.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Sheets" data-use="جداول مشتركة وتقارير للفريق" aria-label="Google Sheets: جداول مشتركة وتقارير للفريق"><img src="icons/googlesheets.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Docs" data-use="مستندات مشتركة" aria-label="Google Docs: مستندات مشتركة"><img src="icons/googledocs.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Forms" data-use="نماذج واستبيانات" aria-label="Google Forms: نماذج واستبيانات"><img src="icons/googleforms.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Drive" data-use="تخزين الملفات ومشاركتها" aria-label="Google Drive: تخزين الملفات ومشاركتها"><img src="icons/googledrive.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Cloud" data-use="خدمات جوجل السحابية" aria-label="Google Cloud: خدمات جوجل السحابية"><img src="icons/googlecloud.svg" alt="" width="26" height="26" loading="lazy"></li></ul>
             </div>
-            <div class="marquee apps rev" aria-hidden="true">
-              <ul class="marquee-track"><li><img src="icons/figma.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Figma</span></li><li><img src="icons/canva.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Canva</span></li><li><img src="icons/github.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">GitHub</span></li><li><img src="icons/visualstudiocode.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">VS Code</span></li><li><img src="icons/googleads.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Ads</span></li><li><img src="icons/googlemaps.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Maps</span></li><li><img src="icons/googlemybusiness.svg" alt="" width="22" height="22" loading="lazy"><span dir="ltr">Google Business</span></li><li><span class="txt-icon" aria-hidden="true">f</span><span dir="ltr">Foodics</span></li></ul>
+            <div class="marquee apps rev">
+              <ul class="marquee-track"><li class="app" tabindex="0" role="button" data-name="Figma" data-use="تصميم الواجهات" aria-label="Figma: تصميم الواجهات"><img src="icons/figma.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Canva" data-use="تصميم المنشورات والمطبوعات" aria-label="Canva: تصميم المنشورات والمطبوعات"><img src="icons/canva.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="GitHub" data-use="إدارة مشاريع برمجيات QB" aria-label="GitHub: إدارة مشاريع برمجيات QB"><img src="icons/github.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="VS Code" data-use="كتابة الأكواد وتطوير الأنظمة" aria-label="VS Code: كتابة الأكواد وتطوير الأنظمة"><img src="icons/visualstudiocode.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Ads" data-use="حملات الدعاية والإعلان" aria-label="Google Ads: حملات الدعاية والإعلان"><img src="icons/googleads.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Maps" data-use="إدارة الأنشطة التجارية · إتقان عالٍ" aria-label="Google Maps: إدارة الأنشطة التجارية · إتقان عالٍ"><img src="icons/googlemaps.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Google Business Profile" data-use="إدارة ملفات الأنشطة التجارية" aria-label="Google Business Profile: إدارة ملفات الأنشطة التجارية"><img src="icons/googlemybusiness.svg" alt="" width="26" height="26" loading="lazy"></li><li class="app" tabindex="0" role="button" data-name="Foodics" data-use="إدارة نقاط البيع في المطاعم" aria-label="Foodics: إدارة نقاط البيع في المطاعم"><span class="txt-icon" aria-hidden="true">f</span></li></ul>
             </div>
-            <ul class="chips">
-              <li>تطوير الأنظمة الإلكترونية (برمجيات QB)</li>
-              <li><span dir="ltr">Microsoft Excel</span> · إتقان</li>
-              <li><span dir="ltr">Microsoft Word</span> · جيد</li>
-              <li>إدارة الأنشطة التجارية على <span dir="ltr">Google Maps</span> · إتقان عالٍ</li>
-              <li>خدمات جوجل السحابية: <span dir="ltr">Sheets</span> و<span dir="ltr">Docs</span> و<span dir="ltr">Forms</span> و<span dir="ltr">Sites</span> و<span dir="ltr">Drive</span></li>
-              <li><span dir="ltr">Google Ads</span> للدعاية والإعلان</li>
-              <li><span dir="ltr">Figma</span> و<span dir="ltr">Canva</span> للتصميم</li>
-              <li><span dir="ltr">GitHub</span> و<span dir="ltr">VS Code</span> للبرمجة</li>
-              <li><span dir="ltr">Foodics</span> لإدارة نقاط البيع</li>
-            </ul>
+            <div class="app-tip" role="tooltip" hidden></div>
           </div>
           <ul class="chips tab-panel" id="sk-hobby" hidden>
             <li>التصوير الفوتوغرافي وتحرير الصور</li>
@@ -458,7 +449,7 @@
     <div class="modal-body" id="modal-body"></div>
   </dialog>
 
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=14"></script>
   <script src="network.js?v=1"></script>
   <script src="hairline/kernel.js?v=1"></script>
   <script src="hairline/mount.js?v=2"></script>
