@@ -79,8 +79,7 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     counters.forEach((el) => co.observe(el));
   } else counters.forEach(runCounter);
 
-  // الأشرطة المتحركة: نكرر العناصر حتى تبدو الحركة متصلة. الشريط داخل تبويب مخفي
-  // يُجهَّز عند فتح التبويب، لأن عرضه وهو مخفي صفر.
+  // الأشرطة المتحركة: نكرر العناصر حتى تبدو الحركة متصلة
   const initMarquee = (track) => {
     if (track.dataset.ready || !track.offsetParent) return;
     track.dataset.ready = "1";
@@ -138,22 +137,6 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     tick();
   };
   const typeInto = (el, speed) => prepareType(el, speed)();
-  // التصنيفات لا تُكتب: تظهر واحدة تلو الأخرى فقط
-  const typeChips = async (list, gap = 140) => {
-    if (list.dataset.typed) return;
-    list.dataset.typed = "1";
-    const chipList = list.matches(".chips") ? list : list.querySelector(".chips");
-    if (!chipList) return;
-    const items = [...chipList.children];
-    if (instant) return items.forEach((li) => li.classList.remove("waiting"));
-    items.forEach((li) => li.classList.add("waiting"));
-    for (const li of items) {
-      if (instant) break;
-      li.classList.remove("waiting");
-      await new Promise((r) => setTimeout(r, gap));
-    }
-    items.forEach((li) => li.classList.remove("waiting"));
-  };
   const whenVisible = (el, fn) => {
     if (!("IntersectionObserver" in window)) return fn();
     const ob = new IntersectionObserver((entries) => {
@@ -162,19 +145,12 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     ob.observe(el);
   };
 
-  if (!reduceMotion) document.querySelectorAll("[data-type-chips] .chips li").forEach((li) => li.classList.add("waiting"));
   document.querySelectorAll("[data-type]").forEach((el) => {
     const card = el.closest(".card") || el;
     card.classList.add("type-pending");
     whenVisible(card, async () => {
       await typeInto(el);
       card.classList.remove("type-pending");
-      const chipsCard = card.closest("section") && card.closest("section").querySelector("[data-type-chips]");
-      if (chipsCard && !chipsCard.dataset.typed) {
-        chipsCard.dataset.typed = "1";
-        const active = chipsCard.querySelector(".tab-panel:not([hidden])");
-        if (active) typeChips(active);
-      }
     });
   });
 
@@ -205,19 +181,6 @@ const PHONE_DISPLAY = "+966 53 838 1612";
       }
     });
   });
-
-  // تبويبات المهارات
-  const tabs = document.querySelectorAll(".tab[data-tab]");
-  tabs.forEach((tab) => tab.addEventListener("click", () => {
-    tabs.forEach((t) => {
-      const on = t === tab;
-      t.setAttribute("aria-selected", String(on));
-      document.getElementById(t.dataset.tab).hidden = !on;
-    });
-    const shown = document.getElementById(tab.dataset.tab);
-    shown.querySelectorAll(".marquee-track").forEach(initMarquee);
-    typeChips(shown, 90);
-  }));
 
   // أيقونات البرامج: الضغط على أيقونة يوقف الشريطين ويُظهر فوقها اسم البرنامج واستخدامه
   const techPanel = document.getElementById("sk-tech");
