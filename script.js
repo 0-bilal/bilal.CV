@@ -6,6 +6,13 @@ const PHONE = "966538381612";
 const PHONE_DISPLAY = "+966 53 838 1612";
 
 (function () {
+  const EN = document.documentElement.lang === "en";
+
+  // زر اللغة: ينقل إلى نفس الصفحة باللغة الأخرى، ويحافظ على القسم المفتوح (#)
+  document.querySelectorAll("[data-lang-switch]").forEach((a) => a.addEventListener("click", () => {
+    if (location.hash) a.href = a.href.split("#")[0] + location.hash;
+  }));
+
   // زر «تحميل PDF»: ملف السيرة الذاتية حسب لغة الصفحة (المصدر والبناء في مجلد cv/)
   document.querySelectorAll("[data-cv]").forEach((a) => {
     const lang = document.documentElement.lang === "en" ? "EN" : "AR";
@@ -23,7 +30,7 @@ const PHONE_DISPLAY = "+966 53 838 1612";
     const birth = new Date(el.dataset.birth + "T00:00:00"), now = new Date();
     let age = now.getFullYear() - birth.getFullYear();
     if (now.getMonth() < birth.getMonth() || (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate())) age--;
-    el.textContent = `(العمر ${age} ${age >= 3 && age <= 10 ? "سنوات" : "سنة"})`;
+    el.textContent = EN ? `(age ${age})` : `(العمر ${age} ${age >= 3 && age <= 10 ? "سنوات" : "سنة"})`;
   });
 
   const year = document.getElementById("year");
@@ -179,7 +186,7 @@ const PHONE_DISPLAY = "+966 53 838 1612";
         panel.style.maxHeight = "0px";
       }
       btn.setAttribute("aria-expanded", String(open));
-      btn.textContent = open ? "إخفاء" : label;
+      btn.textContent = open ? (EN ? "Hide" : "إخفاء") : label;
       if (open && btn.hasAttribute("data-type-more") && !panel.dataset.typed) {
         panel.dataset.typed = "1";
         const runs = [...panel.querySelectorAll("p")].map((para) => prepareType(para, 12));

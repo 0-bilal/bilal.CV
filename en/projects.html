@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QB software | Mohammad Bilal Al-Khawaja</title>
+  <meta name="description" content="All QB software projects developed by Mohammad Bilal Zakaria Al-Khawaja.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f3a5f'/%3E%3Ctext x='32' y='43' font-family='Tahoma,Arial,sans-serif' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3E%D9%85%3C/text%3E%3C/svg%3E">
+  <link rel="alternate" hreflang="ar" href="../projects.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=25">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span class="mark">MB</span><span class="brand-name">Mohammad Bilal Al-Khawaja</span></a>
+      <div class="actions">
+        <a class="lang-btn" href="../projects.html" hreflang="ar" lang="ar" aria-label="العربية" data-lang-switch>ع</a>
+        <a class="btn btn-ghost btn-sm" href="index.html">← Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Software work</p>
+        <h1 class="reveal">QB software</h1>
+        <p class="reveal">22 projects I build to organize work and help businesses, employees and users get things done accurately, transparently and with as few human errors as possible. Many of them grew out of real needs I saw while working in shops and restaurants.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <div class="tabs filters reveal" role="tablist">
+          <button type="button" class="tab" role="tab" aria-selected="true" data-filter="all">All <small>22</small></button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-filter="ops">Operations, restaurants &amp; inventory <small>8</small></button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-filter="finance">Finance &amp; funding <small>6</small></button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-filter="manage">Management &amp; productivity <small>5</small></button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-filter="tools">Tools &amp; apps <small>3</small></button>
+        </div>
+
+        <div class="pgrid filter-list">
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><img src="../projects/sentinel.jpg" alt="QB-Sentinel logo" width="52" height="52"><div><h3>QB-Sentinel</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Goodbye to daily operations paperwork</p>
+            <p class="pitch">In juice shops, paper piles up every day: attendance sheets, inspection and cleaning logs, end-of-day reports. Information gets lost and follow-up is delayed. <bdi class="pn">QB-Sentinel</bdi> was born from real work at Juice Time to bring all of that into one mobile app, so the manager knows what is happening in the branch as it happens, never misses a residency or contract renewal, and quality standards stay documented every shift.</p>
+            <div class="more" id="f-sentinel"><h4>Features</h4><ul><li>Staff attendance, with reminders to renew residency permits and contracts.</li><li>Fruit inspection logs, ingredient standards and equipment cleaning.</li><li>Product availability, return requests and raw-material production.</li><li>End-of-day report and cash payment voucher.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>PWA</span><span>Open source</span></p><button type="button" class="link-btn" data-toggle="f-sentinel">Features</button>
+            <a class="link-btn arrow" href="https://github.com/0-bilal/QB-Sentinel/" target="_blank" rel="noopener">View project</a></div>
+          </article>
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">KDS</span><div><h3>QB-Prax</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Kitchen orders on screen, no pagers</p>
+            <p class="pitch">Printed tickets and pagers slow the kitchen down at peak times and mix up the order of orders. <bdi class="pn">QB-Prax</bdi> turns a restaurant running Foodics into a digital kitchen without changing the POS: it captures each receipt the moment it prints and shows the order on the kitchen screen automatically, so the team knows what to prepare first, with fewer mistakes and shorter waits for customers.</p>
+            <div class="more" id="f-prax"><h4>Features</h4><ul><li>Captures print data from an Epson printer over the network.</li><li>Rebuilds the receipt image and reads the order number with OCR.</li><li>Shows orders automatically on the kitchen screen instead of pagers.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>Python</span><span>SQLite</span><span>OCR</span></p><button type="button" class="link-btn" data-toggle="f-prax">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">FL</span><div><h3>QB-FLOW</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Your restaurant or company on one platform</p>
+            <p class="pitch">Restaurant and company work is spread across many programs that don't talk to each other, so data gets lost between them and the team wastes time switching. <bdi class="pn">QB-FLOW</bdi> brings management, the call center, customers, the menu and reception into one platform, giving management the full picture and helping the team serve customers faster.</p>
+            <div class="more" id="f-flow"><h4>Features</h4><ul><li>Admin dashboard.</li><li>Call center.</li><li>Customer management.</li><li>Digital menu.</li><li>Reception.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>PHP</span><span>SQL</span><span>Docker</span><span>Nginx</span></p><button type="button" class="link-btn" data-toggle="f-flow">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">DN</span><div><h3>QB-Dine</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Beyond a menu, beyond the ordinary</p>
+            <p class="pitch">A modern digital platform for restaurants that changes how products are presented, how customers are served and how daily work is organized. From an interactive digital menu to the cashier screen and admin dashboard, <bdi class="pn">QB-Dine</bdi> brings a restaurant's essential tools into one connected experience. Because a menu should do more than list products: <bdi class="pn">QB-Dine</bdi> gives guests an engaging digital experience and simplifies the team's daily work with modern, accessible web technology. One platform, a better experience, smarter operations.</p>
+            <div class="more" id="f-dine"><h4>Features</h4><ul><li>Interactive digital menu.</li><li>Restaurant cashier screen.</li><li>Central admin dashboard.</li><li>Mobile-friendly QR code menu.</li><li>Progressive web app (PWA).</li><li>Products across multiple branches.</li><li>Printer integration components.</li><li>Responsive on every screen.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>PWA</span><span>QR</span></p><button type="button" class="link-btn" data-toggle="f-dine">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">ST</span><div><h3>QB-Stocky</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Know your stock at a glance</p>
+            <p class="pitch">Running out of an item stops sales, and overstocking ties up cash. <bdi class="pn">QB-Stocky</bdi> is a simple, clear inventory system that helps you know what you have and what you need at any moment, with an easy-on-the-eyes interface in light and dark modes.</p>
+            <div class="more" id="f-stocky"><h4>Features</h4><ul><li>Inventory item management.</li><li>Light and dark themes.</li><li>Screens for viewing, settings and extra features.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-stocky">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">SL</span><div><h3>QB-Storelytics</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Turn inventory files into decisions</p>
+            <p class="pitch">Inventory movement files are full of numbers that rarely get read. Upload the two files and <bdi class="pn">QB-Storelytics</bdi> analyzes them and shows you the picture clearly, so purchasing and stocking decisions rest on data, not guesswork.</p>
+            <div class="more" id="f-storelytics"><h4>Features</h4><ul><li>Upload the inventory movement file and the inventory items file.</li><li>See the analysis results instantly.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-storelytics">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">WMS</span><div><h3>QB-WMS</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Track every movement in your warehouse</p>
+            <p class="pitch">In a warehouse, every item that comes in or goes out unrecorded is a potential loss. <bdi class="pn">QB-WMS</bdi> records each item's movement, destination and date and shows them on one dashboard, so you know where everything went and when.</p>
+            <div class="more" id="f-wms"><h4>Features</h4><ul><li>Dashboard of item movements.</li><li>Item name, movement type, destination and date.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>Laravel</span><span>Vue</span></p><button type="button" class="link-btn" data-toggle="f-wms">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="ops">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">FI</span><div><h3>Foem-Inspection-Oven</h3><span class="cat">Operations, restaurants &amp; inventory</span></div></div>
+            <p class="headline">Fruit inspection and stock without waste</p>
+            <p class="pitch">Fruit spoils fast, and every delay in inspecting it means waste and loss. A beta version that organizes fruit stock and inspections to maintain quality and reduce spoilage.</p>
+            <div class="more" id="f-foem"><h4>Features</h4><ul><li>Fruit Inventory Manager.</li><li>Inspection logging.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>Beta</span></p><button type="button" class="link-btn" data-toggle="f-foem">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="finance">
+            <div class="pcard-head"><img src="../projects/nexa.jpg" alt="QB-Nexa logo" width="52" height="52"><div><h3>QB-Nexa</h3><span class="cat">Finance &amp; funding</span></div></div>
+            <p class="headline">Know a deal's profit before you offer it</p>
+            <p class="pitch">Working out a car-finance deal by hand takes many numbers: the bank price, VAT, plates, cashback and support, and one small mistake can cost the profit or the customer. <bdi class="pn">QB-Nexa</bdi> calculates it all in seconds, shows the net profit clearly and prepares the offer message ready to send, so the salesperson closes deals faster and with confidence. It has been used in a real car showroom.</p>
+            <div class="more" id="f-nexa"><h4>Features</h4><ul><li>Price submitted to the bank, and price including VAT.</li><li>Plate and service fees.</li><li>Cashback and support rates, and net profit.</li><li>Ready-to-send customer message, wallet and toolbox.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-nexa">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="finance">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">EP</span><div><h3>QB-Eligibility Pro</h3><span class="cat">Finance &amp; funding</span></div></div>
+            <p class="headline">Know which bank will approve your client before you apply</p>
+            <p class="pitch">Every bank has its own criteria, and submitting a client to a bank that won't approve them wastes days and weakens the client's trust. <bdi class="pn">QB-Eligibility Pro</bdi> compares the client's data with each bank's criteria and shows the result instantly, so you send the client to the right bank the first time.</p>
+            <div class="more" id="f-eligibility"><h4>Features</h4><ul><li>List of banks with an editor for each bank's criteria and rules.</li><li>Client data entry and custom fields.</li><li>Instant results, with data saved on the device.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>LocalStorage</span></p><button type="button" class="link-btn" data-toggle="f-eligibility">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="finance">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">IN</span><div><h3>QB-Invoice</h3><span class="cat">Finance &amp; funding</span></div></div>
+            <p class="headline">Professional invoices in minutes</p>
+            <p class="pitch">Manual invoices take time, invite mistakes and get lost over time. <bdi class="pn">QB-Invoice (InvoiceFlow)</bdi> creates and manages invoices in one place, so your work looks more professional and you can track what you're owed with ease.</p>
+            <div class="more" id="f-invoice"><h4>Features</h4><ul><li>Create invoices.</li><li>Manage invoices in one place.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-invoice">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="finance">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">LG</span><div><h3>QB-Ledg</h3><span class="cat">Finance &amp; funding</span></div></div>
+            <p class="headline">Every riyal of a cash advance on record</p>
+            <p class="pitch">Cash advances are one of the biggest causes of lost money and disputes at settlement. I lived this problem myself in purchasing, so I built <bdi class="pn">QB-Ledg</bdi> to solve it. It records every advance and what was spent from it, and produces print-ready reports, making settlement easy and clear for both sides.</p>
+            <div class="more" id="f-ledg"><h4>Features</h4><ul><li>Add advances and record expenses against them.</li><li>Overall summary and a report for each advance.</li><li>Print reports.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-ledg">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="finance">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">FN</span><div><h3>QB-FinanceLog</h3><span class="cat">Finance &amp; funding</span></div></div>
+            <p class="headline">Know where your money goes</p>
+            <p class="pitch">Many people don't know how much they've spent until the month is over. <bdi class="pn">QB-FinanceLog</bdi> helps you record and track your expenses as you go, so you control your budget instead of it controlling you.</p>
+            <div class="more" id="f-financelog"><h4>Features</h4><ul><li>Sign-in.</li><li>Record and track expenses.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-financelog">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="finance">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">NO</span><div><h3>QB-Nomia</h3><span class="cat">Finance &amp; funding</span></div></div>
+            <p class="headline">Your wallet in your pocket</p>
+            <p class="pitch">Accounts, subscriptions and loans are scattered in many places, so they get forgotten or paid late. <bdi class="pn">QB-Nomia</bdi> gathers them into one elegant mobile app, with a calm black, gray and white design and quick swipe gestures, so you know your financial position in a moment.</p>
+            <div class="more" id="f-nomia"><h4>Features</h4><ul><li>Manage accounts, expenses, subscriptions and loans.</li><li>“Nomia Mono” identity and swipe gestures.</li><li>Works as a PWA and an Android app.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Capacitor</span></p><button type="button" class="link-btn" data-toggle="f-nomia">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="manage">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">CO</span><div><h3>QB-CooRbit</h3><span class="cat">Management &amp; productivity</span></div></div>
+            <p class="headline">All your projects and branches on one dashboard</p>
+            <p class="pitch">When you run more than one branch or project, follow-up gets lost between calls and messages. <bdi class="pn">QB-CooRbit</bdi> gives an overview of projects, recent activity and team members, so you know what is happening everywhere without having to ask.</p>
+            <div class="more" id="f-coorbit"><h4>Features</h4><ul><li>Sign-in.</li><li>Dashboard: project overview, recent activity and team members.</li><li>Pages for branches and projects.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-coorbit">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="manage">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">CD</span><div><h3>QB-Code</h3><span class="cat">Management &amp; productivity</span></div></div>
+            <p class="headline">A digital products store under control</p>
+            <p class="pitch">Selling digital products means dozens of items, suppliers and changing prices. The “Digital Oasis” control center brings products and suppliers together with a pricing calculator, so you run your digital store quickly and without mistakes.</p>
+            <div class="more" id="f-code"><h4>Features</h4><ul><li>Digital product management: Windows, Office, Xbox, Adobe, games and streaming channels.</li><li>Calculator.</li><li>Supplier management.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-code">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="manage">
+            <div class="pcard-head"><img src="../projects/bluepulse.jpg" alt="QB-BluePulse logo" width="52" height="52"><div><h3>QB-BluePulse</h3><span class="cat">Management &amp; productivity</span></div></div>
+            <p class="headline">An always-clean pool, no forgotten tasks</p>
+            <p class="pitch">Pool maintenance depends on consistency, and a forgotten task or a wrong chemical dose means unsafe water. <bdi class="pn">QB-BluePulse</bdi> sets a clear monthly maintenance schedule, tracks what has been done and calculates chemical quantities precisely, all from your phone.</p>
+            <div class="more" id="f-bluepulse"><h4>Features</h4><ul><li>Monthly (4-week) maintenance schedule with set tasks.</li><li>Tracking of completed tasks.</li><li>Calculation of required chemical quantities.</li><li>Designed for mobile.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-bluepulse">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="manage">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">MI</span><div><h3>QB-Milee</h3><span class="cat">Management &amp; productivity</span></div></div>
+            <p class="headline">Your car tells you when it needs service</p>
+            <p class="pitch">Fuel costs and service dates are easy to forget until something breaks. <bdi class="pn">QB-Milee</bdi> logs fuel and maintenance for each vehicle, reminds you when service is due and shows each vehicle's consumption so you know its true cost.</p>
+            <div class="more" id="f-milee"><h4>Features</h4><ul><li>Fuel log: odometer, quantity, price and cost.</li><li>Maintenance log with reminders.</li><li>Consumption summary per vehicle.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-milee">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="manage">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">PO</span><div><h3>QB-Pomodoro</h3><span class="cat">Management &amp; productivity</span></div></div>
+            <p class="headline">Focus more, get more done</p>
+            <p class="pitch">Distraction is productivity's number-one enemy. <bdi class="pn">QB-Pomodoro</bdi> splits your time into work and break sessions, organizes your tasks by type and shows your achievement stats and daily streak to keep you motivated.</p>
+            <div class="more" id="f-pomodoro"><h4>Features</h4><ul><li>Customizable work and break times.</li><li>Categorized tasks: work, study, personal.</li><li>Stats on total time, completed tasks and streak.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-pomodoro">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="tools">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">CI</span><div><h3>QB-Cipher</h3><span class="cat">Tools &amp; apps</span></div></div>
+            <p class="headline">Your conversations, for you alone</p>
+            <p class="pitch">Privacy is not a luxury. <bdi class="pn">QB-Cipher</bdi> encrypts messages before sending them and verifies their integrity, so no one but the people in the room can read them.</p>
+            <div class="more" id="f-cipher"><h4>Features</h4><ul><li>Chat rooms with an ID.</li><li>Message encryption with an AES-GCM key.</li><li>Message integrity checks with an HMAC-SHA256 key.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>AES-GCM</span><span>HMAC-SHA256</span></p><button type="button" class="link-btn" data-toggle="f-cipher">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="tools">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">LI</span><div><h3>QB-Liora</h3><span class="cat">Tools &amp; apps</span></div></div>
+            <p class="headline">How well do your friends really know you?</p>
+            <p class="pitch">A fun way to break the routine with friends: create a quiz about yourself, send the link and see who knows you best.</p>
+            <div class="more" id="f-liora"><h4>Features</h4><ul><li>Personal quiz from ready-made or custom questions.</li><li>Link to share with friends.</li><li>Results view.</li></ul></div>
+            <div class="pcard-foot"><p class="tags"><span>Google Apps Script</span></p><button type="button" class="link-btn" data-toggle="f-liora">Features</button></div>
+          </article>
+          <article class="pcard card reveal" data-cat="tools">
+            <div class="pcard-head"><span class="mono" aria-hidden="true">QR</span><div><h3>QB-QR</h3><span class="cat">Tools &amp; apps</span></div></div>
+            <p class="headline">QR codes in your brand's style</p>
+            <p class="pitch">A plain QR code doesn't reflect your business's identity. <bdi class="pn">QB-QR</bdi> generates customizable codes that connect your customers to your content with a touch that feels like you.</p>
+            <div class="more" id="f-qr"><h4>Features</h4><ul><li>Generate QR codes.</li><li>Customize the look of the codes.</li></ul></div>
+            <div class="pcard-foot"><button type="button" class="link-btn" data-toggle="f-qr">Features</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Mohammad Bilal Zakaria Al-Khawaja</span>
+      <span class="ver">Version <b dir="ltr">v1.28</b> · Last updated <time datetime="2026-10-26">26 October 2026</time></span>
+      <a href="index.html">Home page</a>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=17"></script>
+</body>
+</html>

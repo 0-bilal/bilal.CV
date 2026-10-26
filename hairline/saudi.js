@@ -25,13 +25,15 @@ const BORDER = [
   [40.25, 20.15], [39.15, 21.5], [39.0, 22.8], [38.05, 24.1], [37.25, 25.05], [36.45, 26.25],
   [35.7, 27.35], [34.6, 28.1],
 ].map(([lon, lat]) => at(lon, lat));
+// names in the page's language (the English pages live in en/ with lang="en")
+const EN = document.documentElement.lang === "en";
 const PINS = [
-  ["مكة المكرمة", 39.83, 21.42, 26],
-  ["الدوادمي", 44.39, 24.5, 14],
-  ["المزاحمية", 46.26, 24.47, 18],
-  ["الرياض", 46.72, 24.69, 36],
-  ["وادي الدواسر", 45.2, 20.47, 12],
-].map(([name, lon, lat, h0]) => { const [x, y] = at(lon, lat); return { name, x, y, h0 }; });
+  ["مكة المكرمة", "Makkah", 39.83, 21.42, 26],
+  ["الدوادمي", "Al-Dawadmi", 44.39, 24.5, 14],
+  ["المزاحمية", "Al-Muzahmiyya", 46.26, 24.47, 18],
+  ["الرياض", "Riyadh", 46.72, 24.69, 36],
+  ["وادي الدواسر", "Wadi Al-Dawasir", 45.2, 20.47, 12],
+].map(([ar, en, lon, lat, h0], i) => { const [x, y] = at(lon, lat); return { name: EN ? en : ar, capital: i === 3, x, y, h0 }; });
 const falloff = (u) => (u <= 0 ? 1 : u >= 1 ? 0.1 : 1 - u * 0.9);
 
 /** Whether a world point lies inside the border. */
@@ -66,7 +68,7 @@ function mount({ stage, svg, read }, value) {
       fr: ring(4.2), fi: ring(3.4), pr: ring(2), pi: ring(1.3), cr: ring(3.4), ci: ring(2.6),
       sp: spring(p.h0, { eps: 0.04 }), drawn: NaN };
   });
-  const capital = pins.find((p) => p.name === "الرياض");
+  const capital = pins.find((p) => p.capital);
 
   function drawPin(p) {
     const h = Math.max(3, p.sp.x);
